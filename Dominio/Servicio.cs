@@ -13,5 +13,6 @@ namespace Dominio
         public string Descripcion { get; set;}
         public int Duracion { get; set; }
         public float Precio { get; set; }
+        public List<Imagen> Imagenes { get; set; }
     }
 }
