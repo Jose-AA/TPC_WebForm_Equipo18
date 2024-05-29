@@ -19,10 +19,11 @@ CREATE TABLE Usuarios (
 GO
 CREATE TABLE Datos_Personales (
     usuario_id INT NOT NULL PRIMARY KEY,
-    nombre VARCHAR(50),
-	apellido VARCHAR(50),
-    telefono VARCHAR(25),
-    direccion VARCHAR(100),
+    nombre VARCHAR(50) NOT NULL,
+	apellido VARCHAR(50) NOT NULL,
+    telefono VARCHAR(25) NULL,
+    direccion VARCHAR(100) NULL,
+	fecha_nacimiento DATE NULL,
     FOREIGN KEY (usuario_id) REFERENCES Usuarios(usuario_id)
 );
 GO
