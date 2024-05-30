@@ -25,4 +25,4 @@ namespace Dominio
         public bool Estado { get; set; }
     }
 }
-}
+
