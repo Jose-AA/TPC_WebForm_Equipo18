@@ -13,5 +13,11 @@ namespace TPC_WebForm_Equipo18
         {
 
         }
+
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "abirModalLoginSignUp();", true);
+        }
     }
 }
