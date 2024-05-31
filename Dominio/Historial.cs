@@ -23,6 +23,9 @@ namespace Dominio
         Opción 3:
             Agregar la propiedad observaciones a la clase Turno ya que todo turno que se
             concrete va a tener historial. Además cada cliente tiene su lista de turnos.
+
+        (Franco)
+        La idea de usar una lista de Turnos está buena porque contiene el resto de datos
         */
         public string Observaciones { get; set; }
 

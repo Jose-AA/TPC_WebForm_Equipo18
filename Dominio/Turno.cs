@@ -11,6 +11,11 @@ using System.Threading.Tasks;
     **Fecha y hora: Investigando vi que se puede usar de esta forma que me pareció más adecuada, la otra forma
     es usar todo junto en DateTime. Dejo comentada una de las opciones y activada la otra.
 
+ (Franco)
+    Es interesante manejar fecha y hora por separado, podría ser lo mejor.
+    Teniendo la clase Turno por composición, contamos con los datos del usuario, del especialista y
+    del servicio a brindar en caso de hacer recordatorios. Tal vez no es lo más eficiente a nivel espacio
+
 */
 
 

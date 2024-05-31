@@ -31,6 +31,14 @@ namespace Dominio
        Admistrador - string codigoAdimistrador
        Cliente - string codigoCliente
        Especialista - string codigoEspecialista
+
+
+    (Franco)
+        - Datetime? es un tipo de dato que admite una fecha o null como posibles valores. Lo había propuesto porque 
+          no obligamos en la base de datos cargar la fecha de nacimiento, así que podria quedar como nulo.
+        - Si queremos implementar foto de perfil, usaría una Imagen foto (para asociar en caso de haber con SQL)
+        - C# Parece que si admite la ñ, pero git hace cosas raras
+        - Según como querramos implementarlo podemos manejar el código por string o el idRol
      */
 
 
