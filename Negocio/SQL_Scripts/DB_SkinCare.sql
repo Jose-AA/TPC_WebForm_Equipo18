@@ -12,7 +12,7 @@ CREATE TABLE Usuarios (
     id_rol INT NOT NULL,
     usuario_id INT PRIMARY KEY IDENTITY(1,1),
     correo_electronico VARCHAR(255) NOT NULL UNIQUE,
-    contraseña VARCHAR(50) NOT NULL,
+    contraseï¿½a VARCHAR(50) NOT NULL,
     creado_en DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_rol) REFERENCES Roles(id_rol)    
 );
@@ -21,6 +21,7 @@ CREATE TABLE Datos_Personales (
     usuario_id INT NOT NULL PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
 	apellido VARCHAR(50) NOT NULL,
+    dni VARCHAR(25) NULL,
     telefono VARCHAR(25) NULL,
     direccion VARCHAR(100) NULL,
 	fecha_nacimiento DATE NULL,
@@ -81,8 +82,8 @@ CREATE TABLE Historia_Clinica (
     FOREIGN KEY (turno_id) REFERENCES Turnos(turno_id)
 );
 GO
-CREATE TABLE Reseñas (
-    reseña_id INT PRIMARY KEY IDENTITY(1,1),
+CREATE TABLE Reseï¿½as (
+    reseï¿½a_id INT PRIMARY KEY IDENTITY(1,1),
     cliente_id INT NOT NULL,
     especialista_id INT NOT NULL,
     servicio_id INT NOT NULL,
