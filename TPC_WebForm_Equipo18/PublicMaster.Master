@@ -67,13 +67,10 @@
         }
     </style>
 
-
-
 </head>
 
 <body>
     <form id="form1" runat="server">
-
         <nav class="navbar navbar-expand-lg navbar-custom">
             <div class="container-fluid">
                 <asp:Image ID="LogoImage" runat="server" ImageUrl="https://png.pngtree.com/png-clipart/20211116/original/pngtree-beauty-logo-png-image_6943906.png" Width="60px" Height="60px" AlternateText="logo" />
@@ -133,12 +130,6 @@
                 </div>
             </div>
         </nav>
-
-
-
-
-
-
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
@@ -146,5 +137,5 @@
     </form>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
-</body>
+
 </html>
