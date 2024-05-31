@@ -118,6 +118,9 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Formularios de Registro de Informacion\RegistrarServicio.aspx" />
+    <Content Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx" />
+    <Content Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -193,6 +196,27 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios de Registro de Informacion\RegistrarServicio.aspx.cs">
+      <DependentUpon>RegistrarServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios de Registro de Informacion\RegistrarServicio.aspx.designer.cs">
+      <DependentUpon>RegistrarServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx.cs">
+      <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx.designer.cs">
+      <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx.cs">
+      <DependentUpon>RegistrarDatosPersonales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx.designer.cs">
+      <DependentUpon>RegistrarDatosPersonales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
