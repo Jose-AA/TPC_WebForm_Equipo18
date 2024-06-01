@@ -65,76 +65,87 @@
             
             border-color: black;
         }
+
+        main{
+
+            margin-right : 20px ;
+            margin-left : 20px ;
+            margin-top : 20px ;
+        }
+
+
     </style>
 
 </head>
 
 <body>
-    <form id="form1" runat="server">
-        <nav class="navbar navbar-expand-lg navbar-custom">
-            <div class="container-fluid">
-                <asp:Image ID="LogoImage" runat="server" ImageUrl="https://png.pngtree.com/png-clipart/20211116/original/pngtree-beauty-logo-png-image_6943906.png" Width="60px" Height="60px" AlternateText="logo" />
-                <a class="navbar-brand" href="#">Beauty</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Quienes somos</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Servicios
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Skincare</a></li>
-                                <li><a class="dropdown-item" href="#">Depilación definitiva</a></li>
-                                <li><a class="dropdown-item" href="#">Perfilado de cejas</a></li>
-                                <li><a class="dropdown-item" href="#">Extensión de pestañas</a></li>
-                                <li><a class="dropdown-item" href="#">Manos y pies</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contacto</a>
-                        </li>
-                        <li class="nav-item search-container">
-                            <div class="d-flex">
-                                <asp:TextBox ID="SearchTextBox" runat="server" CssClass="form-control me-2" placeholder="Search"></asp:TextBox>
-                                <asp:Button ID="SearchButton" runat="server" CssClass="btn btn-outline-success" Text="Search" />
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="user-panel">
-                        <li>
-                            <asp:Image ID="UserImage" runat="server" ImageUrl="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg" Width="30px" Height="30px" AlternateText="login" />
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Panel
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Turnos</a></li>
-                                <li><a class="dropdown-item" href="#">Historial</a></li>
-                                <li><a class="dropdown-item" href="#">Mis reseñas</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Salir</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
+
+ <form id="form1" runat="server">
+     <nav class="navbar navbar-expand-lg navbar-custom">
+         <div class="container-fluid">
+             <asp:Image ID="LogoImage" runat="server" ImageUrl="https://png.pngtree.com/png-clipart/20211116/original/pngtree-beauty-logo-png-image_6943906.png" Width="60px" Height="60px" AlternateText="logo" />
+             <a class="navbar-brand" href="#">Beauty</a>
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                     <li class="nav-item">
+                         <a class="nav-link active" aria-current="page" href="#">Home</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="#">Quienes somos</a>
+                     </li>
+                     <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             Servicios
+                         </a>
+                         <ul class="dropdown-menu">
+                             <li><a class="dropdown-item" href="#">Skincare</a></li>
+                             <li><a class="dropdown-item" href="#">Depilación definitiva</a></li>
+                             <li><a class="dropdown-item" href="#">Perfilado de cejas</a></li>
+                             <li><a class="dropdown-item" href="#">Extensión de pestañas</a></li>
+                             <li><a class="dropdown-item" href="#">Manos y pies</a></li>
+                             <li><hr class="dropdown-divider"></li>
+                             <li><a class="dropdown-item" href="#">Something else here</a></li>
+                         </ul>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="#">Contacto</a>
+                     </li>
+                     <li class="nav-item search-container">
+                         <div class="d-flex">
+                             <asp:TextBox ID="SearchTextBox" runat="server" CssClass="form-control me-2" placeholder="Search"></asp:TextBox>
+                             <asp:Button ID="SearchButton" runat="server" CssClass="btn btn-outline-success" Text="Search" />
+                         </div>
+                     </li>
+                 </ul>
+                 <ul class="user-panel">
+                     <li>
+                         <asp:Image ID="UserImage" runat="server" ImageUrl="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg" Width="30px" Height="30px" AlternateText="login" />
+                     </li>
+                     <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             Panel
+                         </a>
+                         <ul class="dropdown-menu dropdown-menu-end">
+                             <li><a class="dropdown-item" href="#">Turnos</a></li>
+                             <li><a class="dropdown-item" href="#">Historial</a></li>
+                             <li><a class="dropdown-item" href="#">Mis reseñas</a></li>
+                             <li><hr class="dropdown-divider"></li>
+                             <li><a class="dropdown-item" href="#">Salir</a></li>
+                         </ul>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+     </nav>
+     <div>
+         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+         </asp:ContentPlaceHolder>
+     </div>
+ </form>
+
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 

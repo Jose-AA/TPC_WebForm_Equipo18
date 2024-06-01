@@ -1,11 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegistrarDatosPersonales.aspx.cs" Inherits="TPC_WebForm_Equipo18.DatosPersonales" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <header style="margin-top: 20px;" > 
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PublicMaster.Master" AutoEventWireup="true" CodeBehind="RegistrarDatosPersonales.aspx.cs" Inherits="TPC_WebForm_Equipo18.DatosPersonales" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   
+    
+    <header style="margin-top: 20px; margin-left: 20px; margin-right: 20px;" > 
        
         <h1>Crear Usuario</h1>
     </header>
-    <main style="margin-top: 20px;">
-        <div class="row g-1">
+    <main >
+        <div class="row g-1"  style ="margin-left: 20px; margin-right: 20px;"   >
             <div class="col-md-6">
                 <label for="inputCorreo" class="form-label">Correo Electrónico</label>
                 <asp:TextBox ID="inputCorreo" runat="server" CssClass="form-control" MaxLength="255" />

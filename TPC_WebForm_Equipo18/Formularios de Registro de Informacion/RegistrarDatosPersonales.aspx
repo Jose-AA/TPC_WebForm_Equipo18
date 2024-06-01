@@ -1,12 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegistrarDatosPersonales.aspx.cs" Inherits="TPC_WebForm_Equipo18.DatosPersonales" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PublicMaster.Master" AutoEventWireup="true" CodeBehind="RegistrarDatosPersonales.aspx.cs" Inherits="TPC_WebForm_Equipo18.DatosPersonales" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
     
-    <header style="margin-top: 20px;"> 
+    <header style="margin-top: 20px; margin-left: 20px; margin-right: 20px;"> 
         <h1>Datos Personales</h1>
     </header>
-    <main style="margin-top: 50px;">
-        <div class="row g-3">
+    <main>
+        <div class="row g-3" style="margin-left: 20px; margin-right: 20px;">
             <div class="col-md-6">
                 <label for="inputNombre" class="form-label">Nombre</label>
                 <asp:TextBox ID="inputNombre" runat="server" CssClass="form-control" MaxLength="50" />
