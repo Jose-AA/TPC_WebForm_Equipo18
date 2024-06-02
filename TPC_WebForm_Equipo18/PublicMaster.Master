@@ -10,6 +10,8 @@
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="estiloMaster.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -86,6 +88,7 @@
 <body>
 
  <form id="form1" runat="server">
+     
      <nav class="navbar navbar-expand-lg navbar-custom">
          <div class="container-fluid">
              <asp:Image ID="LogoImage" runat="server" ImageUrl="https://png.pngtree.com/png-clipart/20211116/original/pngtree-beauty-logo-png-image_6943906.png" Width="60px" Height="60px" AlternateText="logo" />
@@ -96,27 +99,29 @@
              <div class="collapse navbar-collapse" id="navbarSupportedContent">
                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                      <li class="nav-item">
-                         <a class="nav-link active" aria-current="page" href="#">Home</a>
+                         <a class="nav-link active" aria-current="page" href="/Default.aspx">Home</a>
                      </li>
                      <li class="nav-item">
                          <a class="nav-link" href="#">Quienes somos</a>
                      </li>
-                     <li class="nav-item dropdown">
-                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                             Servicios
-                         </a>
-                         <ul class="dropdown-menu">
-                             <li><a class="dropdown-item" href="#">Skincare</a></li>
-                             <li><a class="dropdown-item" href="#">Depilación definitiva</a></li>
-                             <li><a class="dropdown-item" href="#">Perfilado de cejas</a></li>
-                             <li><a class="dropdown-item" href="#">Extensión de pestañas</a></li>
-                             <li><a class="dropdown-item" href="#">Manos y pies</a></li>
-                             <li><hr class="dropdown-divider"></li>
-                             <li><a class="dropdown-item" href="#">Something else here</a></li>
-                         </ul>
-                     </li>
+                     
+                    <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                                Servicios
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="navbarDropdownMenuLink">
+                                <%
+                                    foreach(Dominio.Servicio item in list)
+                                    {
+                               %>
+
+                                <li><a class="dropdown-item"> <%: item.Nombre %> </a></li>
+                               
+                                <%  }  %>
+                            </ul>
+                        </li>
                      <li class="nav-item">
-                         <a class="nav-link" href="#">Contacto</a>
+                         <a class="nav-link" href="/Contact.aspx">Contacto</a>
                      </li>
                      <li class="nav-item search-container">
                          <div class="d-flex">
@@ -150,7 +155,7 @@
          </asp:ContentPlaceHolder>
      </div>
  </form>
-
+    <script src="scriptsMaster.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 

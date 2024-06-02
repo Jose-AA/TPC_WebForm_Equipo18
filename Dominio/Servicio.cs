@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,5 +28,15 @@ namespace Dominio
         public float Precio { get; set; }
         public List<Imagen> Imagenes { get; set; }
         //public List<Especialista> EspecilistasPrestadores { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
     }
+
+
+    
+   
 }
