@@ -1,0 +1,93 @@
+﻿* {
+    font-family: poppins;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #f3f3f3;
+}
+
+
+.service-details {
+    max-width: 1200px;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 50px auto;
+}
+
+.service-img {
+    width: 100%;
+    background-color: #e3e3e3;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.service-text {
+    background-color: #ffffff;
+    padding: 60px;
+    position: relative;
+}
+
+
+
+.service-text h3 {
+    color: #252525;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 10px 0px;
+}
+
+.service-text .service-price {
+    font-size: 1.6rem;
+    color: #252525;
+    font-weight: 500;
+}
+
+.service-text p {
+    margin: 30px 0px;
+    color: #5e5e5e;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+
+
+.service-button {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 30px 0px;
+    margin-bottom: 20px;
+    grid-gap: 20px;
+}
+
+.service-button a {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.service-button .add-turn-btn {
+    background-color: #181818;
+    color: #ffffff;
+}
+
+.service-button .add-fav-btn {
+    background-color: #f1f1f1;
+    color: #252525;
+}
+
+
+
+

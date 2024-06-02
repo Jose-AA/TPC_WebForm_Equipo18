@@ -39,7 +39,7 @@ namespace TPC_WebForm_Equipo18.Formularios_de_Registro_de_Informacion
             string nombre = inputNombre.Text.Trim();
             string descripcion = inputDescripcion.Text.Trim();
             int duracion = Convert.ToInt32(inputDuracion.Text.Trim());
-            float precio = Convert.ToSingle(inputPrecio.Text.Trim());
+            decimal precio = Convert.ToDecimal(inputPrecio.Text.Trim());
 
             // Crear un objeto Servicio con los datos ingresados
             Servicio nuevoServicio = new Servicio
@@ -56,6 +56,11 @@ namespace TPC_WebForm_Equipo18.Formularios_de_Registro_de_Informacion
                 ServicioNegocio negocio = new ServicioNegocio();
                 negocio.Agregar(nuevoServicio);
 
+                //Añadimos el servicio recien creado a la lista de servicios en sesion para que sea mostrado en el nav
+                List<Servicio> aux = (List<Servicio>)Session["ListaServicios"];
+                aux.Add(nuevoServicio);
+                Session["ListaServicios"] = aux;
+
                 // Llamar a la función para abrir la modal de éxito
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "modalServicioAgregado", "abrirModalServicioAgregado();", true);
 
@@ -64,6 +69,8 @@ namespace TPC_WebForm_Equipo18.Formularios_de_Registro_de_Informacion
                 inputDescripcion.Text = "";
                 inputDuracion.Text = "";
                 inputPrecio.Text = "";
+
+                //Aunque tal vez mejor que limpiar, sería hacer un redirect al panel de administrador...
             }
             catch (Exception ex)
             {

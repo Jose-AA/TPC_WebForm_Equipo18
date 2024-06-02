@@ -118,6 +118,8 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="DetalleServicio.aspx" />
+    <Content Include="DetalleServicio.css" />
     <Content Include="estiloMaster.css" />
     <Content Include="Formularios de Registro de Informacion\RegistrarServicio.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx" />
@@ -199,6 +201,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleServicio.aspx.cs">
+      <DependentUpon>DetalleServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleServicio.aspx.designer.cs">
+      <DependentUpon>DetalleServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios de Registro de Informacion\RegistrarServicio.aspx.cs">
       <DependentUpon>RegistrarServicio.aspx</DependentUpon>
