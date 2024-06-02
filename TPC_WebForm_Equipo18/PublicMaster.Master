@@ -39,10 +39,14 @@
                                 Servicios
                             </a>
                             <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="navbarDropdownMenuLink">
-                                <li>
-                                    <asp:DropDownList ID="DdlS" runat="server" CssClass="form-control"  >
-                                    </asp:DropDownList>
-                                </li>
+                                <%
+                                    foreach(Dominio.Servicio item in list)
+                                    {
+                               %>
+
+                                <li><a class="dropdown-item"> <%: item.Nombre %> </a></li>
+                               
+                                <%  }  %>
                             </ul>
                         </li>
                      <li class="nav-item">

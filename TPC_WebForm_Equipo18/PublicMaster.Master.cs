@@ -10,11 +10,13 @@ namespace TPC_WebForm_Equipo18
 {
     public partial class PublicMaster : System.Web.UI.MasterPage
     {
+        public List<Servicio> list = new List<Servicio>();
         protected void Page_Load(object sender, EventArgs e)
         {
             Servicio S1 = new Servicio();
             Servicio s2 = new Servicio();
-            List<Servicio> list = new List<Servicio>();
+            Servicio s3 = new Servicio();
+            Servicio s4 = new Servicio();
             S1.Id = 1;
             s2.Id = 2;
             
@@ -23,7 +25,8 @@ namespace TPC_WebForm_Equipo18
 
             S1.Nombre = "Skin care";
             s2.Nombre = "Depilacion definitiva";
-
+            s3.Nombre = "Uñitas garra";
+            s4.Nombre = "Chanchitos coquetos";
             S1.Duracion = 45;
             s2.Duracion = 60;
 
@@ -61,13 +64,14 @@ namespace TPC_WebForm_Equipo18
 
             list.Add(S1);
             list.Add(s2);
-
+            list.Add(s3);
+            list.Add(s4);
             try
             {
                 if (!IsPostBack)
                 {
-                    DdlS.DataSource = list;
-                    DdlS.DataBind();
+                    //DdlS.DataSource = list;
+                    //DdlS.DataBind();
                 }
             }
             catch (Exception ex)
