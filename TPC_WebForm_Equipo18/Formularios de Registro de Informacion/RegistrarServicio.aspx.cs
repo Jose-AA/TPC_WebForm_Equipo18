@@ -39,7 +39,7 @@ namespace TPC_WebForm_Equipo18.Formularios_de_Registro_de_Informacion
             string nombre = inputNombre.Text.Trim();
             string descripcion = inputDescripcion.Text.Trim();
             int duracion = Convert.ToInt32(inputDuracion.Text.Trim());
-            float precio = Convert.ToSingle(inputPrecio.Text.Trim());
+            decimal precio = Convert.ToDecimal(inputPrecio.Text.Trim());
 
             // Crear un objeto Servicio con los datos ingresados
             Servicio nuevoServicio = new Servicio

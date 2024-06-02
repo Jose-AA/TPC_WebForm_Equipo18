@@ -10,6 +10,47 @@ namespace Negocio
 {
     public class ServicioNegocio
     {
+
+        public List<Servicio> listar()
+        {
+            List<Servicio> lista = new List<Servicio>();
+            AccesoDatos datos = new AccesoDatos();
+
+            string query = "select servicio_id, nombre, descripcion, duracion, precio from Servicios";
+
+
+            try
+            {
+                datos.settearConsulta(query);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Servicio aux = new Servicio();
+                    aux.Id = (int)datos.Lector["servicio_id"];
+                    aux.Nombre = (string)datos.Lector["nombre"];
+                    aux.Descripcion = (string)datos.Lector["descripcion"];
+                    aux.Duracion = (int)datos.Lector["duracion"];
+                    aux.Precio = (decimal)datos.Lector["precio"];
+
+                    lista.Add(aux);
+                }
+
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+           
+        }
+
         public void Agregar(Servicio nuevo)
         {
             AccesoDatos datos = new AccesoDatos();

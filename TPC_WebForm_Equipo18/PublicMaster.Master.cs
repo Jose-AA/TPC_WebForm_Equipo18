@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
+using Negocio;
 
 namespace TPC_WebForm_Equipo18
 {
@@ -13,6 +14,8 @@ namespace TPC_WebForm_Equipo18
         public List<Servicio> list = new List<Servicio>();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            /*
             Servicio S1 = new Servicio();
             Servicio s2 = new Servicio();
             Servicio s3 = new Servicio();
@@ -66,6 +69,13 @@ namespace TPC_WebForm_Equipo18
             list.Add(s2);
             list.Add(s3);
             list.Add(s4);
+
+            */
+
+            ServicioNegocio negocio = new ServicioNegocio();
+
+            list = negocio.listar();
+
             try
             {
                 if (!IsPostBack)
