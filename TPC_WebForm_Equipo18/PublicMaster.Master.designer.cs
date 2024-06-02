@@ -42,6 +42,15 @@ namespace TPC_WebForm_Equipo18
         protected global::System.Web.UI.WebControls.Image LogoImage;
 
         /// <summary>
+        /// ServicioRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater ServicioRepeater;
+
+        /// <summary>
         /// SearchTextBox control.
         /// </summary>
         /// <remarks>

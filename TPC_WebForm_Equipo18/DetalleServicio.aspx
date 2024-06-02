@@ -14,10 +14,10 @@
             </div>
            
             <div class="service-text">
-                <h3>ACA VA EL NOMBRE DEL SERVICIO</h3>
-                <span class="service-price">$2500.00</span>
+                <h3><%: servicioSeleccionado.Nombre %></h3>
+                <span class="service-price">$<%: servicioSeleccionado.Precio.ToString("N2") %></span>
                 <p>
-                    ACA VA LA DESCRIPCION
+                    <%:servicioSeleccionado.Descripcion %>
                 </p>
 
                 <div class="service-button">

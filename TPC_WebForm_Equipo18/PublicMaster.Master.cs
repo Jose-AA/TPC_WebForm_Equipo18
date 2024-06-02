@@ -86,6 +86,9 @@ namespace TPC_WebForm_Equipo18
                 {
                     list = (List<Servicio>)Session["ListaServicios"];
                 }
+
+                ServicioRepeater.DataSource = list;
+                ServicioRepeater.DataBind();
             }
             catch (Exception ex)
             {
@@ -95,6 +98,29 @@ namespace TPC_WebForm_Equipo18
 
 
 
+        }
+
+        private Servicio buscarPorId(string idServicio)
+        {
+            Servicio aux = new Servicio();
+
+            aux = list.Find(x => x.Id == int.Parse(idServicio));
+
+            return aux;
+        }
+
+        protected void btnServicio_Click(object sender, EventArgs e)
+        {
+            LinkButton clickedButton = (LinkButton)sender;
+            string idServicio = clickedButton.CommandArgument;
+
+            Servicio seleccionado = buscarPorId(idServicio);
+
+            //Guardamos en session la seleccion del servicio
+            Session.Add("ServicioSeleccionado", seleccionado);
+
+            //Llevamos al usuario a la pagina donde se mostraran los datos
+            Response.Redirect("DetalleServicio.aspx");
         }
     }
 }
