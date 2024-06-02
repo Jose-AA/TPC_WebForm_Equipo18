@@ -60,7 +60,7 @@
                 <label for="inputPrecio" class="form-label">Precio</label>
                 <asp:TextBox ID="inputPrecio" runat="server" CssClass="form-control" TextMode="Number"/>
                 <asp:RequiredFieldValidator ErrorMessage="* Campo obligatorio" ForeColor="Red" ControlToValidate="inputPrecio" runat="server"> </asp:RequiredFieldValidator>
-                <asp:RangeValidator cssClass="position" MinimumValue="1" MaximumValue="999999" Type="Integer" ErrorMessage="* Se debe ingresar un número mayor a cero" ForeColor="Red" ControlToValidate="inputPrecio" runat="server"></asp:RangeValidator>
+                <asp:RangeValidator cssClass="position" MinimumValue="1" MaximumValue="999999" Type="Integer" ErrorMessage="* Se debe ingresar un número entero entre 1 y 999999" ForeColor="Red" ControlToValidate="inputPrecio" runat="server"></asp:RangeValidator>
             </div>
             <div class="col-12">
                 <asp:Button ID="btnCrearServicio" runat="server" CssClass="btn btn-primary" Text="Crear Servicio" OnClick="btnCrearServicio_Click" />
