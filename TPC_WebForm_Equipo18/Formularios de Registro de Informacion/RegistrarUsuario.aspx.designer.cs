@@ -11,7 +11,7 @@ namespace TPC_WebForm_Equipo18
 {
 
 
-    public partial class CrearUsuario
+    public partial class RegistrarUsuario
     {
 
         /// <summary>
