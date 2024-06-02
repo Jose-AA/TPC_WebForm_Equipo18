@@ -30,6 +30,11 @@ namespace TPC_WebForm_Equipo18.Formularios_de_Registro_de_Informacion
                 return;
             }
 
+            if(inputDescripcion.Text.Trim().Length > 100 || inputNombre.Text.Trim().Length > 50)
+            {
+                return;
+            }
+
             // Obtener los datos ingresados por el usuario
             string nombre = inputNombre.Text.Trim();
             string descripcion = inputDescripcion.Text.Trim();
