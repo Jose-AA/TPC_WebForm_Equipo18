@@ -74,14 +74,17 @@ namespace TPC_WebForm_Equipo18
 
             ServicioNegocio negocio = new ServicioNegocio();
 
-            list = negocio.listar();
 
             try
             {
                 if (!IsPostBack)
                 {
-                    //DdlS.DataSource = list;
-                    //DdlS.DataBind();
+                    list = negocio.listar();
+                    Session.Add("ListaServicios", list);
+                }
+                else
+                {
+                    list = (List<Servicio>)Session["ListaServicios"];
                 }
             }
             catch (Exception ex)
