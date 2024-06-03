@@ -1,38 +1,57 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/PublicMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="TPC_WebForm_Equipo18._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-        .carousel-item img {
-            margin-right: 10%;
-            margin-left: 10%;
-            object-fit: cover;
-            max-height: 20%;
-            max-width: 80%;
-        }
-    </style>
+
+    <link rel="stylesheet" href="stylesHome.css">
     <main>
        
- <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
-                    <asp:Image ID="CarouselImage1" runat="server" ImageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU0G4Qb943qwz_feAJMSKfkBNGbSgNhLppBQ&s" CssClass="d-block w-100" alt="..." />
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                    <asp:Image ID="CarouselImage2" runat="server" ImageUrl="https://booksy.com/biz/uploads/media/x1920/06/5176-salon-offers.jpg?v=1-0" CssClass="d-block w-100" alt="..." />
-                </div>
-                <div class="carousel-item">
-                    <asp:Image ID="CarouselImage3" runat="server" ImageUrl="https://i0.wp.com/www.academiestetic.com/wp-content/uploads/2016/05/como-hacer-promociones-estetica.png?fit=600%2C785&ssl=1" CssClass="d-block w-100" alt="..." />
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="FPF/home/1.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="FPF/home/2.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="FPF/home/3.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        
+        <div class="col-sm-6 mb-3 mb-sm-0" style="margin-top: 50px;">
+            <div class="image-container">
+                <asp:Image ID="Image1" runat="server" ImageUrl="FPF/home/6.png" CssClass="image-background" />
+                  <div class="card card-overlay">
+                     <div class="card-body">
+                        <h5 class="card-title">Beauty</h5>
+                        <p class="card-text">Centro de estética, especialistas en Skincare y tratamientos faciales</p>
+                        <a href="Contact.aspx" id="botonTarjeta" class="btn btn-primary">Contáctanos</a>
+                        <a href="Formularios de Registro de Informacion/RegistrarDatosPersonales" id="botonTarjeta" class="btn btn-primary">Regístrate</a>
+                     </div>
+                 </div>
+             </div>
         </div>
+
+
+
+
+
+
+ 
     </main>
 
 </asp:Content>

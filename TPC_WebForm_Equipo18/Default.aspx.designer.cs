@@ -15,30 +15,12 @@ namespace TPC_WebForm_Equipo18
     {
 
         /// <summary>
-        /// Control CarouselImage1.
+        /// Control Image1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image CarouselImage1;
-
-        /// <summary>
-        /// Control CarouselImage2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image CarouselImage2;
-
-        /// <summary>
-        /// Control CarouselImage3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image CarouselImage3;
+        protected global::System.Web.UI.WebControls.Image Image1;
     }
 }

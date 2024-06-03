@@ -1,0 +1,71 @@
+﻿#botonTarjeta {
+    background-color: hotpink;
+    border-width: 2px;
+    color: black;
+    border-radius: 20px;
+    border-color: black;
+}
+
+#botonTarjeta:hover{
+    background-color: deeppink;
+
+}
+body{
+    background-image: url("FPF/home/fondo.jpg")
+}
+.image-container {
+    margin-left: 20%;
+    margin-right: 20%;
+    
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.image-background {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.card{
+    background-color: pink;
+    border-color:black;
+    border-width: 2px;
+    border-radius:20px;
+}
+.card-overlay {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%) translateX(200px); 
+    width: 300px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(50);
+    }
+}
+
+.card-body {
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(300px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(10);
+    }
+}
