@@ -32,12 +32,36 @@
                                     </div>
                                     <span>or use your email for registeration</span>
                                      !-->
-                                    <input type="text" placeholder="Nombre">
-                                    <input type="email" placeholder="Email">
-                                    <input type="password" placeholder="Contrasela">
-                                    <button>Registrarse</button>
+                                    <asp:TextBox runat="server" placeholder="Nombre" ID="txtNombreRegistrar" />
+                                    <div>
+                                        <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ControlToValidate="txtNombreRegistrar" ForeColor="Red" runat="server" ValidationGroup="Save" />
+                                    </div>
+                                    <!--<input type="text" placeholder="Nombre">  !-->
+                                    <!--<input type="email" placeholder="Email">!-->
+                                    <asp:TextBox runat="server" placeholder="Apellido" ID="txtApellidoRegistrar"/>
+                                    <div>
+                                        <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ControlToValidate="txtApellidoRegistrar" ForeColor="Red" runat="server" ValidationGroup="Save" />
+                                    </div>
+                                    <asp:TextBox runat="server" placeholder="email" ID="txtEmailRegistrar"/>
+                                    <div>
+                                        <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ControlToValidate="txtEmailRegistrar" ForeColor="Red" runat="server" ValidationGroup="Save" />
+                                        <asp:RegularExpressionValidator cssClass="error-message" ErrorMessage="* Debe ingresar un mail válido" ControlToValidate="txtEmailRegistrar" ForeColor="Red" 
+                                            ValidationExpression="^([\w\.-]+)@((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})|(([\w-]+\.)+[a-zA-Z]{2,4}))$"  runat="server" />
+                                    </div>
+                                    <asp:TextBox runat="server" placeholder="Contraseña" type="password" ID="txtContraseñaRegistrar" />
+                                    <div>
+                                        <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ControlToValidate="txtContraseñaRegistrar" ForeColor="Red" runat="server" ValidationGroup="Save" />
+                                    </div>
+                                    <asp:TextBox runat="server" placeholder="Confirmar Contraseña" type="password" ID="txtValidarContraseñaRegistrar" />
+                                    <div>
+                                        <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ControlToValidate="txtValidarContraseñaRegistrar" ForeColor="Red" runat="server" ValidationGroup="Save" />
+                                        <asp:CompareValidator cssclass="error-message" ID="cvPasswords" runat="server" ControlToValidate="txtValidarContraseñaRegistrar" 
+                                        ControlToCompare="txtContraseñaRegistrar" ErrorMessage="* Las contraseñas no coinciden" ForeColor="Red" ValidationGroup="Save"></asp:CompareValidator>
+                                    </div>
+                                    <!--<input type="password" placeholder="Contrasela"> !-->
+                                    <button onclick="console.log('test'); return false;">Registrarse</button>
                                 </form>
-                            </div>
+                                </div>
                             <div class="form-containerr sign-in">
                                 <form>
                                     <h1>Iniciar Sesión</h1>
