@@ -51,7 +51,7 @@
     border-radius: 20px;
 }
 
-#SearchButton {
+.SearchButton {
     background-color: palevioletred;
     color: black;
     border-width: 2px;
@@ -59,11 +59,11 @@
     border-radius: 20px;
 }
 
-    #SearchButton:hover {
-        background-color: hotpink;
-        color: black;
-        border-color: black;
-    }
+.SearchButton:hover {
+    background-color: hotpink;
+    color: black;
+    border-color: black;
+}
 
 main {
     margin-right: 20px;
