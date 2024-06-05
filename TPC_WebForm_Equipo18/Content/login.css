@@ -63,10 +63,10 @@ body {
     cursor: pointer;
 }
 
-    .containerr button.hidden {
-        background-color: transparent;
-        border-color: #fff;
-    }
+.containerr button.hidden {
+    background-color: transparent;
+    border-color: #fff;
+}
 
 .containerr form {
     background-color: #fff;
@@ -82,7 +82,7 @@ body {
     background-color: #eee;
     border: none;
     margin: 8px 0;
-    padding: 10px 15px;
+    padding: 10px 45px 10px 10px !important;
     font-size: 13px;
     border-radius: 8px;
     width: 100%;
@@ -219,6 +219,8 @@ body {
     max-width: 60%;
 }
 
+
+/*Ajusta la posicion de los mensajes de error*/
 .error-message{
     position: relative;
     left: -110px;
