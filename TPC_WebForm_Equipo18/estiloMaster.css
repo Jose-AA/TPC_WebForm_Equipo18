@@ -11,9 +11,9 @@
     flex-grow: 1;
 }
 
-    .navbar-nav.me-auto {
-        margin-right: auto;
-    }
+.navbar-nav.me-auto {
+    margin-right: auto;
+}
 
 .user-panel {
     display: flex;
@@ -23,9 +23,9 @@
     padding: 0;
 }
 
-    .user-panel img {
-        margin-right: 8px;
-    }
+.user-panel img {
+    margin-right: 8px;
+}
 
 .dropdown-menu {
     background-color: pink;
@@ -33,15 +33,15 @@
     box-shadow: inset;
 }
 
-    .dropdown-menu .dropdown-item {
-        color: black;
-    }
+.dropdown-menu .dropdown-item {
+    color: black;
+}
 
-        .dropdown-menu .dropdown-item:hover,
-        .dropdown-menu .dropdown-item:focus {
-            background-color: hotpink;
-            color: black;
-        }
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+    background-color: hotpink;
+    color: black;
+}
 #DdlS {
     background-color: pink;
     color: black;
@@ -51,7 +51,7 @@
     border-radius: 20px;
 }
 
-#SearchButton {
+.SearchButton {
     background-color: palevioletred;
     color: black;
     border-width: 2px;
@@ -59,11 +59,11 @@
     border-radius: 20px;
 }
 
-    #SearchButton:hover {
-        background-color: hotpink;
-        color: black;
-        border-color: black;
-    }
+.SearchButton:hover {
+    background-color: hotpink;
+    color: black;
+    border-color: black;
+}
 
 main {
     margin-right: 20px;
