@@ -81,7 +81,7 @@ GO
 -- Crear tabla Turnos
 CREATE TABLE Turnos (
     turno_id INT PRIMARY KEY IDENTITY(1,1),
-    cliente_id INT NOT NULL,
+    cliente_id INT NULL,
     especialista_id INT NOT NULL,
     servicio_id INT NOT NULL,
     estado_id INT NOT NULL,

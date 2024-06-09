@@ -31,7 +31,7 @@ namespace Dominio
         public DateTime FechaDeTurno { get; set; }
         public TimeSpan HoraDeTurno { get; set; }
         //public DateTime FechaYhora { get; set; }
-        public bool Finalizado { get; set; }
+        public int Estado { get; set; }
         
     }
 }
