@@ -81,11 +81,12 @@ GO
 -- Crear tabla Turnos
 CREATE TABLE Turnos (
     turno_id INT PRIMARY KEY IDENTITY(1,1),
-    cliente_id INT NOT NULL,
+    cliente_id INT NULL,
     especialista_id INT NOT NULL,
     servicio_id INT NOT NULL,
     estado_id INT NOT NULL,
-    fecha_turno DATETIME NOT NULL CHECK (fecha_turno >= GETDATE()),
+    fecha_turno DATE NOT NULL CHECK (fecha_turno >= GETDATE()),
+    hora_turno time not null,
     creado_en DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (cliente_id) REFERENCES Usuarios(usuario_id),
     FOREIGN KEY (especialista_id) REFERENCES Usuarios(usuario_id),

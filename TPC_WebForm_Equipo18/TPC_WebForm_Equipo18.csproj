@@ -127,6 +127,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Herramientas Para El Especialista\RegistrarTurnosDisponibles.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="scriptsMaster.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -240,6 +241,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Herramientas Para El Especialista\RegistrarTurnosDisponibles.aspx.cs">
+      <DependentUpon>RegistrarTurnosDisponibles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Herramientas Para El Especialista\RegistrarTurnosDisponibles.aspx.designer.cs">
+      <DependentUpon>RegistrarTurnosDisponibles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
