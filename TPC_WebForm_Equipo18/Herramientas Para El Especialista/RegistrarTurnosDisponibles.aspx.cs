@@ -67,8 +67,12 @@ namespace TPC_WebForm_Equipo18.Herramientas_Para_El_Especialista
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            List<string> turnosDadoDeAlta = new List<string>();
+            List<string> turnosExistente = new List<string>();
+            List<string> turnosIncoherentes = new List<string>();
+
             foreach (GridViewRow row in gridTurnos.Rows)
-            { 
+            {
                 TurnoNegocio AgregarTurno = new TurnoNegocio();
 
                 // Obtener el CheckBox de la fila actual
@@ -78,34 +82,66 @@ namespace TPC_WebForm_Equipo18.Herramientas_Para_El_Especialista
                 if (chkHabilitar.Checked)
                 {
                     // Obtener los datos de la fila actual
+                    DateTime ahora = DateTime.Now;
                     string fecha = ((Label)row.FindControl("lblFecha")).Text;
                     DateTime fechaTurno = DateTime.ParseExact(fecha, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                    Console.WriteLine(fechaTurno);
-                    Console.WriteLine(fecha);
                     string horaDesde = row.Cells[1].Text; // Índice de la columna "Desde"
                     Turno nuevoTurno = new Turno();
                     nuevoTurno.FechaDeTurno = fechaTurno;
                     nuevoTurno.HoraDeTurno = TimeSpan.Parse(horaDesde);
 
-                    //colocar por secion el id especialista
+                    // Colocar por sesión el id especialista
                     nuevoTurno.Especialista = new Especialista { IdUsuario = 1 };
 
-                    //colocar por secion el id servicio
+                    // Colocar por sesión el id servicio
                     nuevoTurno.Servicio = new Servicio { Id = 1 };
 
                     nuevoTurno.Estado = 1;
 
+                    string horarioTurno = $"{fecha} {horaDesde}";
 
-                    AgregarTurno.Agregar(nuevoTurno);
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "modalTurnoAgregado", "abrirModalTurnoCargado();", true);
-                 
+                    if (fechaTurno < ahora.Date || (fechaTurno == ahora.Date && nuevoTurno.HoraDeTurno < ahora.TimeOfDay))
+                    {
+                        turnosIncoherentes.Add(horarioTurno);
+                    }
+                    else
 
-                   
+                    if (AgregarTurno.VerificarExistencia(nuevoTurno.FechaDeTurno, nuevoTurno.HoraDeTurno.ToString()))
+                    {
+                        turnosExistente.Add(horarioTurno);
+                    }
+                    else
+                    {
+                        AgregarTurno.Agregar(nuevoTurno);
+                        turnosDadoDeAlta.Add(horarioTurno);
+                    }
 
 
                 }
+            }
+
+
+
+
+            if (turnosDadoDeAlta.Count > 0)
+            {
+                string mensajeTurnosDadoDeAlta = string.Join("<br>", turnosDadoDeAlta);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modalTurnosDadoDeAlta", $"abrirModalTurnosDadoDeAlta('{mensajeTurnosDadoDeAlta}');", true);
+            }
+
+            if (turnosExistente.Count > 0)
+            {
+                string mensajeTurnosExistente = string.Join("<br>", turnosExistente);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modalTurnosExistente", $"abrirModalTurnosExistente('{mensajeTurnosExistente}');", true);
+            }
+
+            if(turnosIncoherentes.Count > 0)
+            {
+                string mensajeTurnosIncoherentes = string.Join("<br>", turnosIncoherentes);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modalTurnosIncoherentes", $"abrirModalTurnosIncoherentes('{mensajeTurnosIncoherentes}');", true);
+            }
         }
-    }
+    
 
 
             protected void btnCancelar_Click(object sender, EventArgs e)

@@ -8,23 +8,54 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      
-    <div id="AgregadoExitosamente" class="modal" tabindex="-1" role="dialog">
+   <div id="TurnosDadoDeAlta" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Felicidades  </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title">Turnos Dados de Alta Exitosamente</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p> Agregastes Turnos Disponibles </p>
+                <p id="mensajeTurnosDadoDeAlta"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Modal de Turnos Existente -->
+<div id="TurnosExistente" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Los Siguientes turnos ya existen o estan dados de alta: </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="mensajeTurnosExistente"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para turnos con horario incoherente -->
+<div class="modal fade" id="abrirModalTurnosIncoherentes" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalFechaHoraIncoherenteLabel">A intentado dar de alta turnos con un Horario/Fecha Incoherentes</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="mensajeFechaHoraIncoherente"></p>
+      </div>
+    </div>
+  </div>
 </div>
 
    <main style="margin-top: 50px; margin-left: 350px; margin-right: 350px;">
@@ -98,15 +129,14 @@
             </ContentTemplate>
         </asp:UpdatePanel>
 
-
-    
-    
-
-    </main>
-
 <script src="https://cdn.ulpgc.es/ulpgcds/1.0/js/jquery.ui/datepicker.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta3/js/bootstrap.min.js"></script>
+    
+    
+</main>
 
   <script type="text/javascript">
 
@@ -145,15 +175,30 @@
           setearFechaAyer();
       });
 
-      function abrirModalTurnoCargado() {
-          var myModal = new bootstrap.Modal(document.getElementById('AgregadoExitosamente'), {
+      function abrirModalTurnosDadoDeAlta(mensaje) {
+          document.getElementById('mensajeTurnosDadoDeAlta').innerHTML = mensaje;
+          var myModal = new bootstrap.Modal(document.getElementById('TurnosDadoDeAlta'), {
               keyboard: true
           });
           myModal.show();
-          
       }
 
+      function abrirModalTurnosExistente(mensaje) {
+          document.getElementById('mensajeTurnosExistente').innerHTML = mensaje;
+          var myModal = new bootstrap.Modal(document.getElementById('TurnosExistente'), {
+              keyboard: true
+          });
+          myModal.show();
+      }
 
+      function abrirModalTurnosIncoherentes(mensaje) {
+          document.getElementById('mensajeFechaHoraIncoherente').innerHTML = mensaje;
+          var myModal = new bootstrap.Modal(document.getElementById('abrirModalTurnosIncoherentes'), {
+              keyboard: true
+          });
+          myModal.show();
+      }
+      
 
     </script>
 
