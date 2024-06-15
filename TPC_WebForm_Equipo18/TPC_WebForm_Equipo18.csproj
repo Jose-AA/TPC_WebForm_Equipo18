@@ -121,7 +121,7 @@
     <Content Include="DetalleServicio.aspx" />
     <Content Include="DetalleServicio.css" />
     <Content Include="estiloMaster.css" />
-    <Content Include="Formularios de Registro de Informacion\RegistrarServicio.aspx" />
+    <Content Include="ABM SERVICIO\RegistrarServicio.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx" />
     <Content Include="Default.aspx" />
@@ -211,11 +211,11 @@
     <Compile Include="DetalleServicio.aspx.designer.cs">
       <DependentUpon>DetalleServicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarServicio.aspx.cs">
+    <Compile Include="ABM SERVICIO\RegistrarServicio.aspx.cs">
       <DependentUpon>RegistrarServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarServicio.aspx.designer.cs">
+    <Compile Include="ABM SERVICIO\RegistrarServicio.aspx.designer.cs">
       <DependentUpon>RegistrarServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx.cs">
