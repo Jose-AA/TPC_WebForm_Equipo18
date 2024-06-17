@@ -14,6 +14,16 @@ namespace TPC_WebForm_Equipo18.Formularios_de_Registro_de_Informacion
 
         public List<Usuario> listaUsuario = new List<Usuario>();
 
+        private void refrescarLista()
+        {
+            UsuarioNegocio negocio = new UsuarioNegocio();
+
+            listaUsuario = negocio.listar();
+
+            gridUsuarios.DataSource = listaUsuario;
+            gridUsuarios.DataBind();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,19 +31,15 @@ namespace TPC_WebForm_Equipo18.Formularios_de_Registro_de_Informacion
             {
                 try
                 {
-                    UsuarioNegocio negocio = new UsuarioNegocio();
-
-                    listaUsuario = negocio.listar();
-
-                    gridUsuarios.DataSource = listaUsuario;
-                    gridUsuarios.DataBind();
-
+                    refrescarLista();
                 }
                 catch(Exception ex)
                 {
                     ex.ToString();
                 }
             }
+
+            refrescarLista();
 
         }
 

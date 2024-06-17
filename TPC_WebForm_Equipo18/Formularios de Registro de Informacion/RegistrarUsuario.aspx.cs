@@ -16,59 +16,65 @@ namespace TPC_WebForm_Equipo18
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["id"] != null)
+            if (!IsPostBack)
             {
-                int id = int.Parse(Request.QueryString["id"]);
+                if (Request.QueryString["id"] != null)
+                {
+                    int id = int.Parse(Request.QueryString["id"]);
 
-                UsuarioNegocio negocio = new UsuarioNegocio();
-                Usuario aux = negocio.buscarPorID(id);
+                    UsuarioNegocio negocio = new UsuarioNegocio();
+                    Usuario aux = negocio.buscarPorID(id);
 
-                inputCorreo.Text = aux.Email;
-                inputContraseña.Text = aux.Contraseña;
-                inputIDRol.Text = aux.IdRol.ToString();
+                    inputCorreo.Text = aux.Email;
+                    inputContraseña.Text = aux.Contraseña;
+                    inputIDRol.Text = aux.IdRol.ToString();
 
 
-                btnCrearUsuario.Text = "Modificar Usuario";
-                modoEdicion = true;
+                    btnCrearUsuario.Text = "Modificar Usuario";
+                    modoEdicion = true;
 
+                }
             }
+
         }
 
         protected void btnCrearUsuario_Click(object sender, EventArgs e)
         {
+
             Usuario aux = new Usuario();
             UsuarioNegocio negocio = new UsuarioNegocio();
 
-            aux.IdRol = int.Parse(inputIDRol.Text);
-            aux.Email = inputCorreo.Text;
-            aux.Contraseña = inputContraseña.Text;
-
-
-            if (modoEdicion == false)
+            if (IsPostBack)
             {
+                aux.IdRol = int.Parse(inputIDRol.Text);
+                aux.Email = inputCorreo.Text;
+                aux.Contraseña = inputContraseña.Text;
 
-                try
+                if (Request.QueryString["id"] != null)
+                {
+                    int id = int.Parse(Request.QueryString["id"]);
+                    aux.IdUsuario = id;
+                    modoEdicion = true;
+                }
+
+            }
+
+            try
+            {
+                if (modoEdicion == false)
                 {
                     negocio.agregar(aux);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "modalseleccione", "abrirModal();", true);
                 }
-                catch (Exception ex)
-                {
-                    ex.ToString();
-                }
-
-            }
-            else
-            {
-                try
+                else
                 {
                     negocio.modificar(aux);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "modalseleccione", "abrirModal();", true);
                 }
-                catch(Exception ex)
-                {
-                    ex.ToString();
-                }
+            }
+            catch(Exception ex)
+            {
+                ex.ToString();
             }
 
         }

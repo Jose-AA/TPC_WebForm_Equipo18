@@ -41,7 +41,7 @@ namespace Negocio
                 datos.setearParametro("@idRol", usuario.IdRol);
                 datos.setearParametro("@email", usuario.Email);
                 datos.setearParametro("@password", usuario.Contraseña);
-                datos.setearParametro(" @id", usuario.IdUsuario);
+                datos.setearParametro("@id", usuario.IdUsuario);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
