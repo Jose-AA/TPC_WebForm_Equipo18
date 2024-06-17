@@ -22,8 +22,9 @@
                 <asp:TextBox ID="inputConfirmarContraseña" runat="server" CssClass="form-control" MaxLength="50" TextMode="Password" />
             </div>
             <div class="col-md-6">
-                <label for="inputIDRol" class="form-label">IDRol</label>
-                <asp:TextBox ID="inputIDRol" TextMode="Number" runat="server" CssClass="form-control" MaxLength="1" Min="1" Max="3" />
+                <label for="inputIDRol" class="form-label">ID Rol</label>
+                <asp:DropDownList runat="server" ID="ddlRoles" CssClass="form-select">
+                </asp:DropDownList>
             </div>
 
             <div class="col-12">

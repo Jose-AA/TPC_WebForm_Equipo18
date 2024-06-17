@@ -16,6 +16,10 @@ namespace TPC_WebForm_Equipo18
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ddlRoles.Items.Add("Administrador");
+            ddlRoles.Items.Add("Especialista");
+            ddlRoles.Items.Add("Cliente");
+
             if (!IsPostBack)
             {
                 if (Request.QueryString["id"] != null)
@@ -27,7 +31,20 @@ namespace TPC_WebForm_Equipo18
 
                     inputCorreo.Text = aux.Email;
                     inputContraseña.Text = aux.Contraseña;
-                    inputIDRol.Text = aux.IdRol.ToString();
+                    
+
+                    if(aux.IdRol == 1)
+                    {
+                        ddlRoles.SelectedIndex = 0;
+                    }
+                    else if(aux.IdRol == 2)
+                    {
+                        ddlRoles.SelectedIndex = 1;
+                    }
+                    else if(aux.IdRol == 3)
+                    {
+                        ddlRoles.SelectedIndex = 2;
+                    }
 
 
                     btnCrearUsuario.Text = "Modificar Usuario";
@@ -46,7 +63,24 @@ namespace TPC_WebForm_Equipo18
 
             if (IsPostBack)
             {
-                aux.IdRol = int.Parse(inputIDRol.Text);
+                
+
+                string rol = ddlRoles.SelectedValue;
+
+                if(rol == "Administrador")
+                {
+                    aux.IdRol = 1;
+                }
+                else if(rol == "Especialista")
+                {
+                    aux.IdRol = 2;
+                }
+                else if(rol == "Cliente")
+                {
+                    aux.IdRol = 3;
+                }
+
+
                 aux.Email = inputCorreo.Text;
                 aux.Contraseña = inputContraseña.Text;
 
