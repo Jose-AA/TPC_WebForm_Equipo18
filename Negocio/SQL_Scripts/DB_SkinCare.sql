@@ -117,4 +117,3 @@ CREATE TABLE Reseñas (
     FOREIGN KEY (especialista_id) REFERENCES Usuarios(usuario_id),
     FOREIGN KEY (servicio_id) REFERENCES Servicios(servicio_id)
 );
-
