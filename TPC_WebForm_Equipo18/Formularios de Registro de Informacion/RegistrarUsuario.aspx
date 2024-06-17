@@ -12,14 +12,21 @@
             <div class="col-md-6">
                 <label for="inputCorreo" class="form-label">Correo Electrónico</label>
                 <asp:TextBox ID="inputCorreo" runat="server" CssClass="form-control" MaxLength="255" />
+                <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ForeColor="Red" ControlToValidate="inputCorreo" runat="server" />
+                <asp:RegularExpressionValidator ErrorMessage="* Debe ingresar un mail válido" ControlToValidate="inputCorreo" ForeColor="Red"
+    ValidationExpression="^([\w\.-]+)@((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})|(([\w-]+\.)+[a-zA-Z]{2,4}))$" runat="server" />
             </div>
             <div class="col-md-6">
                 <label for="inputContraseña" class="form-label">Contraseña</label>
                 <asp:TextBox ID="inputContraseña" runat="server" CssClass="form-control" MaxLength="50" TextMode="Password" />
+                <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ForeColor="Red" ControlToValidate="inputContraseña" runat="server" />
             </div>
             <div class="col-md-6">
                 <label for="inputConfirmarContraseña" class="form-label">Confirmar Contraseña</label>
                 <asp:TextBox ID="inputConfirmarContraseña" runat="server" CssClass="form-control" MaxLength="50" TextMode="Password" />
+                <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ForeColor="Red" ControlToValidate="inputConfirmarContraseña" runat="server" />
+                <asp:CompareValidator ErrorMessage="* Las contraseñas no coinciden" ForeColor="Red" ControlToValidate="inputConfirmarContraseña" 
+                    controlToCompare="inputContraseña" runat="server" />
             </div>
             <div class="col-md-6">
                 <label for="inputIDRol" class="form-label">ID Rol</label>
@@ -29,10 +36,6 @@
 
             <div class="col-12">
                 <asp:Button ID="btnCrearUsuario" runat="server" CssClass="btn btn-primary" Text="Crear Usuario" OnClick="btnCrearUsuario_Click" />
-            </div>
-
-            <div class="col-12">
-                <asp:Button ID="btnRegresar" runat="server" CssClass="btn btn-primary" Text="Regresar" OnClick="btnRegresar_Click" />
             </div>
         </div>
     </main>
@@ -68,6 +71,12 @@
                 keyboard: false
             });
             myModal.show();
+        }
+
+        function redirectAfterDelay() {
+            setTimeout(function () {
+                window.location.href = "ListarUsuarios.aspx";
+             }, 3000);
         }
     </script>
 

@@ -93,6 +93,7 @@ namespace TPC_WebForm_Equipo18
 
             }
 
+
             try
             {
                 if (modoEdicion == false)
@@ -105,6 +106,8 @@ namespace TPC_WebForm_Equipo18
                     negocio.modificar(aux);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "modalseleccione", "abrirModal();", true);
                 }
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "delayRedireccion", "redirectAfterDelay();", true);
             }
             catch(Exception ex)
             {
@@ -113,9 +116,5 @@ namespace TPC_WebForm_Equipo18
 
         }
 
-        protected void btnRegresar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ListarUsuarios.aspx");
-        }
     }
 }
