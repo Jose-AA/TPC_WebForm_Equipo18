@@ -67,6 +67,10 @@
 
       <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
+       <div style="margin-top: 30px;" >
+       <asp:DropDownList ID="Especialistaslist" runat="server" ></asp:DropDownList>
+       </div>
+
       <asp:UpdatePanel ID="ActualizarFecha" runat="server"> 
       <ContentTemplate>  
 
