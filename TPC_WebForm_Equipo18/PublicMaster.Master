@@ -17,6 +17,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <style>
+        /* CSS para los submenús */
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+
         .navbar-custom {
             background-color: pink;
         }
@@ -30,9 +41,9 @@
             flex-grow: 1;
         }
 
-            .navbar-nav.me-auto {
-                margin-right: auto;
-            }
+        .navbar-nav.me-auto {
+            margin-right: auto;
+        }
 
         .user-panel {
             display: flex;
@@ -42,9 +53,9 @@
             padding: 0;
         }
 
-            .user-panel img {
-                margin-right: 8px;
-            }
+        .user-panel img {
+            margin-right: 8px;
+        }
 
         .dropdown-menu {
             background-color: pink;
@@ -52,15 +63,15 @@
             box-shadow: inset;
         }
 
-            .dropdown-menu .dropdown-item {
-                color: black;
-            }
+        .dropdown-menu .dropdown-item {
+            color: black;
+        }
 
-                .dropdown-menu .dropdown-item:hover,
-                .dropdown-menu .dropdown-item:focus {
-                    background-color: hotpink;
-                    color: black;
-                }
+        .dropdown-menu .dropdown-item:hover,
+        .dropdown-menu .dropdown-item:focus {
+            background-color: hotpink;
+            color: black;
+        }
 
         #UserImage {
             border-radius: 20px;
@@ -74,11 +85,11 @@
             border-radius: 20px;
         }
 
-            #SearchButton:hover {
-                background-color: hotpink;
-                color: black;
-                border-color: black;
-            }
+        #SearchButton:hover {
+            background-color: hotpink;
+            color: black;
+            border-color: black;
+        }
 
         main {
             margin-right: 20px;
@@ -110,8 +121,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">Servicios
-                            </a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">Servicios</a>
                             <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="navbarDropdownMenuLink">
                                 <asp:Repeater runat="server" ID="ServicioRepeater">
                                     <ItemTemplate>
@@ -127,6 +137,55 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/Contact.aspx">Contacto</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administracion</a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Servicios</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
+                                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
+                                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Usuarios</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
+                                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
+                                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Datos Personales</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
+                                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
+                                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Turnos</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
+                                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
+                                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Reseñas</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
+                                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
+                                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Salir</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item search-container">
                             <div class="d-flex">
                                 <asp:TextBox ID="SearchTextBox" runat="server" CssClass="form-control me-2" placeholder="Search"></asp:TextBox>
@@ -139,8 +198,7 @@
                             <asp:Image ID="UserImage" runat="server" ImageUrl="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg" Width="30px" Height="30px" AlternateText="login" />
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Panel
-                            </a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Panel</a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="#">Turnos</a></li>
                                 <li><a class="dropdown-item" href="#">Historial</a></li>
@@ -162,6 +220,41 @@
     </form>
     <script src="scriptsMaster.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
 
+    <!-- script de manejo de submenús -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu .dropdown-toggle');
+
+            dropdownSubmenus.forEach(function (submenu) {
+                submenu.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Cerrar todos los submenús abiertos
+                    var openSubmenus = document.querySelectorAll('.dropdown-submenu .dropdown-menu.show');
+                    openSubmenus.forEach(function (openSubmenu) {
+                        if (openSubmenu !== submenu.nextElementSibling) {
+                            openSubmenu.classList.remove('show');
+                        }
+                    });
+
+                    // Alternar el submenú actual
+                    submenu.nextElementSibling.classList.toggle('show');
+                });
+            });
+
+            // Cerrar submenús cuando se hace clic fuera
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.dropdown-submenu')) {
+                    var openSubmenus = document.querySelectorAll('.dropdown-submenu .dropdown-menu.show');
+                    openSubmenus.forEach(function (openSubmenu) {
+                        openSubmenu.classList.remove('show');
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
 </html>
