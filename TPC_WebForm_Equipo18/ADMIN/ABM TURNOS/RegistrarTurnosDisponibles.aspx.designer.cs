@@ -33,6 +33,15 @@ namespace TPC_WebForm_Equipo18.Herramientas_Para_El_Especialista
         protected global::System.Web.UI.WebControls.DropDownList Especialistaslist;
 
         /// <summary>
+        /// Control ListadeServicios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ListadeServicios;
+
+        /// <summary>
         /// Control ActualizarFecha.
         /// </summary>
         /// <remarks>

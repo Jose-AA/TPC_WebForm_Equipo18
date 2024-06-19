@@ -8,6 +8,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      
+<!-- Modal de Turnos dado de alta  -->
+
    <div id="TurnosDadoDeAlta" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -49,35 +51,84 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="modalFechaHoraIncoherenteLabel">A intentado dar de alta turnos con un Horario/Fecha Incoherentes</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <p id="mensajeFechaHoraIncoherente"></p>
       </div>
+         <div class="modal-footer">
+     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+ </div>
     </div>
   </div>
 </div>
 
+    <!-- Modal para avisar que debe seleccionar el especialista y el servicio  -->
+<div class="modal fade" id="especialistayserviciorequerido" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="seleccioneespecialistayservicio"> ¡Falta seleccionar datos! </h5>
+      </div>
+      <div class="modal-body">
+        <p id="mensajedelorequerido"></p>
+      </div>
+         <div class="modal-footer">
+     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+ </div>
+    </div>
+  </div>
+</div>
+
+        <!-- Modal para avisar debe seleccionar al menos un turno   -->
+
+<div class="modal fade" id="selecciondeturnorquerido" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="seleccuindeturnorequerido"> ¡Seleccione fecha y hora ! </h5>
+      </div>
+      <div class="modal-body">
+        <p id="mensajedelturnorequerido"></p>
+      </div>
+         <div class="modal-footer">
+     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+ </div>
+    </div>
+  </div>
+</div>
+
+
    <main style="margin-top: 50px; margin-left: 350px; margin-right: 350px;">
-    <h1 style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Registrar Turnos Disponibles</h1>
 
-<div style="margin-top: 50px;" >
-
-    <h5>Seleccione la fecha para la que desea registrar turnos disponibles :</h5></div>
+    <h1 style="margin-top: 20px; margin-right: 20px;">Registrar Turnos Disponibles</h1>
 
       <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
+       <div style="margin-top: 30px;" >
+        <h5>Seleccione el especialista :</h5></div>
 
        <div style="margin-top: 30px;" >
        <asp:DropDownList ID="Especialistaslist" runat="server" ></asp:DropDownList>
        </div>
 
+       <div style="margin-top: 30px;" >
+        <h5>Seleccione el servicio: </h5></div>
+
+        <div style="margin-top: 30px;" >
+         <asp:DropDownList ID="ListadeServicios" runat="server" ></asp:DropDownList>
+        </div>
+
       <asp:UpdatePanel ID="ActualizarFecha" runat="server"> 
       <ContentTemplate>  
 
-    <div style="margin-top: 25px;">
+    <div style="margin-top: 30px;" >
+    <h5>Seleccione la fecha para la que desea registrar turnos disponibles :</h5></div>
+    <div style="margin-top: 40px;">
+
     <input type="date" id="fechaInput" onchange="mostrarFechaSeleccionada()">
 
     <asp:TextBox ID="FechaSeleccionada" runat="server" style="display:none;" ></asp:TextBox>
+
     <asp:Button ID="button3" runat="server" Text="Actualizar Fecha Grilla" OnClick="button3_Click"  />
     </div>
        </contenttemplate>
@@ -202,6 +253,22 @@
           });
           myModal.show();
       }
+
+      function abrirModalEspecialistaServicioRequerido(mensaje) {
+          document.getElementById('mensajedelorequerido').innerHTML = mensaje;
+          var myModal = new bootstrap.Modal(document.getElementById('especialistayserviciorequerido'), {
+              keyboard: true
+          });
+          myModal.show();
+      }
+
+      function abrirModalTurnoRequerido(mensaje) {
+            document.getElementById('mensajedelturnorequerido').innerHTML = mensaje;
+            var myModal = new bootstrap.Modal(document.getElementById('selecciondeturnorquerido'), {
+                keyboard: true
+            });
+            myModal.show();
+        }
       
 
     </script>

@@ -124,5 +124,43 @@ namespace Negocio
             }
         }
 
+
+        // listar los especialistas (usuarios con id rol 2)
+
+        public List<Usuario> listarEspecialistas()
+        {
+            List<Usuario> lista = new List<Usuario>();
+            AccesoDatos datos = new AccesoDatos();
+
+            string query = "select D.nombre, D.apellido , U.usuario_id , U.id_rol from Usuarios U \r\nINNER join Datos_Personales D on U.usuario_id = D.usuario_id\r\nwhere U.id_rol = 2 ";
+
+            try
+            {
+                datos.settearConsulta(query);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Usuario aux = new Usuario();
+                   aux.Nombre = (string)datos.Lector["nombre"];
+                   aux.Apellido = (string)datos.Lector["apellido"];
+                    aux.IdUsuario = (int)datos.Lector["usuario_id"];
+                    aux.IdRol = (int)datos.Lector["id_rol"];
+
+
+                    lista.Add(aux);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TPC_WebForm_Equipo18.Formularios_de_Registro_de_Informacion;
 
 namespace TPC_WebForm_Equipo18.Herramientas_Para_El_Especialista
 {
@@ -23,9 +25,35 @@ namespace TPC_WebForm_Equipo18.Herramientas_Para_El_Especialista
         {
             if (!IsPostBack)
             {
-                // agregar la logica corrrspondiente para cargar los especialistas en la lista desplegable 
+                // Cargamos la lista desplegable de especialistas   
+                UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+                List<Usuario> Especialistas = new List<Usuario>();
+                Especialistas = usuarioNegocio.listarEspecialistas();
+
+                var usuarioDisplayList = Especialistas.Select(u => new
+                {
+                    DisplayText = $"{u.Nombre} {u.Apellido}",
+                    u.IdUsuario
+                }).ToList();
+
+                Especialistaslist.DataSource = usuarioDisplayList;
+                Especialistaslist.DataTextField = "DisplayText";
+                Especialistaslist.DataValueField = "IdUsuario";
+                Especialistaslist.DataBind();
                 Especialistaslist.Items.Insert(0, new ListItem("Seleccione un especialista", "0"));
 
+                // <---------------------------------------------->
+
+                //Cargamos la lista de servicios 
+
+                ServicioNegocio negocio = new ServicioNegocio();
+                List<Servicio> listaServicios = new List<Servicio>();
+                listaServicios = negocio.listar();
+                ListadeServicios.DataSource = listaServicios;
+                ListadeServicios.DataTextField = "Nombre";
+                ListadeServicios.DataValueField = "Id";
+                ListadeServicios.DataBind();
+                ListadeServicios.Items.Insert(0, new ListItem("Seleccione un servicio", "0"));
 
                 string fechaSeleccionada = FechaSeleccionada.Text;
 
@@ -70,6 +98,38 @@ namespace TPC_WebForm_Equipo18.Herramientas_Para_El_Especialista
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            // validamos que se haya seleccionado especialista y servicio 
+            
+            if(Especialistaslist.SelectedValue == "0" || ListadeServicios.SelectedValue == "0")
+            {
+               string mensajeError = "Debe seleccionar un especialista y un servicio para poder continuar.";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modalError", $"abrirModalEspecialistaServicioRequerido('{mensajeError}');", true);
+                return;
+           
+            }
+
+
+            // validamos que se haya seleccionado al menos un turno 
+
+            bool hayTurnosSeleccionados = false;
+
+            foreach (GridViewRow row in gridTurnos.Rows)
+            {
+                CheckBox chkHabilitar = (CheckBox)row.FindControl("chkHabilitar");
+                if (chkHabilitar.Checked)
+                {
+                    hayTurnosSeleccionados = true;
+                    break;
+                }
+            }
+
+            if (hayTurnosSeleccionados == false)
+            {
+                string mensajeError = "Debe seleccionar al menos un turno para poder continuar.";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modalError", $"abrirModalTurnoRequerido('{mensajeError}');", true);
+                return;
+            }
+
             List<string> turnosDadoDeAlta = new List<string>();
             List<string> turnosExistente = new List<string>();
             List<string> turnosIncoherentes = new List<string>();
@@ -93,11 +153,14 @@ namespace TPC_WebForm_Equipo18.Herramientas_Para_El_Especialista
                     nuevoTurno.FechaDeTurno = fechaTurno;
                     nuevoTurno.HoraDeTurno = TimeSpan.Parse(horaDesde);
 
-                    // Colocar por sesión el id especialista
-                    nuevoTurno.Especialista = new Especialista { IdUsuario = 1 };
+                 
+                    nuevoTurno.Especialista = new Especialista();
 
-                    // Colocar por sesión el id servicio
-                    nuevoTurno.Servicio = new Servicio { Id = 1 };
+                    nuevoTurno.Especialista.IdUsuario = int.Parse(Especialistaslist.SelectedValue);
+
+               
+                    nuevoTurno.Servicio = new Servicio();
+                    nuevoTurno.Servicio.Id = int.Parse(ListadeServicios.SelectedValue);
 
                     nuevoTurno.Estado = 1;
 

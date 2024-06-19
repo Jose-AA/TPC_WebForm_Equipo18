@@ -86,7 +86,7 @@ CREATE TABLE Turnos (
     especialista_id INT NOT NULL,
     servicio_id INT NOT NULL,
     estado_id INT NOT NULL,
-    fecha_turno DATE NOT NULL CHECK (fecha_turno >= GETDATE()),
+    fecha_turno DATE NOT NULL CHECK (fecha_turno >= CAST(GETDATE() AS DATE)),
     hora_turno time not null,
     creado_en DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (cliente_id) REFERENCES Usuarios(usuario_id),
