@@ -113,6 +113,7 @@ CREATE TABLE Reseñas (
     servicio_id INT NOT NULL,
     calificacion INT NOT NULL CHECK (calificacion >= 1 AND calificacion <= 5),
     comentario VARCHAR(100) NOT NULL,
+    activo BIT DEFAULT 1,
     creado_en DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (cliente_id) REFERENCES Usuarios(usuario_id),
     FOREIGN KEY (especialista_id) REFERENCES Usuarios(usuario_id),
@@ -129,11 +130,10 @@ GO
 
 -- Insertar usuarios
 INSERT INTO Usuarios (id_rol, correo_electronico, contraseña) VALUES 
-(1, 'admin@admin.com', 'admin'), -- Admin
+(1, 'admin@admin.com', 'admin') -- Admin
 
 GO
 
 -- Insertar estados
 INSERT INTO Estados (nombre) VALUES ('Vigente'), ('Finalizado'), ('Cancelado');
-
 

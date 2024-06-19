@@ -143,41 +143,36 @@
                                 <li class="dropdown-submenu">
                                     <a class="dropdown-item dropdown-toggle" href="#">Servicios</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
-                                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
-                                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20Servicios/RegistrarServicio">Registrar Servicios 😊 </a></li>
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20Servicios/ModificarServicios">Modificar Servicios </a></li>
+                                        <li><a class="dropdown-item" href="#">Borrar Servicio (L) </a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">
                                     <a class="dropdown-item dropdown-toggle" href="#">Usuarios</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
-                                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
-                                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20USUARIOS/RegistrarUsuario">Registrar Usuarios</a></li>
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20USUARIOS/ListarUsuarios">Modificar Usuarios</a></li>               
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">
                                     <a class="dropdown-item dropdown-toggle" href="#">Datos Personales</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
-                                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
-                                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20DatosPersonales/RegistrarDatosPersonales"> Registrar Datos Personales </a></li>
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20DatosPersonales/Modificar%20Datos%20Pesonales">Modificar Datos Personales </a></li>       
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">
                                     <a class="dropdown-item dropdown-toggle" href="#">Turnos</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
-                                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
-                                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20TURNOS/RegistrarTurnosDisponibles">Registrar Turnos 💆‍♂️</a></li>           
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20TURNOS/Modificar%20Turnos"> Modificar Turnos</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">
                                     <a class="dropdown-item dropdown-toggle" href="#">Reseñas</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
-                                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
-                                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                                        <li><a class="dropdown-item" href="/ADMIN/Reseñas/Moderacion%20de%20Reseñas"> Eiminar Reseñas </a></li>
                                     </ul>
                                 </li>
                                 <li>
