@@ -172,7 +172,7 @@ namespace TPC_WebForm_Equipo18.Herramientas_Para_El_Especialista
                     }
                     else
 
-                    if (AgregarTurno.VerificarExistencia(nuevoTurno.FechaDeTurno, nuevoTurno.HoraDeTurno.ToString()))
+                    if (AgregarTurno.VerificarExistencia(nuevoTurno.FechaDeTurno, nuevoTurno.HoraDeTurno.ToString(),nuevoTurno.Especialista.IdUsuario))
                     {
                         turnosExistente.Add(horarioTurno);
                     }

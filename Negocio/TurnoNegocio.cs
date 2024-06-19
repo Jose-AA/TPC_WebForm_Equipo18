@@ -36,16 +36,14 @@ public class TurnoNegocio
         }
     }
 
-    public bool VerificarExistencia(DateTime fechaTurno, string horaTurno)
+    public bool VerificarExistencia(DateTime fechaTurno, string horaTurno, int especialistaId)
     {
         int cantidadTurnos = 0;
         AccesoDatos datos = new AccesoDatos();
         try
         {
-            // Construir la consulta SQL para contar los turnos en la fecha y hora especificadas
-            // agregar el numero del usuario (especialista) para que sea una condiciones mas
-
-            string query = @"SELECT COUNT(*) FROM Turnos WHERE fecha_turno = @fecha_turno AND hora_turno = @hora_turno";
+            // Construir la consulta SQL para contar los turnos en la fecha, hora y con el especialista especificado
+            string query = @"SELECT COUNT(*) FROM Turnos WHERE fecha_turno = @fecha_turno AND hora_turno = @hora_turno AND especialista_id = @especialista_id";
 
             // Setear la consulta en el comando
             datos.settearConsulta(query);
@@ -53,6 +51,7 @@ public class TurnoNegocio
             // Setear los parámetros de la consulta
             datos.setearParametro("@fecha_turno", fechaTurno);
             datos.setearParametro("@hora_turno", horaTurno);
+            datos.setearParametro("@especialista_id", especialistaId);
 
             // Ejecutar la consulta y obtener el resultado
             datos.ejecutarLectura();
@@ -72,13 +71,13 @@ public class TurnoNegocio
             throw ex;
         }
 
-        if(cantidadTurnos > 0)
+       if(cantidadTurnos > 0)
         {
-            return true; // Hay turnos en la fecha y hora especificadas
+            return true;
         }
         else
         {
-            return false; // No hay turnos en la fecha y hora especificadas
+            return false;
         }
     }
 
