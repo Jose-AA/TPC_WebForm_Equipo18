@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -123,6 +123,7 @@
     <Content Include="DetalleServicio.css" />
     <Content Include="estiloMaster.css" />
     <Content Include="ABM SERVICIO\RegistrarServicio.aspx" />
+    <Content Include="Formularios de Registro de Informacion\ListarUsuarios.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx" />
     <Content Include="Default.aspx" />
@@ -220,6 +221,14 @@
       <DependentUpon>DetalleServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="ABM SERVICIO\RegistrarServicio.aspx.cs">
+    <Compile Include="Formularios de Registro de Informacion\ListarUsuarios.aspx.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios de Registro de Informacion\ListarUsuarios.aspx.designer.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
+    </Compile>
+
       <DependentUpon>RegistrarServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
