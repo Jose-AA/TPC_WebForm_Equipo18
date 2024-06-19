@@ -125,7 +125,6 @@
     <Content Include="estiloMaster.css" />
     <Content Include="Formularios de Registro de Informacion\ListarUsuarios.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx" />
-    <Content Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -240,13 +239,6 @@
     </Compile>
     <Compile Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx.designer.cs">
       <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx.cs">
-      <DependentUpon>RegistrarDatosPersonales.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx.designer.cs">
-      <DependentUpon>RegistrarDatosPersonales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
