@@ -23,7 +23,10 @@ namespace TPC_WebForm_Equipo18.Herramientas_Para_El_Especialista
         {
             if (!IsPostBack)
             {
-           
+                // agregar la logica corrrspondiente para cargar los especialistas en la lista desplegable 
+                Especialistaslist.Items.Insert(0, new ListItem("Seleccione un especialista", "0"));
+
+
                 string fechaSeleccionada = FechaSeleccionada.Text;
 
                 DateTime fecha;
