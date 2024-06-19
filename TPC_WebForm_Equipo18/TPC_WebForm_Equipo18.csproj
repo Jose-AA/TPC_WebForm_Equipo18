@@ -99,6 +99,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ABM Datos Personales\Modificar Datos Pesonales.aspx" />
     <Content Include="ABM Servicios\ModificarServicios.aspx" />
     <Content Include="ABM Servicios\RegistrarServicio.aspx" />
     <Content Include="About.aspx" />
@@ -125,6 +126,7 @@
     <Content Include="estiloMaster.css" />
     <Content Include="Formularios de Registro de Informacion\ListarUsuarios.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx" />
+    <Content Include="ABM Datos Personales\RegistrarDatosPersonales.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -189,6 +191,12 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABM Datos Personales\Modificar Datos Pesonales.aspx.cs">
+      <DependentUpon>Modificar Datos Pesonales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABM Datos Personales\Modificar Datos Pesonales.aspx.designer.cs">
+      <DependentUpon>Modificar Datos Pesonales.aspx</DependentUpon>
     <Compile Include="ABM Servicios\ModificarServicios.aspx.cs">
       <DependentUpon>ModificarServicios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -239,6 +247,13 @@
     </Compile>
     <Compile Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx.designer.cs">
       <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Datos Personales\RegistrarDatosPersonales.aspx.cs">
+      <DependentUpon>RegistrarDatosPersonales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABM Datos Personales\RegistrarDatosPersonales.aspx.designer.cs">
+      <DependentUpon>RegistrarDatosPersonales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
