@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -99,6 +99,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ABM SERVICIO\ModificarServicios.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -121,8 +122,8 @@
     <Content Include="DetalleServicio.aspx" />
     <Content Include="DetalleServicio.css" />
     <Content Include="estiloMaster.css" />
+    <Content Include="ABM SERVICIO\RegistrarServicio.aspx" />
     <Content Include="Formularios de Registro de Informacion\ListarUsuarios.aspx" />
-    <Content Include="Formularios de Registro de Informacion\RegistrarServicio.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx" />
     <Content Include="Default.aspx" />
@@ -189,6 +190,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABM SERVICIO\ModificarServicios.aspx.cs">
+      <DependentUpon>ModificarServicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABM SERVICIO\ModificarServicios.aspx.designer.cs">
+      <DependentUpon>ModificarServicios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -212,6 +220,7 @@
     <Compile Include="DetalleServicio.aspx.designer.cs">
       <DependentUpon>DetalleServicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ABM SERVICIO\RegistrarServicio.aspx.cs">
     <Compile Include="Formularios de Registro de Informacion\ListarUsuarios.aspx.cs">
       <DependentUpon>ListarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,11 +228,11 @@
     <Compile Include="Formularios de Registro de Informacion\ListarUsuarios.aspx.designer.cs">
       <DependentUpon>ListarUsuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarServicio.aspx.cs">
+
       <DependentUpon>RegistrarServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarServicio.aspx.designer.cs">
+    <Compile Include="ABM SERVICIO\RegistrarServicio.aspx.designer.cs">
       <DependentUpon>RegistrarServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx.cs">
