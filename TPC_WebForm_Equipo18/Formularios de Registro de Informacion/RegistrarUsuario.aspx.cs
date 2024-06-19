@@ -18,7 +18,10 @@ namespace TPC_WebForm_Equipo18
         {
             ddlRoles.Items.Add("Administrador");
             ddlRoles.Items.Add("Especialista");
+            ddlRoles.Items.Add("Recepcionista");
             ddlRoles.Items.Add("Cliente");
+            
+
 
             if (!IsPostBack)
             {
@@ -44,6 +47,11 @@ namespace TPC_WebForm_Equipo18
                     else if(aux.IdRol == 3)
                     {
                         ddlRoles.SelectedIndex = 2;
+                    }
+
+                    else if (aux.IdRol == 4)
+                    {
+                        ddlRoles.SelectedIndex = 3;
                     }
 
 
@@ -75,9 +83,14 @@ namespace TPC_WebForm_Equipo18
                 {
                     aux.IdRol = 2;
                 }
-                else if(rol == "Cliente")
+                else if(rol == "Recepcionista")
                 {
                     aux.IdRol = 3;
+                }
+
+                else if (rol == "Cliente")
+                {
+                    aux.IdRol = 4;
                 }
 
 
