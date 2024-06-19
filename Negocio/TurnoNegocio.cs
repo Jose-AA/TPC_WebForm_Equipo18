@@ -43,6 +43,8 @@ public class TurnoNegocio
         try
         {
             // Construir la consulta SQL para contar los turnos en la fecha y hora especificadas
+            // agregar el numero del usuario (especialista) para que sea una condiciones mas
+
             string query = @"SELECT COUNT(*) FROM Turnos WHERE fecha_turno = @fecha_turno AND hora_turno = @hora_turno";
 
             // Setear la consulta en el comando
