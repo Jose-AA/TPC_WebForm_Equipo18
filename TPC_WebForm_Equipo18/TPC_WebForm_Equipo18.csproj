@@ -100,6 +100,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ABM Datos Personales\Modificar Datos Pesonales.aspx" />
+    <Content Include="ABM Servicios\ModificarServicios.aspx" />
+    <Content Include="ABM Servicios\RegistrarServicio.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -122,7 +124,7 @@
     <Content Include="DetalleServicio.aspx" />
     <Content Include="DetalleServicio.css" />
     <Content Include="estiloMaster.css" />
-    <Content Include="Formularios de Registro de Informacion\RegistrarServicio.aspx" />
+    <Content Include="Formularios de Registro de Informacion\ListarUsuarios.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx" />
     <Content Include="ABM Datos Personales\RegistrarDatosPersonales.aspx" />
     <Content Include="Default.aspx" />
@@ -195,6 +197,19 @@
     </Compile>
     <Compile Include="ABM Datos Personales\Modificar Datos Pesonales.aspx.designer.cs">
       <DependentUpon>Modificar Datos Pesonales.aspx</DependentUpon>
+    <Compile Include="ABM Servicios\ModificarServicios.aspx.cs">
+      <DependentUpon>ModificarServicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABM Servicios\ModificarServicios.aspx.designer.cs">
+      <DependentUpon>ModificarServicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Servicios\RegistrarServicio.aspx.cs">
+      <DependentUpon>RegistrarServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABM Servicios\RegistrarServicio.aspx.designer.cs">
+      <DependentUpon>RegistrarServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -219,12 +234,12 @@
     <Compile Include="DetalleServicio.aspx.designer.cs">
       <DependentUpon>DetalleServicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarServicio.aspx.cs">
-      <DependentUpon>RegistrarServicio.aspx</DependentUpon>
+    <Compile Include="Formularios de Registro de Informacion\ListarUsuarios.aspx.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarServicio.aspx.designer.cs">
-      <DependentUpon>RegistrarServicio.aspx</DependentUpon>
+    <Compile Include="Formularios de Registro de Informacion\ListarUsuarios.aspx.designer.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx.cs">
       <DependentUpon>RegistrarUsuario.aspx</DependentUpon>

@@ -99,5 +99,28 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void Eliminar(int servicioId)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string query = "DELETE FROM Servicios WHERE servicio_id = @id";
+
+            try
+            {
+                datos.settearConsulta(query);
+                datos.setearParametro("@id", servicioId);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
     }
 }
