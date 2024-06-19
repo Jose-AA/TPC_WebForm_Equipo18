@@ -39,8 +39,9 @@ CREATE TABLE Servicios (
     servicio_id INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(50) NOT NULL,
     descripcion VARCHAR(100),
-    duracion INT NOT NULL CHECK(duracion > 0), -- duracion en minutos
-    precio MONEY NOT NULL CHECK (precio > 0)
+    duracion INT NOT NULL CHECK(duracion > 0), 
+    precio MONEY NOT NULL CHECK (precio > 0),
+    activo BIT DEFAULT 1 
 );
 GO
 
@@ -117,4 +118,22 @@ CREATE TABLE Reseñas (
     FOREIGN KEY (especialista_id) REFERENCES Usuarios(usuario_id),
     FOREIGN KEY (servicio_id) REFERENCES Servicios(servicio_id)
 );
+
+GO
+-- Insertar roles
+insert into Roles (nombre) values ('Admin');
+insert into Roles (nombre) values ('Especialista');
+insert into Roles (nombre) values ('Recepcionista');
+insert into Roles (nombre) values ('Cliente');
+GO
+
+-- Insertar usuarios
+INSERT INTO Usuarios (id_rol, correo_electronico, contraseña) VALUES 
+(1, 'admin@admin.com', 'admin'), -- Admin
+
+GO
+
+-- Insertar estados
+INSERT INTO Estados (nombre) VALUES ('Vigente'), ('Finalizado'), ('Cancelado');
+
 

@@ -121,6 +121,7 @@
     <Content Include="DetalleServicio.aspx" />
     <Content Include="DetalleServicio.css" />
     <Content Include="estiloMaster.css" />
+    <Content Include="Formularios de Registro de Informacion\ListarUsuarios.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarServicio.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx" />
     <Content Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx" />
@@ -210,6 +211,13 @@
     </Compile>
     <Compile Include="DetalleServicio.aspx.designer.cs">
       <DependentUpon>DetalleServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios de Registro de Informacion\ListarUsuarios.aspx.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios de Registro de Informacion\ListarUsuarios.aspx.designer.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios de Registro de Informacion\RegistrarServicio.aspx.cs">
       <DependentUpon>RegistrarServicio.aspx</DependentUpon>
