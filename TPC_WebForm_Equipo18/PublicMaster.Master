@@ -29,7 +29,7 @@
         }
 
         .navbar-custom {
-            background-color: pink;
+            background-color: #A5A5AF;
         }
 
         .search-container {
@@ -58,7 +58,7 @@
         }
 
         .dropdown-menu {
-            background-color: pink;
+            background-color: #A5A5AF;
             color: black;
             box-shadow: inset;
         }
@@ -69,7 +69,7 @@
 
         .dropdown-menu .dropdown-item:hover,
         .dropdown-menu .dropdown-item:focus {
-            background-color: hotpink;
+            background-color: #57BC90;
             color: black;
         }
 
@@ -78,7 +78,7 @@
         }
 
         #SearchButton {
-            background-color: palevioletred;
+            background-color: #57BC90;
             color: black;
             border-width: 2px;
             border-color: black;
@@ -86,7 +86,7 @@
         }
 
         #SearchButton:hover {
-            background-color: hotpink;
+            background-color: #015249;
             color: black;
             border-color: black;
         }
@@ -96,6 +96,7 @@
             margin-left: 20px;
             margin-top: 20px;
         }
+        
     </style>
 
 </head>
