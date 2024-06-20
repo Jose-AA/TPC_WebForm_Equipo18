@@ -24,30 +24,8 @@
             border-color: #57BC90;
         }
         .segundo{
-<<<<<<< Updated upstream
-            background-color:lightpink;
-            border-color:lightpink;
-              display: flex;
-            flex-direction: column;
-            gap: 10px; 
-        }
-          .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 20px; 
-            justify-content:center;
-        }
-        .contact-item img {
-            width: 50px; 
-            height: 50px; 
-            align-items: center;
-        }
-        .contact p {
-            align-items: center;
-=======
             background-color: #015249;
             border-color: #015249;
->>>>>>> Stashed changes
         }
         #logo{
             width: 250px;
@@ -64,29 +42,6 @@
         img{
             padding: 10px;
         }
-<<<<<<< Updated upstream
-        #map{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-            padding-bottom: 50px;
-            padding-top: 50px;
-        }
-        .contInsta {
-            padding-top: 50px;
-            display: flex;
-            gap: 80px; 
-            flex-wrap: wrap; 
-
-        }
-        .feed {
-            flex: 1 1 30%; 
-            min-width: 200px; 
-            max-width: 300px; 
-            
-        }
-=======
         /*
             gris: #A5A5AF
             Verde oscuro: #015249
@@ -126,7 +81,7 @@
             box-sizing: border-box;
             background-color: #A5A5AF;
         }
-        .form.form-control::selection{
+        .form.form-control:{
             background-color: #A5A5AF;
         }
         .form-control:focus {
@@ -156,7 +111,6 @@
         }
 
 
->>>>>>> Stashed changes
     </style>
 
     <main>
@@ -191,18 +145,12 @@
                 </a>
            </div>
 
-          <div class="segundo">
-        <h4>Contacto</h4>
-        <div class="contact-item">
-            <img src="FPF/Contacto/tel.png" alt="Teléfono" />
-            <p>123456789</p>
-        </div>
-        <div class="contact-item">
-            <img src="FPF/Contacto/mai.png" alt="Email" />
-            <p>dsagdfag@fdagfdag.vfd</p>
-        </div>
-        <button id="wha">Whatsapp</button>
-    </div>
+           <div class="segundo">
+               <h4>Contacto</h4>
+               <img src="FPF/Contacto/tel.png" />
+               <img src="FPF/Contacto/mai.png" />
+               <button id="wha">Whatsapp</button>
+           </div>
 
            <div class="tercero">
                
@@ -214,36 +162,8 @@
            </div>
 
        </div>
-
-        <div class="contInsta">
-            <div class="feed">
-                 <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/C7wSObnqIjJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" data-instgrm-version="12">
-                     <a href="https://www.instagram.com/p/C7wSObnqIjJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="></a>
-                 </blockquote>
-            </div>
-            <div class="feed">
-     <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/C7EfbaDsVXA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" data-instgrm-version="12">
-         <a href="https://www.instagram.com/p/C7EfbaDsVXA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="></a>
-     </blockquote>
-</div>
-            <div class="feed">
-     <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/C7wSObnqIjJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" data-instgrm-version="12">
-         <a href="https://www.instagram.com/p/C7wSObnqIjJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="></a>
-     </blockquote>
-</div>
-
-        </div>
-
-       
         
-           
-<script async defer src="//www.instagram.com/embed.js"></script>
-
-      
        
-    
-    
-    
     </main>
 
 

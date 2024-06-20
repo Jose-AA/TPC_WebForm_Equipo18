@@ -99,7 +99,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ADMIN\ABM DatosPersonales\Modificar Datos Pesonales.aspx" />
+    <Content Include="ADMIN\ABM DatosPersonales\RegistrarDatosPersonales.aspx" />
+    <Content Include="ADMIN\ABM Servicios\ModificarServicios.aspx" />
+    <Content Include="ADMIN\ABM Servicios\RegistrarServicio.aspx" />
     <Content Include="About.aspx" />
+    <Content Include="ADMIN\ABM TURNOS\Modificar Turnos.aspx" />
+    <Content Include="ADMIN\Reseñas\Moderacion de Reseñas.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -121,13 +127,12 @@
     <Content Include="DetalleServicio.aspx" />
     <Content Include="DetalleServicio.css" />
     <Content Include="estiloMaster.css" />
-    <Content Include="Formularios de Registro de Informacion\RegistrarServicio.aspx" />
-    <Content Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx" />
-    <Content Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx" />
+    <Content Include="ADMIN\ABM USUARIOS\ListarUsuarios.aspx" />
+    <Content Include="ADMIN\ABM USUARIOS\RegistrarUsuario.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Herramientas Para El Especialista\RegistrarTurnosDisponibles.aspx" />
+    <Content Include="ADMIN\ABM TURNOS\RegistrarTurnosDisponibles.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="scriptsMaster.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -188,6 +193,42 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADMIN\ABM DatosPersonales\Modificar Datos Pesonales.aspx.cs">
+      <DependentUpon>Modificar Datos Pesonales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ABM DatosPersonales\Modificar Datos Pesonales.aspx.designer.cs">
+      <DependentUpon>Modificar Datos Pesonales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ABM DatosPersonales\RegistrarDatosPersonales.aspx.cs">
+      <DependentUpon>RegistrarDatosPersonales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ABM DatosPersonales\RegistrarDatosPersonales.aspx.designer.cs">
+      <DependentUpon>RegistrarDatosPersonales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ABM Servicios\ModificarServicios.aspx.cs">
+      <DependentUpon>ModificarServicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ABM Servicios\ModificarServicios.aspx.designer.cs">
+      <DependentUpon>ModificarServicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ABM Servicios\RegistrarServicio.aspx.cs">
+      <DependentUpon>RegistrarServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ABM Servicios\RegistrarServicio.aspx.designer.cs">
+      <DependentUpon>RegistrarServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ABM TURNOS\Modificar Turnos.aspx.cs">
+      <DependentUpon>Modificar Turnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ABM TURNOS\Modificar Turnos.aspx.designer.cs">
+      <DependentUpon>Modificar Turnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\Reseñas\Moderacion de Reseñas.aspx.cs">
+      <DependentUpon>Moderacion de Reseñas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\Reseñas\Moderacion de Reseñas.aspx.designer.cs">
+      <DependentUpon>Moderacion de Reseñas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -211,26 +252,17 @@
     <Compile Include="DetalleServicio.aspx.designer.cs">
       <DependentUpon>DetalleServicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarServicio.aspx.cs">
-      <DependentUpon>RegistrarServicio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="ADMIN\ABM USUARIOS\ListarUsuarios.aspx.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarServicio.aspx.designer.cs">
-      <DependentUpon>RegistrarServicio.aspx</DependentUpon>
+    <Compile Include="ADMIN\ABM USUARIOS\ListarUsuarios.aspx.designer.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx.cs">
-      <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarUsuario.aspx.designer.cs">
+    <Compile Include="ADMIN\ABM USUARIOS\RegistrarUsuario.aspx.cs">
       <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx.cs">
-      <DependentUpon>RegistrarDatosPersonales.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Formularios de Registro de Informacion\RegistrarDatosPersonales.aspx.designer.cs">
-      <DependentUpon>RegistrarDatosPersonales.aspx</DependentUpon>
+    <Compile Include="ADMIN\ABM USUARIOS\RegistrarUsuario.aspx.designer.cs">
+      <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -242,11 +274,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Herramientas Para El Especialista\RegistrarTurnosDisponibles.aspx.cs">
+    <Compile Include="ADMIN\ABM TURNOS\RegistrarTurnosDisponibles.aspx.cs">
       <DependentUpon>RegistrarTurnosDisponibles.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Herramientas Para El Especialista\RegistrarTurnosDisponibles.aspx.designer.cs">
+    <Compile Include="ADMIN\ABM TURNOS\RegistrarTurnosDisponibles.aspx.designer.cs">
       <DependentUpon>RegistrarTurnosDisponibles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
