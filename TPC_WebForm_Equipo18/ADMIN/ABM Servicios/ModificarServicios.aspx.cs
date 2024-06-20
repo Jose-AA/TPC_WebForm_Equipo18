@@ -122,6 +122,11 @@ namespace TPC_WebForm_Equipo18.ABM_SERVICIO
 
         protected void btnGuardarImagen_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtUrlImagen.Text))
+            {
+                return;
+            }
+
             ServicioNegocio negocio = new ServicioNegocio();
 
             Imagen nuevaImagen = new Imagen();
@@ -133,6 +138,7 @@ namespace TPC_WebForm_Equipo18.ABM_SERVICIO
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "modalServicioAgregado", "modificadoexitosamente()", true);
 
+            txtUrlImagen.Text = "";
 
 
         }
@@ -143,7 +149,6 @@ namespace TPC_WebForm_Equipo18.ABM_SERVICIO
 
             if (idServicio != 0)
             {
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), "modalMostrarImagenes", "modalMostrarImagenes();", true);
                 Response.Redirect("ModificarImagenesPorServicio.aspx?id=" + idServicio);
             }
             else

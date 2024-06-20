@@ -2,14 +2,27 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <h1>Imágenes asociadas al servicio</h1>
+       <% if (listaImagenes.Count == 0)
+           {%>
+                <h2>No hay imágenes asociadas al servicio. Agregue imágenes para poder visualizarlas</h2>    
+            <%}
+          else
+          { %>
+        
             <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
                 <asp:Repeater runat="server" ID="repetidorImagenes">
                     <ItemTemplate>
                         <div class="col">
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
-                                    <img src="<%# ((Dominio.Imagen)Container.DataItem).Url %>"" class="card-img-top" alt="Imagen de servicio">
-                                    <asp:Button runat="server" ID="btnEliminarImagen" Text="Eliminar" CssClass="btn btn-primary" OnClick="btnEliminarImagen_Click"  CommandArgument='<%# Eval("IDImagen") %>' />
+                                    <div>
+                                        <img src="<%# ((Dominio.Imagen)Container.DataItem).Url %>"" class="card-img-top" alt="Imagen de servicio" onerror="this.onerror=null;this.src='https://static.vecteezy.com/system/resources/previews/004/639/366/non_2x/error-404-not-found-text-design-vector.jpg';">
+                                    </div>
+                                    <div>
+                                        <asp:Button runat="server" ID="btnEliminarImagen" Text="Eliminar" CssClass="btn btn-primary" Style="position: relative; left: 80px; top: 7px;" OnClick="btnEliminarImagen_Click"  CommandArgument='<%# Eval("IDImagen") %>' />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -17,24 +30,7 @@
                 </asp:Repeater>
            </div>
 
-            <div id="EliminacionExitosa" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalExitoEliminarLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalExitoEliminarLabel">¡Imagen Eliminada Exitosamente!</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                             </button>
-                         </div>
-                        <div class="modal-body">
-                            <p>Se ha eliminado la imagen exitosamente.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <%} %>
 
-    <asp:Button Text="Regresar" ID="btnRegresar" CssClass="btn btn-primary" OnClick="btnRegresar_Click" runat="server" />
+    <asp:Button Text="Regresar" ID="btnRegresar" CssClass="btn btn-primary" OnClick="btnRegresar_Click" runat="server" style="margin-top: 20px; margin-left: 20px;"/>
 </asp:Content>

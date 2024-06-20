@@ -75,16 +75,10 @@
                 </div>
                 <div class="col-12">
                     <asp:Button ID="btnModificarServicio" runat="server" CssClass="btn btn-primary" Text="Modificar Servicio" OnClick="btnModificarServicio_Click" />
+                    <asp:Button Text="Agregar Imagen" ID="btnAgregarImagen" runat="server" CssClass="btn btn-primary" OnClick="btnAgregarImagen_Click" />
+                     <asp:Button Text="Mostrar Imagenes" ID="btnMostrarImagenes" runat="server" CssClass="btn btn-primary" OnClick="btnMostrarImagenes_Click" />
                 </div>
             </div>
-        </div>
-
-
-        <div>
-            <asp:Button Text="Agregar Imagen" ID="btnAgregarImagen" runat="server" CssClass="btn btn-primary" OnClick="btnAgregarImagen_Click" />
-        </div>
-        <div>
-            <asp:Button Text="Mostrar Imagenes" ID="btnMostrarImagenes" runat="server" CssClass="btn btn-primary" OnClick="btnMostrarImagenes_Click" />
         </div>
 
 
@@ -98,10 +92,12 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <asp:Image ImageUrl="imageurl" runat="server" Width="150px" Height="150px" ID="imgAgregar" onerror="this.onerror=null;this.src='https://static.vecteezy.com/system/resources/previews/004/639/366/non_2x/error-404-not-found-text-design-vector.jpg';" />
+                        <div>
+                            <asp:Image ImageUrl="https://t4.ftcdn.net/jpg/01/14/04/65/360_F_114046562_CoMtlfJGu0WhnDHLMz8qOHtHblQBH9QK.jpg" runat="server" Width="150px" Height="150px" ID="imgAgregar" />
+                        </div>
                         <asp:TextBox runat="server" ID="txtUrlImagen" />
-                        <asp:Button Text="Cargar Imagen" runat="server" ID="btnCargarImagen" OnClientClick="cambiarImagen(); return false; " />
-                        <asp:Button Text="Guardar Imagen" runat="server" ID="btnGuardarImagen" OnClick="btnGuardarImagen_Click" />
+                        <asp:Button Text="Cargar Imagen" runat="server" ID="btnCargarImagen" OnClientClick="cambiarImagen(); return false; " CssClass="btn btn-primary" />
+                        <asp:Button Text="Guardar Imagen" runat="server" ID="btnGuardarImagen" OnClick="btnGuardarImagen_Click" CssClass="btn btn-primary" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
