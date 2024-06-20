@@ -121,6 +121,41 @@ namespace Negocio
             }
         }
 
+        public void agregarImagen(int servicioId, Imagen imagen)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
+
+            string query = "insert into ImagenesxServicios(servicio_id, imagen_id) values (@idServicio, @idImagen)";
+
+            try
+            {
+                imagenNegocio.agregar(imagen);
+
+                imagen = imagenNegocio.recuperarUltimaImagen();
+
+                datos.settearConsulta(query);
+                datos.setearParametro("@idServicio", servicioId);
+                datos.setearParametro("@idImagen", imagen.IDImagen);
+                datos.ejecutarAccion();
+
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+
+            imagenNegocio.agregar(imagen);
+
+
+        }
 
     }
 }

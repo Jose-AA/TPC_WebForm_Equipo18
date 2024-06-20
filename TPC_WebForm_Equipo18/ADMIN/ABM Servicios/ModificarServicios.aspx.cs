@@ -100,6 +100,38 @@ namespace TPC_WebForm_Equipo18.ABM_SERVICIO
 
 
         }
+
+        protected void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            int idServicio = int.Parse(ModificarDropDownList.SelectedValue);
+
+            if(idServicio != 0)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modalAgregarImagen", "modalAgregarImagen();", true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modalServicioAgregado", "seleccione()", true);
+            }
+
+        }
+
+        protected void btnGuardarImagen_Click(object sender, EventArgs e)
+        {
+            ServicioNegocio negocio = new ServicioNegocio();
+
+            Imagen nuevaImagen = new Imagen();
+            nuevaImagen.Url = txtUrlImagen.Text;
+
+            int servicioId = int.Parse(ModificarDropDownList.SelectedValue);
+
+            negocio.agregarImagen(servicioId, nuevaImagen);
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "modalServicioAgregado", "modificadoexitosamente()", true);
+
+
+
+        }
     }
 
 

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PublicMaster.Master" AutoEventWireup="true" CodeBehind="ModificarServicios.aspx.cs" Inherits="TPC_WebForm_Equipo18.ABM_SERVICIO.ModificarServicios" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -8,75 +9,108 @@
 
         <!-- Modificado exitosamente -->
 
-<div id="ModificadoExitosamente" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalExitoEliminarLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalExitoEliminarLabel">¡Servicio Modificado Exitosamente!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>El servicio ha sido Modificado exitosamente.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="seleccione" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalSeleccionEliminarLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalSeleccionEliminarLabel">Error: Selección Requerida</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Por favor, seleccione un servicio antes de continuar con la accion.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-            <h1  style="margin-top: 30px" >Modificar Servicios</h1>
-
-
-            <div style="margin-top: 50px">
-                <asp:DropDownList ID="ModificarDropDownList" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ModificarDropDownList_SelectedIndexChanged" />
-            </div>
-            <div style="margin-top: 50px">
-                <div class="row g-3" style="margin-left: 20px; margin-right: 20px;">
-                    <div class="col-md-6">
-                        <label for="inputNombreModificar" class="form-label">Nombre del Servicio</label>
-                        <asp:TextBox ID="inputNombreModificar" runat="server" CssClass="form-control" MaxLength="50" />
+        <div id="ModificadoExitosamente" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalExitoEliminarLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalExitoEliminarLabel">¡Servicio Modificado Exitosamente!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="col-md-6">
-                        <label for="inputDescripcionModificar" class="form-label">Descripción</label>
-                        <asp:TextBox ID="inputDescripcionModificar" runat="server" CssClass="form-control" MaxLength="100" />
+                    <div class="modal-body">
+                        <p>El servicio ha sido Modificado exitosamente.</p>
                     </div>
-                    <div class="col-md-6">
-                        <label for="inputDuracionModificar" class="form-label">Duración (minutos)</label>
-                        <asp:TextBox ID="inputDuracionModificar" runat="server" CssClass="form-control" TextMode="Number" />
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputPrecioModificar" class="form-label">Precio</label>
-                        <asp:TextBox ID="inputPrecioModificar" runat="server" CssClass="form-control" TextMode="Number" />
-                    </div>
-                    <div class="col-12">
-                        <asp:Button ID="btnModificarServicio" runat="server" CssClass="btn btn-primary" Text="Modificar Servicio" OnClick="btnModificarServicio_Click" />
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
                     </div>
                 </div>
             </div>
-      
+        </div>
+
+        <div id="seleccione" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalSeleccionEliminarLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalSeleccionEliminarLabel">Error: Selección Requerida</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Por favor, seleccione un servicio antes de continuar con la accion.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h1 style="margin-top: 30px">Modificar Servicios</h1>
+
+
+        <div style="margin-top: 50px">
+            <asp:DropDownList ID="ModificarDropDownList" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ModificarDropDownList_SelectedIndexChanged" />
+        </div>
+        <div style="margin-top: 50px">
+            <div class="row g-3" style="margin-left: 20px; margin-right: 20px;">
+                <div class="col-md-6">
+                    <label for="inputNombreModificar" class="form-label">Nombre del Servicio</label>
+                    <asp:TextBox ID="inputNombreModificar" runat="server" CssClass="form-control" MaxLength="50" />
+                </div>
+                <div class="col-md-6">
+                    <label for="inputDescripcionModificar" class="form-label">Descripción</label>
+                    <asp:TextBox ID="inputDescripcionModificar" runat="server" CssClass="form-control" MaxLength="100" />
+                </div>
+                <div class="col-md-6">
+                    <label for="inputDuracionModificar" class="form-label">Duración (minutos)</label>
+                    <asp:TextBox ID="inputDuracionModificar" runat="server" CssClass="form-control" TextMode="Number" />
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPrecioModificar" class="form-label">Precio</label>
+                    <asp:TextBox ID="inputPrecioModificar" runat="server" CssClass="form-control" TextMode="Number" />
+                </div>
+                <div class="col-12">
+                    <asp:Button ID="btnModificarServicio" runat="server" CssClass="btn btn-primary" Text="Modificar Servicio" OnClick="btnModificarServicio_Click" />
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <asp:Button Text="Agregar Imagen" ID="btnAgregarImagen" runat="server" CssClass="btn btn-primary" OnClick="btnAgregarImagen_Click"/>
+        </div>
+
+
+        <div id="modalAgregarImagen" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalImagenes" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalImagenes">Imagenes</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <asp:Image ImageUrl="imageurl"  runat="server" Width="150px" Height="150px" ID="imgAgregar" onerror="this.onerror=null;this.src='https://static.vecteezy.com/system/resources/previews/004/639/366/non_2x/error-404-not-found-text-design-vector.jpg';" />
+                        <asp:TextBox runat="server" ID="txtUrlImagen" />
+                        <asp:Button Text="Cargar Imagen" runat="server" ID="btnCargarImagen" OnClientClick="cambiarImagen(); return false; " />
+                        <asp:Button Text="Guardar Imagen" runat="server" ID="btnGuardarImagen" OnClick="btnGuardarImagen_Click"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="imagenes__servicio">
+        </div>
 
     </main>
 
@@ -94,6 +128,24 @@
             });
             myModal.show();
         }
+
+        function modalAgregarImagen() {
+            var myModal = new bootstrap.Modal(document.getElementById('modalAgregarImagen'), {
+                keyboard: false
+            });
+            myModal.show();
+        }
+
+        function cambiarImagen() {
+            
+            var imageControl = document.getElementById('<%= imgAgregar.ClientID %>');    
+            var imageUrl = document.getElementById('<%= txtUrlImagen.ClientID %>').value;
+            imageControl.src = imageUrl;
+
+        }
+
+        
+
 
 
     </script>
