@@ -3,24 +3,28 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
+        body{
+            background-color: #77C9D4;
+        }
         .principal {
             display: flex;
         }
         .primero, .segundo, .tercero{
             display:flex;
-            flex: 1; /* Hace que todos los divs ocupen el mismo espacio */
+            flex: 1; 
             padding: 10px;
-            border: 1px solid #000; /* Solo para visualizar los bordes */
-            justify-content: center; /* Centra horizontalmente */
-            align-items: center; /* Centra verticalmente */
+            border: 1px solid #000; 
+            justify-content: center; 
+            align-items: center; 
             flex-direction: column;
 
         }
         .primero, .tercero{
-            background-color: #f8d9ef;
-            border-color: #f8d9ef;
+            background-color: #57BC90;
+            border-color: #57BC90;
         }
         .segundo{
+<<<<<<< Updated upstream
             background-color:lightpink;
             border-color:lightpink;
               display: flex;
@@ -40,6 +44,10 @@
         }
         .contact p {
             align-items: center;
+=======
+            background-color: #015249;
+            border-color: #015249;
+>>>>>>> Stashed changes
         }
         #logo{
             width: 250px;
@@ -56,6 +64,7 @@
         img{
             padding: 10px;
         }
+<<<<<<< Updated upstream
         #map{
             display: flex;
             justify-content: center;
@@ -77,13 +86,102 @@
             max-width: 300px; 
             
         }
+=======
+        /*
+            gris: #A5A5AF
+            Verde oscuro: #015249
+            Verde claro: #57BC90
+            Celeste: #77C9D4
+        */
+        .contact-form {
+            background-color: #57BC90;
+            border: 2px solid #015249;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 50px auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+             margin-top: 0;
+             color: #015249;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #015249;
+}
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #A5A5AF;
+        }
+        .form.form-control::selection{
+            background-color: #A5A5AF;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: #015249;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #015249;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #A5A5AF;
+        }
+
+        @media (max-width: 600px) {
+            .contact-form {
+                padding: 15px;
+            }
+        }
+
+
+>>>>>>> Stashed changes
     </style>
 
     <main>
-        <div id="map">
-
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.876047069637!2d-58.62676688800867!3d-34.45529424956341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca48d22673f87%3A0x8775d1ae9173ba5c!2sSecretar%C3%ADa%20de%20Extensi%C3%B3n%20Universitaria%20U.T.N.%20F.R.G.P!5e0!3m2!1ses!2sar!4v1717710686701!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+         <div id="form1" runat="server">
+        <div class="contact-form">
+            <h2>Contacto</h2>
+            <div class="form-group">
+                <label for="txtNombre">Nombre:</label>
+                <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="txtTelefono">Teléfono:</label>
+                <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="txtEmail">Email:</label>
+                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="txtComentario">Comentario:</label>
+                <asp:TextBox ID="txtComentario" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="4" />
+            </div>
+            <asp:Button ID="btnEnviar" runat="server" Text="Enviar" CssClass="btn"  />
         </div>
+    </div>
          
        <div class="principal" ">
            <div class="primero">            
@@ -107,8 +205,12 @@
     </div>
 
            <div class="tercero">
-               <h4>Donde estamos?</h4>    
+               
                <img src="FPF/Contacto/ub.png" />
+               <div id="map">
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.876047069637!2d-58.62676688800867!3d-34.45529424956341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca48d22673f87%3A0x8775d1ae9173ba5c!2sSecretar%C3%ADa%20de%20Extensi%C3%B3n%20Universitaria%20U.T.N.%20F.R.G.P!5e0!3m2!1ses!2sar!4v1717710686701!5m2!1ses!2sar" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
            </div>
 
        </div>
