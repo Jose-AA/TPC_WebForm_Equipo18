@@ -7,7 +7,8 @@
    
     <style>
         .background-repeater {
-    background-image: url('FPF/home/h1.png'); /* Ruta a tu imagen de fondo */
+    /*background-image: url('FPF/home/h1.png');  Ruta a tu imagen de fondo */
+    background-color: #015249;
     background-size: contain;
     background-position: center; /* Centra la imagen de fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -19,33 +20,14 @@
 
     .card {
     margin: 15px; 
+    background-color: #57BC90;
     }
         </style>
 
 
 
     <main>
-            <main>
-            <div class="background-repeater">
-              <div class="row row-cols-1 row-cols-md-3 g-0 mt-0" style=" margin-left:170px; margin-right: 170px" >
-                  <asp:Repeater runat="server" ID="repRepetidor">
-                        <ItemTemplate>
-                             <div class="col">
-                             <div class="card" style="width: 18rem;">
-                                  <div class="card-body">
-                                   <img src="https://www.materialestetica.com/blog/wp-content/uploads/2022/11/beneficios-masajes-733.png" class="card-img-top" alt="...">
-                                <h5 class="card-title"><%# Eval("Nombre") %></h5>
-                                <p class="card-text"><%# Eval("Descripcion") %></p>
-                                <p class="card-text"><%# Eval("Precio", "{0:N2}") %></p>
-                                <asp:Button runat="server" ID="btnDetalles" Text="Detalles" CssClass="btn btn-primary" OnClick="btnDetalles_Click" CommandArgument='<%# Eval("Id") %>' />
-                                  </div>
-                                </div>
-                          </div>
-                     </ItemTemplate>
-                 </asp:Repeater>
-             </div>
-            </div>
-        </main>
+            
 
 
       
@@ -76,13 +58,33 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+            <main>
+    <div class="background-repeater">
+      <div class="row row-cols-1 row-cols-md-3 g-0 mt-0" style=" margin-left:170px; margin-right: 170px" >
+          <asp:Repeater runat="server" ID="repRepetidor">
+                <ItemTemplate>
+                     <div class="col">
+                     <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                           <img src="https://www.materialestetica.com/blog/wp-content/uploads/2022/11/beneficios-masajes-733.png" class="card-img-top" alt="...">
+                        <h5 class="card-title"><%# Eval("Nombre") %></h5>
+                        <p class="card-text"><%# Eval("Descripcion") %></p>
+                        <p class="card-text"><%# Eval("Precio", "{0:N2}") %></p>
+                        <asp:Button runat="server" ID="btnDetalles" Text="Detalles" CssClass="btn btn-primary" OnClick="btnDetalles_Click" CommandArgument='<%# Eval("Id") %>' />
+                          </div>
+                        </div>
+                  </div>
+             </ItemTemplate>
+         </asp:Repeater>
+     </div>
+    </div>
+</main>
 
-
-        <div class="container-fluid" style="background-color: #f8d9ef; justify-content: center; margin-top: 50px; padding-bottom:50px;">
+        <div class="container-fluid" style="background-color: #015249; justify-content: center; margin-top: 50px; padding-bottom:50px;">
             <h1 class="text-center">¿Por qué elegirnos?</h1>
             <div class="row" style="margin-top: 50px;">
                 <div class="col-sm-4">
-                    <div class="card">
+                    <div class="card" style="background-color: #57BC90;">
                         <div class="card-body">
                             <figure class="text-center">
                                 <blockquote class="blockquote">
@@ -98,8 +100,8 @@
                 </div>
 
                 <div class="col-sm-4">
-                    <div class="card">
-                        <div class="card-body">
+                    <div class="card" style="background-color: #57BC90;">
+                        <div class="card-body" >
                             <figure class="text-center">
                                 <blockquote class="blockquote">
                                     <img src="FPF/home/icoest.png" />
@@ -115,8 +117,8 @@
 
 
                 <div class="col-sm-4">
-                    <div class="card">
-                        <div class="card-body">
+                    <div class="card" style="background-color: #57BC90;" >
+                        <div class="card-body" >
                             <figure class="text-center">
                                 <blockquote class="blockquote">
                                     <img src="FPF/home/icocor.png" />
@@ -134,31 +136,5 @@
 
 
     </main>
-    <footer>
-        <div class="container-fluid" style="margin-top: 50px; margin-bottom: 50px; justify-content: center; align-items: center; gap: 50px; display: flex;">
-
-
-            <a href="#">
-                <img src="FPF/home/ig.png" />
-            </a>
-
-
-            <a href="#">
-                <img src="FPF/home/fa.png" />
-
-            </a>
-
-            <a href="#">
-                <img src="FPF/home/tw.png" />
-            </a>
-            <a href="#">
-                <img src="FPF/home/ti.png" />
-            </a>
-        </div>
-        <div style="background-color: black; color: azure">
-            <h5 class="text-center">App web diseñada y programada en 2024 por Franco Formía, José Arias y Martín García. Equipo 18, Programación 3, UTN FRGP</h5>
-
-        </div>
-
-    </footer>
+    
 </asp:Content>

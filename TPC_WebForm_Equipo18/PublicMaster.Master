@@ -253,6 +253,32 @@
             });
         });
     </script>
+    <footer>
+    <div class="container-fluid" style="margin-top: 50px; margin-bottom: 50px; justify-content: center; align-items: center; gap: 50px; display: flex;">
 
+
+        <a href="#">
+            <img src="FPF/home/ig.png" />
+        </a>
+
+
+        <a href="#">
+            <img src="FPF/home/fa.png" />
+
+        </a>
+
+        <a href="#">
+            <img src="FPF/home/tw.png" />
+        </a>
+        <a href="#">
+            <img src="FPF/home/ti.png" />
+        </a>
+    </div>
+    <div style="background-color: black; color: azure">
+        <h5 class="text-center">App web diseñada y programada en 2024 por Franco Formía, José Arias y Martín García. Equipo 18, Programación 3, UTN FRGP</h5>
+
+    </div>
+
+</footer>
 </body>
 </html>

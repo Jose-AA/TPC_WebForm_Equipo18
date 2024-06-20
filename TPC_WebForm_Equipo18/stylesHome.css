@@ -36,25 +36,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #botonTarjeta {
-    background-color: hotpink;
+    background-color: #57BC90;
     border-width: 2px;
     color: black;
     border-radius: 20px;
@@ -85,7 +68,7 @@ body{
     display: block;
 }
 .card{
-    background-color: pink;
+    background-color: #57BC90;
     border-color:black;
     border-width: 2px;
     border-radius:20px;
@@ -110,6 +93,7 @@ body{
 
 .card-body {
     animation: slideIn 1s ease-in-out;
+    background-color: #57BC90;
 }
 
 @keyframes slideIn {
