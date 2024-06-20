@@ -42,6 +42,11 @@
         img{
             padding: 10px;
         }
+        @media (max-width: 900px) {
+    .principal {
+        flex-direction: column;
+    }
+}
         /*
             gris: #A5A5AF
             Verde oscuro: #015249
