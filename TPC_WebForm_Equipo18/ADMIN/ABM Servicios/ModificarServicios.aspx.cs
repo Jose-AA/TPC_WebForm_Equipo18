@@ -13,6 +13,7 @@ namespace TPC_WebForm_Equipo18.ABM_SERVICIO
     {
 
         List<Servicio> listaServicios = new List<Servicio>();
+        public List<Imagen> listaImagenesxServicio = new List<Imagen>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -52,6 +53,9 @@ namespace TPC_WebForm_Equipo18.ABM_SERVICIO
 
                     // Asignar el precio al TextBox
                     inputPrecioModificar.Text = precio;
+
+                    //Asignar las imagenes al Servicio
+                    listaImagenesxServicio = negocio.listarImagenes(servicio.Id);
 
                 }
             }
@@ -99,6 +103,59 @@ namespace TPC_WebForm_Equipo18.ABM_SERVICIO
             }
 
 
+        }
+
+        protected void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            int idServicio = int.Parse(ModificarDropDownList.SelectedValue);
+
+            if(idServicio != 0)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modalAgregarImagen", "modalAgregarImagen();", true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modalServicioAgregado", "seleccione()", true);
+            }
+
+        }
+
+        protected void btnGuardarImagen_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtUrlImagen.Text))
+            {
+                return;
+            }
+
+            ServicioNegocio negocio = new ServicioNegocio();
+
+            Imagen nuevaImagen = new Imagen();
+            nuevaImagen.Url = txtUrlImagen.Text;
+
+            int servicioId = int.Parse(ModificarDropDownList.SelectedValue);
+
+            negocio.agregarImagen(servicioId, nuevaImagen);
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "modalServicioAgregado", "modificadoexitosamente()", true);
+
+            txtUrlImagen.Text = "";
+
+
+        }
+
+        protected void btnMostrarImagenes_Click(object sender, EventArgs e)
+        {
+            int idServicio = int.Parse(ModificarDropDownList.SelectedValue);
+
+            if (idServicio != 0)
+            {
+                Response.Redirect("ModificarImagenesPorServicio.aspx?id=" + idServicio);
+            }
+            else
+            {
+                Session.Add("listaImagenesxServicio", listaImagenesxServicio);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modalServicioAgregado", "seleccione()", true);
+            }
         }
     }
 
