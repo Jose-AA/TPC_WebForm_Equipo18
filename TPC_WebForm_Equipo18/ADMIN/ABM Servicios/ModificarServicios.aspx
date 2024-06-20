@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PublicMaster.Master" AutoEventWireup="true" CodeBehind="ModificarServicios.aspx.cs" Inherits="TPC_WebForm_Equipo18.ABM_SERVICIO.ModificarServicios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -80,7 +81,10 @@
 
 
         <div>
-            <asp:Button Text="Agregar Imagen" ID="btnAgregarImagen" runat="server" CssClass="btn btn-primary" OnClick="btnAgregarImagen_Click"/>
+            <asp:Button Text="Agregar Imagen" ID="btnAgregarImagen" runat="server" CssClass="btn btn-primary" OnClick="btnAgregarImagen_Click" />
+        </div>
+        <div>
+            <asp:Button Text="Mostrar Imagenes" ID="btnMostrarImagenes" runat="server" CssClass="btn btn-primary" OnClick="btnMostrarImagenes_Click" />
         </div>
 
 
@@ -94,22 +98,16 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <asp:Image ImageUrl="imageurl"  runat="server" Width="150px" Height="150px" ID="imgAgregar" onerror="this.onerror=null;this.src='https://static.vecteezy.com/system/resources/previews/004/639/366/non_2x/error-404-not-found-text-design-vector.jpg';" />
+                        <asp:Image ImageUrl="imageurl" runat="server" Width="150px" Height="150px" ID="imgAgregar" onerror="this.onerror=null;this.src='https://static.vecteezy.com/system/resources/previews/004/639/366/non_2x/error-404-not-found-text-design-vector.jpg';" />
                         <asp:TextBox runat="server" ID="txtUrlImagen" />
                         <asp:Button Text="Cargar Imagen" runat="server" ID="btnCargarImagen" OnClientClick="cambiarImagen(); return false; " />
-                        <asp:Button Text="Guardar Imagen" runat="server" ID="btnGuardarImagen" OnClick="btnGuardarImagen_Click"/>
+                        <asp:Button Text="Guardar Imagen" runat="server" ID="btnGuardarImagen" OnClick="btnGuardarImagen_Click" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
             </div>
-        </div>
-
-
-
-
-        <div class="imagenes__servicio">
         </div>
 
     </main>
@@ -137,15 +135,19 @@
         }
 
         function cambiarImagen() {
-            
-            var imageControl = document.getElementById('<%= imgAgregar.ClientID %>');    
+
+            var imageControl = document.getElementById('<%= imgAgregar.ClientID %>');
             var imageUrl = document.getElementById('<%= txtUrlImagen.ClientID %>').value;
-            imageControl.src = imageUrl;
+               imageControl.src = imageUrl;
 
         }
 
-        
-
+        function modalMostrarImagenes() {
+            var myModal = new bootstrap.Modal(document.getElementById('modalMostrarImagenes'), {
+                keyboard: false
+            });
+            myModal.show();
+        }
 
 
     </script>

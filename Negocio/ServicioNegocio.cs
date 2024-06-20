@@ -157,5 +157,67 @@ namespace Negocio
 
         }
 
+        
+        public List<Imagen> listarImagenes(int servicioId)
+        {
+
+            List<Imagen> lista = new List<Imagen>();
+
+            AccesoDatos datos = new AccesoDatos();
+            string query = "select IxS.imagen_id, I.url_imagen from ImagenesxServicios as IxS inner join Imagenes I on I.imagen_id = IxS.imagen_id where servicio_id = @idServicio";
+
+            try
+            {
+                datos.settearConsulta(query);
+                datos.setearParametro("@idServicio", servicioId);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Imagen aux = new Imagen();
+
+                    aux.IDImagen = (int)datos.Lector["imagen_id"];
+                    aux.Url = (string)datos.Lector["url_imagen"];
+
+                    lista.Add(aux);
+                }
+
+                return lista;
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void desasociarImagen(int idImagen)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
+            string query = "delete from ImagenesxServicios where imagen_id = @IdImagen";
+
+            try
+            {
+                datos.settearConsulta(query);
+                datos.setearParametro("@IdImagen", idImagen);
+                datos.ejecutarAccion();
+
+                imagenNegocio.eliminar(idImagen);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        
     }
 }

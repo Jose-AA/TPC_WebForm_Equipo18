@@ -78,6 +78,15 @@ namespace TPC_WebForm_Equipo18.ABM_SERVICIO
         protected global::System.Web.UI.WebControls.Button btnAgregarImagen;
 
         /// <summary>
+        /// btnMostrarImagenes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMostrarImagenes;
+
+        /// <summary>
         /// imgAgregar control.
         /// </summary>
         /// <remarks>
