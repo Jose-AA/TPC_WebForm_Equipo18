@@ -17,7 +17,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <style>
-        /* CSS para los submenús */
+        body{
+            background-color: #77C9D4;
+        }
         .dropdown-submenu {
             position: relative;
         }
@@ -118,7 +120,7 @@
                             <a class="nav-link active" aria-current="page" href="/Default.aspx">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Quienes somos</a>
+                            <a class="nav-link" href="QuienesSomos.aspx">Quienes somos</a>
                         </li>
 
                         <li class="nav-item dropdown">
