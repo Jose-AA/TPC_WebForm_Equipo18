@@ -1,30 +1,54 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/PublicMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="TPC_WebForm_Equipo18._Default" %>
+<%@ Import Namespace="Dominio" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <link rel="stylesheet" href="stylesHome.css">
+   
+    <style>
+        .background-repeater {
+    background-image: url('FPF/home/h1.png'); /* Ruta a tu imagen de fondo */
+    background-size: contain;
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    padding: 20px; /* Añade un padding para el contenido */
+    display: flex; /* Usar flexbox para centrar el contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan */
+    }
+
+    .card {
+    margin: 15px; 
+    }
+        </style>
+
+
+
     <main>
-
-        <img src="FPF/home/h1.png" alt="portada" class="img-fluid" />
-        <div class="form-container" style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Ingresar</h5>
-                    <form>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-
-                        <button id="bot" type="submit" class="SearchButton">Ingresar</button>
-                    </form>
-                </div>
+            <main>
+            <div class="background-repeater">
+              <div class="row row-cols-1 row-cols-md-3 g-0 mt-0" style=" margin-left:170px; margin-right: 170px" >
+                  <asp:Repeater runat="server" ID="repRepetidor">
+                        <ItemTemplate>
+                             <div class="col">
+                             <div class="card" style="width: 18rem;">
+                                  <div class="card-body">
+                                   <img src="https://www.materialestetica.com/blog/wp-content/uploads/2022/11/beneficios-masajes-733.png" class="card-img-top" alt="...">
+                                <h5 class="card-title"><%# Eval("Nombre") %></h5>
+                                <p class="card-text"><%# Eval("Descripcion") %></p>
+                                <p class="card-text"><%# Eval("Precio", "{0:N2}") %></p>
+                                <asp:Button runat="server" ID="btnDetalles" Text="Detalles" CssClass="btn btn-primary" OnClick="btnDetalles_Click" CommandArgument='<%# Eval("Id") %>' />
+                                  </div>
+                                </div>
+                          </div>
+                     </ItemTemplate>
+                 </asp:Repeater>
+             </div>
             </div>
-        </div>
+        </main>
+
+
+      
 
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" style="margin-top: 50px;">
             <div class="carousel-indicators">
@@ -52,7 +76,6 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-
 
 
         <div class="container-fluid" style="background-color: #f8d9ef; justify-content: center; margin-top: 50px; padding-bottom:50px;">
