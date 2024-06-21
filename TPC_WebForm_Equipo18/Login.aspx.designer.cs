@@ -11,88 +11,106 @@ namespace TPC_WebForm_Equipo18
 {
 
 
-    public partial class PublicMaster
+    public partial class Login
     {
 
         /// <summary>
-        /// head control.
+        /// txtNombreRegistrar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreRegistrar;
 
         /// <summary>
-        /// form1 control.
+        /// txtApellidoRegistrar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox txtApellidoRegistrar;
 
         /// <summary>
-        /// LogoImage control.
+        /// txtEmailRegistrar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image LogoImage;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailRegistrar;
 
         /// <summary>
-        /// ServicioRepeater control.
+        /// txtContraseñaRegistrar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater ServicioRepeater;
+        protected global::System.Web.UI.WebControls.TextBox txtContraseñaRegistrar;
 
         /// <summary>
-        /// SearchTextBox control.
+        /// txtValidarContraseñaRegistrar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SearchTextBox;
+        protected global::System.Web.UI.WebControls.TextBox txtValidarContraseñaRegistrar;
 
         /// <summary>
-        /// SearchButton control.
+        /// cvPasswords control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchButton;
+        protected global::System.Web.UI.WebControls.CompareValidator cvPasswords;
 
         /// <summary>
-        /// btnLogin control.
+        /// btnRegistrarUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Button btnRegistrarUsuario;
 
         /// <summary>
-        /// UserImage control.
+        /// txtEmailLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image UserImage;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailLogin;
 
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// txtContraseñaLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.TextBox txtContraseñaLogin;
+
+        /// <summary>
+        /// btnIniciarSesion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnIniciarSesion;
+
+        /// <summary>
+        /// lblErrorLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorLogin;
     }
 }

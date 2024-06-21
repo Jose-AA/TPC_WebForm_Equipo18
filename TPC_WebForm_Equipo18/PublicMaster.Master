@@ -193,6 +193,9 @@
                     </ul>
                     <ul class="user-panel">
                         <li>
+                            <asp:Button Text="Iniciar Sesión" CssClass="btn btn-primary" ID="btnLogin" OnClick="btnLogin_Click" runat="server" />
+                        </li>
+                        <li>
                             <asp:Image ID="UserImage" runat="server" ImageUrl="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg" Width="30px" Height="30px" AlternateText="login" />
                         </li>
                         <li class="nav-item dropdown">

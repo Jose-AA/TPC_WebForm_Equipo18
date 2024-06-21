@@ -162,5 +162,68 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public int buscarIDPorEmail(string email)
+        {
+            int id = -1;
+            AccesoDatos datos = new AccesoDatos();
+
+            string query = "select usuario_id from Usuarios where correo_electronico = @email";
+
+            try
+            {
+                datos.settearConsulta(query);
+                datos.setearParametro("@email", email);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    id = (int)datos.Lector["usuario_id"];
+                }
+
+                return id;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public Usuario login(string email, string contraseña)
+        {
+            Usuario aux = new Usuario();
+            AccesoDatos datos = new AccesoDatos();
+            string query = "select usuario_id, id_rol from Usuarios where correo_electronico = @email and contraseña = @contraseña";
+
+            try
+            {
+                datos.settearConsulta(query);
+                datos.setearParametro("@email", email);
+                datos.setearParametro("@contraseña", contraseña);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    aux.IdUsuario = (int)datos.Lector["usuario_id"];
+                    aux.IdRol = (int)datos.Lector["id_rol"];
+                    aux.Email = email;
+                    aux.Contraseña = contraseña;
+                }
+
+                return aux;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
