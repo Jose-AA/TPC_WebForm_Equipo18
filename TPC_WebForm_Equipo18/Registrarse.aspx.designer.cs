@@ -11,7 +11,7 @@ namespace TPC_WebForm_Equipo18
 {
 
 
-    public partial class Login
+    public partial class Registrarse
     {
 
         /// <summary>
@@ -132,42 +132,6 @@ namespace TPC_WebForm_Equipo18
         protected global::System.Web.UI.WebControls.Button btnRegistrarUsuario;
 
         /// <summary>
-        /// txtEmailLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailLogin;
-
-        /// <summary>
-        /// requiredEmailLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredEmailLogin;
-
-        /// <summary>
-        /// txtContraseñaLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraseñaLogin;
-
-        /// <summary>
-        /// requiredContraseñaLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredContraseñaLogin;
-
-        /// <summary>
         /// btnIniciarSesion control.
         /// </summary>
         /// <remarks>
@@ -175,14 +139,5 @@ namespace TPC_WebForm_Equipo18
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnIniciarSesion;
-
-        /// <summary>
-        /// lblErrorLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorLogin;
     }
 }

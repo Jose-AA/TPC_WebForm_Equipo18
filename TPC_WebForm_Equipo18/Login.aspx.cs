@@ -16,21 +16,38 @@ namespace TPC_WebForm_Equipo18
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(errorSignUp == true)
+            if (IsPostBack)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "mostrarVentanaSignUp", "errorSignUp();", true);
-                errorSignUp = false;
-            }
+                if (errorSignUp == true)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "mostrarVentanaSignUp", "errorSignUp();", true);
+                    errorSignUp = false;
+                }
 
-            if(errorLogin == true)
-            {
-                lblErrorLogin.Text = "* Usuario o contraseña incorrecto";
-                errorLogin = false;
+                if (errorLogin == true)
+                {
+                    lblErrorLogin.Text = "* Usuario o contraseña incorrecto";
+                    errorLogin = false;
+                }
             }
+     
         }
 
         protected void btnRegistrarUsuario_Click(object sender, EventArgs e)
         {
+
+            requiredNombreRegister.Enabled = true;
+            requiredApellidoRegister.Enabled = true;
+            requiredEmailRegister.Enabled = true;
+            requiredContraseña1Register.Enabled = true;
+            requiredContraseña2Register.Enabled = true;
+            cvPasswords.Enabled = true;
+            regexEmailRegister.Enabled = true;
+
+            requiredEmailLogin.Enabled = false;
+            requiredContraseñaLogin.Enabled = false;
+
+
             Page.Validate();
 
             if (!Page.IsValid)
@@ -79,6 +96,19 @@ namespace TPC_WebForm_Equipo18
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
+
+            requiredNombreRegister.Enabled = false;
+            requiredApellidoRegister.Enabled = false;
+            requiredEmailRegister.Enabled = false;
+            requiredContraseña1Register.Enabled = false;
+            requiredContraseña2Register.Enabled = false;
+            cvPasswords.Enabled = false;
+            regexEmailRegister.Enabled = false;
+
+            requiredEmailLogin.Enabled = true;
+            requiredContraseñaLogin.Enabled = true;
+
+
             Page.Validate();
 
             if (!Page.IsValid)
