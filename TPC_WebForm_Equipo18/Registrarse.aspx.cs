@@ -15,7 +15,14 @@ namespace TPC_WebForm_Equipo18
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuario usuarioLogueado = new Usuario();
 
+            usuarioLogueado = (Usuario)Session["usuario"];
+
+            if (usuarioLogueado != null)
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
 
         protected void btnRegistrarUsuario_Click(object sender, EventArgs e)

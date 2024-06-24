@@ -14,6 +14,15 @@ namespace TPC_WebForm_Equipo18
         bool errorLogin = false;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuario usuarioLogueado = new Usuario();
+
+            usuarioLogueado = (Usuario)Session["usuario"];
+
+            if (usuarioLogueado != null)
+            {
+                Response.Redirect("Default.aspx");
+            }
+
             if (IsPostBack)
             {
                 if (errorLogin == true)

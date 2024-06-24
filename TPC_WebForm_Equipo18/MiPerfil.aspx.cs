@@ -14,12 +14,14 @@ namespace TPC_WebForm_Equipo18
         public Usuario usuarioLogueado;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] == null)
-            {
-                Response.Redirect("Login.aspx");
-            }
+            Usuario usuarioLogueado = new Usuario();
 
-            usuarioLogueado = (Usuario)Session["Usuario"];
+            usuarioLogueado = (Usuario)Session["usuario"];
+
+            if (usuarioLogueado == null)
+            {
+                Response.Redirect("Default.aspx");
+            }
 
             txtNombre.Text = usuarioLogueado.Nombre;
             txtApellido.Text = usuarioLogueado.Apellido;
