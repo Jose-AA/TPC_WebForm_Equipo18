@@ -12,6 +12,9 @@ namespace TPC_WebForm_Equipo18
     public partial class PublicMaster : System.Web.UI.MasterPage
     {
         public List<Servicio> list = new List<Servicio>();
+
+        public Usuario usuarioLogueado = new Usuario();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -72,6 +75,11 @@ namespace TPC_WebForm_Equipo18
 
             */
 
+            usuarioLogueado = (Usuario)Session["usuario"];
+
+            hlCerrarSesion.NavigateUrl = cerrarSesionUrl();
+
+
             ServicioNegocio negocio = new ServicioNegocio();
 
 
@@ -126,6 +134,15 @@ namespace TPC_WebForm_Equipo18
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Response.Redirect("IniciarSesion.aspx");
+        }
+
+        private string cerrarSesionUrl()
+        {
+            //La funcion sera llamada cuando se presione el boton salir en el panel de cliente
+            //Eliminamos la sesion activa, y redirigimos nuevamente a la pagina principal
+            Session["usuario"] = null;
+
+            return "Default.aspx";
         }
     }
 }

@@ -140,6 +140,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/Contact.aspx">Contacto</a>
                         </li>
+                        <%if (usuarioLogueado != null)
+                            {
+                                if (usuarioLogueado.IdRol == 1)
+                                { %>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administracion</a>
                             <ul class="dropdown-menu dropdown-menu-end">
@@ -184,6 +188,8 @@
                                 <li><a class="dropdown-item" href="#">Salir</a></li>
                             </ul>
                         </li>
+                        <%}
+                                }%>
                         <li class="nav-item search-container">
                             <div class="d-flex">
                                 <asp:TextBox ID="SearchTextBox" runat="server" CssClass="form-control me-2" placeholder="Search"></asp:TextBox>
@@ -192,9 +198,15 @@
                         </li>
                     </ul>
                     <ul class="user-panel">
+                        <%if (usuarioLogueado == null)
+                          {  %>
                         <li>
                             <asp:Button Text="Iniciar Sesión" CssClass="btn btn-primary" ID="btnLogin" OnClick="btnLogin_Click" runat="server" />
                         </li>
+                        <%} %>
+
+                        <% if (usuarioLogueado != null)
+                            {%>
                         <li>
                             <asp:Image ID="UserImage" runat="server" ImageUrl="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg" Width="30px" Height="30px" AlternateText="login" />
                         </li>
@@ -207,9 +219,12 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Salir</a></li>
+                                <li>
+                                    <asp:HyperLink ID="hlCerrarSesion" Text="Salir" CssClass="dropdown-item" runat="server" />
+                                </li>
                             </ul>
                         </li>
+                        <%} %>
                     </ul>
                 </div>
             </div>
