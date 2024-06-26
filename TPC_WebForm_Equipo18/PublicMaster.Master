@@ -120,11 +120,11 @@
                             <a class="nav-link active" aria-current="page" href="/Default.aspx">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="QuienesSomos.aspx">Quienes somos</a>
+                            <a class="nav-link" href="/QuienesSomos.aspx">Quienes somos</a>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">Servicios</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" aria-expanded="false">Servicios</a>
                             <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="navbarDropdownMenuLink">
                                 <asp:Repeater runat="server" ID="ServicioRepeater">
                                     <ItemTemplate>
