@@ -22,25 +22,26 @@ namespace TPC_WebForm_Equipo18
                 Response.Redirect("Default.aspx");
             }
 
-            if(!String.IsNullOrEmpty(usuarioLogueado.Nombre))
-                txtNombre.Text = usuarioLogueado.Nombre;
+            if (!IsPostBack)
+            {
+                if (!String.IsNullOrEmpty(usuarioLogueado.Nombre))
+                    txtNombre.Text = usuarioLogueado.Nombre;
 
-            if(!String.IsNullOrEmpty(usuarioLogueado.Apellido))
-                txtApellido.Text = usuarioLogueado.Apellido;
+                if (!String.IsNullOrEmpty(usuarioLogueado.Apellido))
+                    txtApellido.Text = usuarioLogueado.Apellido;
 
-            if(!String.IsNullOrEmpty(usuarioLogueado.Telefono) && !String.Equals("N/A", usuarioLogueado.Telefono))
-                txtTelefono.Text = usuarioLogueado.Telefono;
+                if (!String.IsNullOrEmpty(usuarioLogueado.Telefono) && !String.Equals("N/A", usuarioLogueado.Telefono))
+                    txtTelefono.Text = usuarioLogueado.Telefono;
 
-            if(!String.IsNullOrEmpty(usuarioLogueado.Dni.ToString()) && !String.Equals("-1", usuarioLogueado.Dni.ToString()) )
-                txtDNI.Text = usuarioLogueado.Dni.ToString();
+                if (!String.IsNullOrEmpty(usuarioLogueado.Dni.ToString()) && !String.Equals("-1", usuarioLogueado.Dni.ToString()))
+                    txtDNI.Text = usuarioLogueado.Dni.ToString();
 
-            if(!String.IsNullOrEmpty(usuarioLogueado.FechaNacimiento.ToString()) && !String.Equals("1/1/1754 00:00:00", usuarioLogueado.FechaNacimiento.ToString()))
-                txtFechaNacimiento.Text = usuarioLogueado.FechaNacimiento.ToString("yyyy-MM-dd");
-            
-            if(!String.IsNullOrEmpty(usuarioLogueado.Direccion) && !String.Equals("N/A", usuarioLogueado.Direccion))
-                txtDomicilio.Text = usuarioLogueado.Direccion;
+                if (!String.IsNullOrEmpty(usuarioLogueado.FechaNacimiento.ToString()) && !String.Equals("1/1/1754 00:00:00", usuarioLogueado.FechaNacimiento.ToString()))
+                    txtFechaNacimiento.Text = usuarioLogueado.FechaNacimiento.ToString("yyyy-MM-dd");
 
-            
+                if (!String.IsNullOrEmpty(usuarioLogueado.Direccion) && !String.Equals("N/A", usuarioLogueado.Direccion))
+                    txtDomicilio.Text = usuarioLogueado.Direccion;
+            }
   
         }
 

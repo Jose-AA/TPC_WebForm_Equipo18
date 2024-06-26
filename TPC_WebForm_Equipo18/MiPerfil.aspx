@@ -45,20 +45,20 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="txtNombre">Nombre</label>
-                            <asp:TextBox runat="server" for="txtNombre" ID="txtNombre" CssClass="form-control" placeholder="Nombre" />
+                            <asp:TextBox MaxLength="50" runat="server" for="txtNombre" ID="txtNombre" CssClass="form-control" placeholder="Nombre" />
                         </div>
                         <div class="form-group col-md-6">
                             <label for="txtApellido">Apellido</label>
-                            <asp:TextBox runat="server" for="txtApellido" ID="txtApellido" CssClass="form-control" placeholder="Apellido" />
+                            <asp:TextBox MaxLength="50" runat="server" for="txtApellido" ID="txtApellido" CssClass="form-control" placeholder="Apellido" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="txtTelefono">Teléfono</label>
-                        <asp:TextBox runat="server" for="txtTelefono" ID="txtTelefono" CssClass="form-control" placeholder="Teléfono" />
+                        <asp:TextBox MaxLength="25" runat="server" for="txtTelefono" ID="txtTelefono" CssClass="form-control" placeholder="Teléfono" />
                     </div>
                     <div class="form-group">
                         <label for="txtDNI">DNI</label>
-                        <asp:TextBox runat="server" for="txtDNI" ID="txtDNI" CssClass="form-control" placeholder="DNI" onkeypress="return isNumberKey(event)" />
+                        <asp:TextBox MaxLength="8" runat="server" for="txtDNI" ID="txtDNI" CssClass="form-control" placeholder="DNI" onkeypress="return isNumberKey(event)" />
                         <asp:HiddenField ID="hiddenField" runat="server" />
                     </div>
                     <div class="form-group">
@@ -67,7 +67,7 @@
                     </div>
                     <div class="form-group">
                         <label for="txtDomicilio">Domicilio</label>
-                        <asp:TextBox runat="server" for="txtDomicilio" ID="txtDomicilio" CssClass="form-control" placeholder="Domicilio" />
+                        <asp:TextBox MaxLength="100" runat="server" for="txtDomicilio" ID="txtDomicilio" CssClass="form-control" placeholder="Domicilio" />
                     </div>
                     <asp:Button Text="Guardar cambios" ID="btnGuardarCambios" runat="server" CssClass="btn btn-primary btn-block" OnClick="btnGuardarCambios_Click" OnClientClick="storeValue()" />
                 </form>
