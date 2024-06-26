@@ -83,5 +83,10 @@ namespace TPC_WebForm_Equipo18
 
             Response.Redirect("Default.aspx");
         }
+
+        protected void btnPerfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MiPerfil.aspx");
+        }
     }
 }
