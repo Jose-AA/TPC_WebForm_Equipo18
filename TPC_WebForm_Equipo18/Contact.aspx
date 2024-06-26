@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PublicMaster.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="TPC_WebForm_Equipo18.Home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PublicMaster.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="TPC_WebForm_Equipo18.Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -47,12 +47,7 @@
         flex-direction: column;
     }
 }
-        /*
-            gris: #A5A5AF
-            Verde oscuro: #015249
-            Verde claro: #57BC90
-            Celeste: #77C9D4
-        */
+    
         .contact-form {
             background-color: #57BC90;
             border: 2px solid #015249;
@@ -77,37 +72,7 @@
             margin-bottom: 5px;
             color: #015249;
 }
-
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            background-color: #A5A5AF;
-        }
-        .form.form-control:{
-            background-color: #A5A5AF;
-        }
-        .form-control:focus {
-            outline: none;
-            border-color: #015249;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            color: #fff;
-            background-color: #015249;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .btn:hover {
-            background-color: #A5A5AF;
-        }
+       
 
         @media (max-width: 600px) {
             .contact-form {
@@ -138,7 +103,7 @@
                 <label for="txtComentario">Comentario:</label>
                 <asp:TextBox ID="txtComentario" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="4" />
             </div>
-            <asp:Button ID="btnEnviar" runat="server" Text="Enviar" CssClass="btn"  />
+            <asp:Button ID="btnEnviar" runat="server" Text="Enviar" CssClass="btn" style="background-color:#015249; color:#fff " />
         </div>
     </div>
          

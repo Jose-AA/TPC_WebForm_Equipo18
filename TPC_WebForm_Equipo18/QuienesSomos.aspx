@@ -4,7 +4,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
     body {
-        font-family: Arial, sans-serif;
         background-color: #77C9D4;
         color: #015249;
         margin: 0;
@@ -64,20 +63,6 @@
         height: 150px;
         margin: 10px;
         border-radius: 50%;
-    }
-
-    button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #015249;
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: #57BC90;
     }
 
     @media (max-width: 768px) {
@@ -160,7 +145,7 @@
 
         <section class="contact">
             <h2>Contáctanos</h2>
-            <button onclick="location.href='contacto.aspx'">Contáctanos!</button>
+            <button onclick="location.href='contacto.aspx'" class="btn" style="background-color:#015249; color:#fff "    >Contáctanos! </button>
         </section>
     </div>
 </asp:Content>

@@ -1,5 +1,19 @@
-﻿.navbar-custom {
-    background-color: pink;
+﻿body {
+    background-color: #77C9D4;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+  margin-top: -1px;
+}
+
+.navbar-custom {
+    background-color: #A5A5AF;
 }
 
 .search-container {
@@ -11,9 +25,9 @@
     flex-grow: 1;
 }
 
-.navbar-nav.me-auto {
-    margin-right: auto;
-}
+    .navbar-nav.me-auto {
+        margin-right: auto;
+    }
 
 .user-panel {
     display: flex;
@@ -23,47 +37,43 @@
     padding: 0;
 }
 
-.user-panel img {
-    margin-right: 8px;
-}
+    .user-panel img {
+        margin-right: 8px;
+    }
 
 .dropdown-menu {
-    background-color: pink;
+    background-color: #A5A5AF;
     color: black;
     box-shadow: inset;
 }
 
-.dropdown-menu .dropdown-item {
-    color: black;
-}
+    .dropdown-menu .dropdown-item {
+        color: black;
+    }
 
-.dropdown-menu .dropdown-item:hover,
-.dropdown-menu .dropdown-item:focus {
-    background-color: hotpink;
-    color: black;
-}
-#DdlS {
-    background-color: pink;
-    color: black;
-    box-shadow: inset;
-}
+        .dropdown-menu .dropdown-item:hover,
+        .dropdown-menu .dropdown-item:focus {
+            background-color: #57BC90;
+            color: black;
+        }
+
 #UserImage {
     border-radius: 20px;
 }
 
-.SearchButton {
-    background-color: palevioletred;
+#SearchButton {
+    background-color: #57BC90;
     color: black;
     border-width: 2px;
     border-color: black;
     border-radius: 20px;
 }
 
-.SearchButton:hover {
-    background-color: hotpink;
-    color: black;
-    border-color: black;
-}
+    #SearchButton:hover {
+        background-color: #015249;
+        color: black;
+        border-color: black;
+    }
 
 main {
     margin-right: 20px;
