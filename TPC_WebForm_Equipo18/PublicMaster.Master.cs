@@ -77,7 +77,9 @@ namespace TPC_WebForm_Equipo18
 
             usuarioLogueado = (Usuario)Session["usuario"];
 
-            hlCerrarSesion.NavigateUrl = cerrarSesionUrl();
+            //Ver como manejar el cierre de sesion, de esta forma siempre te deslogue
+            //Tal vez sea mejor usar un boton, con un evento onclick
+            //hlCerrarSesion.NavigateUrl = cerrarSesionUrl();
 
 
             ServicioNegocio negocio = new ServicioNegocio();
