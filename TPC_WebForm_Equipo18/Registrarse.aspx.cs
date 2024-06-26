@@ -60,6 +60,12 @@ namespace TPC_WebForm_Equipo18
 
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
 
+            if(usuarioNegocio.validarCorreoExistente(email) == true)
+            {
+                lblMailYaRegistrado.Text = "* Error";
+                return;
+            }
+
             usuarioNegocio.agregar(nuevo);
 
             //Recuperamos el ID para registrar los datos personales

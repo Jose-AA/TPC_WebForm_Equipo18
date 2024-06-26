@@ -77,11 +77,6 @@ namespace TPC_WebForm_Equipo18
 
             usuarioLogueado = (Usuario)Session["usuario"];
 
-            //Ver como manejar el cierre de sesion, de esta forma siempre te deslogue
-            //Tal vez sea mejor usar un boton, con un evento onclick
-            //hlCerrarSesion.NavigateUrl = cerrarSesionUrl();
-
-
             ServicioNegocio negocio = new ServicioNegocio();
 
 
@@ -138,13 +133,13 @@ namespace TPC_WebForm_Equipo18
             Response.Redirect("IniciarSesion.aspx");
         }
 
-        private string cerrarSesionUrl()
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             //La funcion sera llamada cuando se presione el boton salir en el panel de cliente
             //Eliminamos la sesion activa, y redirigimos nuevamente a la pagina principal
             Session["usuario"] = null;
 
-            return "Default.aspx";
+            Response.Redirect("Default.aspx");
         }
     }
 }

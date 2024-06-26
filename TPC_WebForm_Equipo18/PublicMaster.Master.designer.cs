@@ -87,13 +87,13 @@ namespace TPC_WebForm_Equipo18
         protected global::System.Web.UI.WebControls.Image UserImage;
 
         /// <summary>
-        /// hlCerrarSesion control.
+        /// btnCerrarSesion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlCerrarSesion;
+        protected global::System.Web.UI.WebControls.Button btnCerrarSesion;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

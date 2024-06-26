@@ -220,7 +220,7 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <asp:HyperLink ID="hlCerrarSesion" Text="Salir" CssClass="dropdown-item" runat="server" />
+                                    <asp:Button Text="Salir" ID="btnCerrarSesion" CssClass="dropdown-item" runat="server" OnClick="btnCerrarSesion_Click" />
                                 </li>
                             </ul>
                         </li>

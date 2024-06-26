@@ -36,6 +36,7 @@
                         ControlToCompare="txtContraseñaRegistrar" ErrorMessage="* Las contraseñas no coinciden" ForeColor="Red" ValidationGroup="Register"></asp:CompareValidator>
                 </div>
                 <asp:Button Text="Registrarse" ID="btnRegistrarUsuario" OnClick="btnRegistrarUsuario_Click" runat="server" />
+                <asp:Label ID="lblMailYaRegistrado" Text="" runat="server" style="position: relative; left: -200px; top:-40px;" ForeColor="Red" />
             </form>
         </div>
         <div class="toggle-containerr">

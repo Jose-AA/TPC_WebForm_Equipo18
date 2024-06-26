@@ -225,5 +225,43 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public bool validarCorreoExistente(string email)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string query = "select count(*) as Count from Usuarios where correo_electronico = @email";
+
+            try
+            {
+                datos.settearConsulta(query);
+                datos.setearParametro("@email", email);
+                datos.ejecutarLectura();
+
+                int contador = 0;
+
+                while (datos.Lector.Read())
+                {
+                    contador = (int)datos.Lector["Count"];
+                }
+
+                if(contador == 0)
+                {
+                    return false;
+                }
+
+                return true;
+
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
     }
 }
