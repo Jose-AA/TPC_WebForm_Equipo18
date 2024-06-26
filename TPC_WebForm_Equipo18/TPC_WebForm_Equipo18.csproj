@@ -135,6 +135,7 @@
     <Content Include="Global.asax" />
     <Content Include="ADMIN\ABM TURNOS\RegistrarTurnosDisponibles.aspx" />
     <Content Include="QuienesSomos.aspx" />
+    <Content Include="Recepción\RecepcionIngreso.aspx" />
     <Content Include="scriptsMaster.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -297,6 +298,13 @@
     <Compile Include="ADMIN\ABM TURNOS\RegistrarTurnosDisponibles.aspx.designer.cs">
       <DependentUpon>RegistrarTurnosDisponibles.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PanelMasterUsuarios.master.cs">
+      <DependentUpon>PanelMasterUsuarios.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PanelMasterUsuarios.master.designer.cs">
+      <DependentUpon>PanelMasterUsuarios.master</DependentUpon>
+    </Compile>
     <Compile Include="QuienesSomos.aspx.cs">
       <DependentUpon>QuienesSomos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -311,6 +319,13 @@
     </Compile>
     <Compile Include="PublicMaster.Master.designer.cs">
       <DependentUpon>PublicMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Recepción\RecepcionIngreso.aspx.cs">
+      <DependentUpon>RecepcionIngreso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recepción\RecepcionIngreso.aspx.designer.cs">
+      <DependentUpon>RecepcionIngreso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -340,6 +355,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="PublicMaster.Master" />
+    <Content Include="PanelMasterUsuarios.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

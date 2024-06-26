@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/PublicMaster.Master" AutoEventWireup="true" CodeBehind="PanelMasterUsuarios.master.cs" Inherits="TPC_WebForm_Equipo18.PanelMasterUsuarios" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        #fotoPerfil{
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+        }
+        #offcanvasPanel{
+            background-color: #015249;
+            width: 300px;
+            height: 50%;
+            top: 50%;
+            height: auto; 
+            transform: translateY(-50%);
+            max-height: 70%; 
+            border-radius: 20px;
+        }
+        
+        #menu1{
+            background-color: #015249;
+            border-color:#015249;
+            width: 100px;
+        }
+        #menu1:hover{
+            background-color: #015249;
+            border-color:#015249;
+        }
+        #meu1:active{
+            background-color: #015249;
+            border-color:#015249;
+            box-shadow: none;
+        }
+
+    </style>
+   <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasPanel" role="button" aria-controls="offcanvasExample" style="padding: 10px 20px;
+font-size: 16px;
+background-color: #015249;
+color: #fff;
+border: none;
+border-radius: 10px;
+cursor: pointer;">
+  Panel
+</a>
+    <div style="margin-top:80px;">
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasPanel" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <img src="https://i.pinimg.com/originals/de/62/3a/de623addcf7834fe3e121b1d5e147e9b.png" alt="foto de perfil" id="fotoPerfil" />
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Nombre de usuario</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body" style="display:list-item;">
+    <div>
+      Bienvenid@ a tu panel de acciones
+    </div>
+    <div class="dropend">
+      <button id="menu1" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropend
+      </button>
+      <ul class="dropdown-menu" style="position: absolute; top: 0; left: 100%; margin-top: -40px; z-index: 1050;">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      </ul>
+    </div>
+      <div class="dropend">
+  <button id="menu1" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropend
+  </button>
+  <ul class="dropdown-menu" style="position: absolute; top: 0; left: 100%; margin-top: -40px; z-index: 1050;">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+      <div class="dropend">
+  <button id="menu1" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropend
+  </button>
+  <ul class="dropdown-menu" style="position: absolute; top: 0; left: 100%; margin-top: -40px; z-index: 1050;">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+  </div>
+</div>
+
+    </div>
+</asp:Content>

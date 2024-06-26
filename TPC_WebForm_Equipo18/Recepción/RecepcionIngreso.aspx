@@ -1,0 +1,1 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PanelMasterUsuarios.master" AutoEventWireup="true" CodeBehind="RecepcionIngreso.aspx.cs" Inherits="TPC_WebForm_Equipo18.Recepción.RecepcionIngreso" %>
