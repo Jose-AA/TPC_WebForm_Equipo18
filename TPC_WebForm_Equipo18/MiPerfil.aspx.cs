@@ -35,7 +35,7 @@ namespace TPC_WebForm_Equipo18
                 txtDNI.Text = usuarioLogueado.Dni.ToString();
 
             if(!String.IsNullOrEmpty(usuarioLogueado.FechaNacimiento.ToString()) && !String.Equals("1/1/1754 00:00:00", usuarioLogueado.FechaNacimiento.ToString()))
-                txtFechaNacimiento.Text = usuarioLogueado.FechaNacimiento.ToString();
+                txtFechaNacimiento.Text = usuarioLogueado.FechaNacimiento.ToString("yyyy-MM-dd");
             
             if(!String.IsNullOrEmpty(usuarioLogueado.Direccion) && !String.Equals("N/A", usuarioLogueado.Direccion))
                 txtDomicilio.Text = usuarioLogueado.Direccion;
@@ -56,7 +56,7 @@ namespace TPC_WebForm_Equipo18
                 usuarioLogueado.Telefono = txtTelefono.Text;
 
             if (!String.IsNullOrEmpty(txtDNI.Text))
-                usuarioLogueado.Dni = int.Parse(txtDNI.Text);
+                usuarioLogueado.Dni = int.Parse(hiddenField.Value);
 
             if (!String.IsNullOrEmpty(txtFechaNacimiento.Text))
                 usuarioLogueado.FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);

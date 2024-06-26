@@ -58,21 +58,38 @@
                     </div>
                     <div class="form-group">
                         <label for="txtDNI">DNI</label>
-                        <asp:TextBox runat="server" for="txtDNI" ID="txtDNI" CssClass="form-control" placeholder="DNI" />
+                        <asp:TextBox runat="server" for="txtDNI" ID="txtDNI" CssClass="form-control" placeholder="DNI" onkeypress="return isNumberKey(event)" />
+                        <asp:HiddenField ID="hiddenField" runat="server" />
                     </div>
                     <div class="form-group">
                         <label for="txtFechaNacimiento">Fecha de nacimiento</label>
-                        <asp:TextBox runat="server" for="txtFechaNacimiento" ID="txtFechaNacimiento" CssClass="form-control" placeholder="Fecha de nacimiento" />
+                        <asp:TextBox TextMode="Date" runat="server" for="txtFechaNacimiento" ID="txtFechaNacimiento" CssClass="form-control" placeholder="Fecha de nacimiento" />
                     </div>
                     <div class="form-group">
                         <label for="txtDomicilio">Domicilio</label>
                         <asp:TextBox runat="server" for="txtDomicilio" ID="txtDomicilio" CssClass="form-control" placeholder="Domicilio" />
                     </div>
-                    <asp:Button Text="Guardar cambios" ID="btnGuardarCambios" runat="server" CssClass="btn btn-primary btn-block" OnClick="btnGuardarCambios_Click" />
+                    <asp:Button Text="Guardar cambios" ID="btnGuardarCambios" runat="server" CssClass="btn btn-primary btn-block" OnClick="btnGuardarCambios_Click" OnClientClick="storeValue()" />
                 </form>
             </div>
         </div>
     </div>
 
+    <script type="text/javascript">
+        //Funcion para que solo puedan ingresarse numeros para el campo DNI
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+
+        function storeValue() {
+            var txtNumero = document.getElementById('<%= txtDNI.ClientID %>').value;
+            document.getElementById('<%= hiddenField.ClientID %>').value = txtNumero;
+        }
+
+</script>
 
 </asp:Content>
