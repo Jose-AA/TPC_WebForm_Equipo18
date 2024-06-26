@@ -140,7 +140,40 @@ namespace Negocio
         }
 
 
+        public Usuario recuperarDatosPersonalesLogin(int idUsuario)
+        {
+            Usuario aux = new Usuario();
+            AccesoDatos datos = new AccesoDatos();
+            string query = "select nombre, apellido, dni, telefono, direccion, fecha_nacimiento from Datos_Personales where usuario_id = @id";
 
+            try
+            {
+                datos.settearConsulta(query);
+                datos.setearParametro("@id", idUsuario);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    aux.Nombre = (string)datos.Lector["nombre"];
+                    aux.Apellido = (string)datos.Lector["apellido"];
+                    aux.Dni = (long)datos.Lector["dni"];
+                    aux.Telefono = (string)datos.Lector["telefono"];
+                    aux.Direccion = (string)datos.Lector["direccion"];
+                    aux.FechaNacimiento = (DateTime)datos.Lector["fecha_nacimiento"];
+                }
+
+                return aux;
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
 
 

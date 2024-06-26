@@ -11,97 +11,70 @@ namespace TPC_WebForm_Equipo18
 {
 
 
-    public partial class PublicMaster
+    public partial class IniciarSesion
     {
 
         /// <summary>
-        /// head control.
+        /// txtEmailLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailLogin;
 
         /// <summary>
-        /// form1 control.
+        /// requiredEmailLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredEmailLogin;
 
         /// <summary>
-        /// LogoImage control.
+        /// txtContraseñaLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image LogoImage;
+        protected global::System.Web.UI.WebControls.TextBox txtContraseñaLogin;
 
         /// <summary>
-        /// ServicioRepeater control.
+        /// requiredContraseñaLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater ServicioRepeater;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredContraseñaLogin;
 
         /// <summary>
-        /// SearchTextBox control.
+        /// btnIniciarSesion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SearchTextBox;
+        protected global::System.Web.UI.WebControls.Button btnIniciarSesion;
 
         /// <summary>
-        /// SearchButton control.
+        /// lblErrorLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchButton;
+        protected global::System.Web.UI.WebControls.Label lblErrorLogin;
 
         /// <summary>
-        /// btnLogin control.
+        /// btnRegistrarse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
-
-        /// <summary>
-        /// UserImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image UserImage;
-
-        /// <summary>
-        /// btnCerrarSesion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCerrarSesion;
-
-        /// <summary>
-        /// ContentPlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button btnRegistrarse;
     }
 }

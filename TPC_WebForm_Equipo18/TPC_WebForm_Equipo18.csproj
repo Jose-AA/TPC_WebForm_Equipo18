@@ -124,6 +124,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\Site.css" />
     <Content Include="DetalleServicio.aspx" />
     <Content Include="DetalleServicio.css" />
@@ -134,7 +135,11 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ADMIN\ABM TURNOS\RegistrarTurnosDisponibles.aspx" />
+    <Content Include="IniciarSesion.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="MiPerfil.aspx" />
     <Content Include="QuienesSomos.aspx" />
+    <Content Include="Registrarse.aspx" />
     <Content Include="scriptsMaster.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -297,6 +302,27 @@
     <Compile Include="ADMIN\ABM TURNOS\RegistrarTurnosDisponibles.aspx.designer.cs">
       <DependentUpon>RegistrarTurnosDisponibles.aspx</DependentUpon>
     </Compile>
+    <Compile Include="IniciarSesion.aspx.cs">
+      <DependentUpon>IniciarSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IniciarSesion.aspx.designer.cs">
+      <DependentUpon>IniciarSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MiPerfil.aspx.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MiPerfil.aspx.designer.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+    </Compile>
     <Compile Include="QuienesSomos.aspx.cs">
       <DependentUpon>QuienesSomos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -311,6 +337,13 @@
     </Compile>
     <Compile Include="PublicMaster.Master.designer.cs">
       <DependentUpon>PublicMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Registrarse.aspx.cs">
+      <DependentUpon>Registrarse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registrarse.aspx.designer.cs">
+      <DependentUpon>Registrarse.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
