@@ -139,6 +139,8 @@
     <Content Include="Login.aspx" />
     <Content Include="MiPerfil.aspx" />
     <Content Include="QuienesSomos.aspx" />
+    <Content Include="Recepcion\AltaClientes.aspx" />
+    <Content Include="Recepcion\DatosPersonalesClientes.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="scriptsMaster.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -337,6 +339,20 @@
     </Compile>
     <Compile Include="PublicMaster.Master.designer.cs">
       <DependentUpon>PublicMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\AltaClientes.aspx.cs">
+      <DependentUpon>AltaClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recepcion\AltaClientes.aspx.designer.cs">
+      <DependentUpon>AltaClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\DatosPersonalesClientes.aspx.cs">
+      <DependentUpon>DatosPersonalesClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recepcion\DatosPersonalesClientes.aspx.designer.cs">
+      <DependentUpon>DatosPersonalesClientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registrarse.aspx.cs">
       <DependentUpon>Registrarse.aspx</DependentUpon>
