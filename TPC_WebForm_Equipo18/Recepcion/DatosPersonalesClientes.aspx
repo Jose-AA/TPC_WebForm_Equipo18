@@ -64,11 +64,16 @@
                     <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ForeColor="Red" ControlToValidate="inputTelefono" runat="server" />
                 </div>
                 <div class="form-group">
+                    <label for="inputDireccion" class="form-label">Direccion</label>
+                    <asp:TextBox ID="inputDireccion" runat="server" CssClass="form-control" MaxLength="20" />
+                    <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ForeColor="Red" ControlToValidate="inputDireccion" runat="server" />
+                </div>
+                <div class="form-group">
                     <label for="inputFechaNacimiento" class="form-label">Fecha de Nacimiento</label>
                     <asp:TextBox ID="inputFechaNacimiento" runat="server" CssClass="form-control" TextMode="Date" />
                     <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ForeColor="Red" ControlToValidate="inputFechaNacimiento" runat="server" />
                 </div>
-               
+                    <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-primary" Text="Guardar" OnClick="btnGuardar_Click" />
             </div>
         </main>
     

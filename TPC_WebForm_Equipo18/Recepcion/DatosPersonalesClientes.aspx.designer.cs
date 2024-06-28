@@ -51,6 +51,15 @@ namespace TPC_WebForm_Equipo18.Recepcion
         protected global::System.Web.UI.WebControls.TextBox inputTelefono;
 
         /// <summary>
+        /// Control inputDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputDireccion;
+
+        /// <summary>
         /// Control inputFechaNacimiento.
         /// </summary>
         /// <remarks>
@@ -58,5 +67,14 @@ namespace TPC_WebForm_Equipo18.Recepcion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputFechaNacimiento;
+
+        /// <summary>
+        /// Control btnGuardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
     }
 }

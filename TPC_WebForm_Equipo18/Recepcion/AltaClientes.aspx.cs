@@ -74,8 +74,8 @@ namespace TPC_WebForm_Equipo18.Recepcion
                 negocio.modificar(aux);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "modalseleccione", "abrirModal();", true);
             }
-            int id = aux.IdUsuario; 
-            ClientScript.RegisterStartupScript(this.GetType(), "PassUserId", $"var userId = {id};", true);
+            
+            Session["id_usuario"] = aux.IdUsuario;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "delayRedireccion", "redirectAfterDelay();", true);
         }
         catch (Exception ex)
