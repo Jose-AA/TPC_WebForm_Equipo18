@@ -12,6 +12,7 @@ namespace TPC_WebForm_Equipo18.Recepcion
     public partial class RegistroUsuariosDesdeRecepcion : System.Web.UI.Page
     {
         bool modoEdicion = false;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -47,21 +48,13 @@ namespace TPC_WebForm_Equipo18.Recepcion
 
         if (IsPostBack)
         {
-
-
-            
-
-            
-                aux.IdRol = 4;
-            
-
-
+            aux.IdRol = 4;
             aux.Email = inputCorreo.Text;
             aux.Contraseña = inputContraseña.Text;
-
+            int id;
             if (Request.QueryString["id"] != null)
             {
-                int id = int.Parse(Request.QueryString["id"]);
+                id = int.Parse(Request.QueryString["id"]);
                 aux.IdUsuario = id;
                 modoEdicion = true;
             }
@@ -81,7 +74,8 @@ namespace TPC_WebForm_Equipo18.Recepcion
                 negocio.modificar(aux);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "modalseleccione", "abrirModal();", true);
             }
-
+            int id = aux.IdUsuario; 
+            ClientScript.RegisterStartupScript(this.GetType(), "PassUserId", $"var userId = {id};", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "delayRedireccion", "redirectAfterDelay();", true);
         }
         catch (Exception ex)
