@@ -16,21 +16,24 @@ namespace TPC_WebForm_Equipo18.Recepcion
         public Usuario Acargar { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            Acargar = new Usuario();
 
-            if(!IsPostBack)
-            {
-                ID = Convert.ToInt32(Session["id_usuario"]);
 
-            }
-
+            
+            
+                
+              ID = Convert.ToInt32(Session["id_usuario"]);
+                    
+                
+            
 
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            
             if(ID != 0)
             {
+                Negocio = new DatosPersonalesNegocio();
                 Acargar = new Usuario();
                 Acargar.IdUsuario = ID;
                 Acargar.Nombre = inputNombre.Text;
@@ -43,7 +46,7 @@ namespace TPC_WebForm_Equipo18.Recepcion
             }
                 try
                 {
-                    Negocio.agregar(Acargar);
+                    Negocio.modificar(Acargar);
                     
                 }
                 catch (Exception ex)
