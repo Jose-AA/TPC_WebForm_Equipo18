@@ -101,6 +101,7 @@
   <ItemGroup>
     <Content Include="ADMIN\ABM DatosPersonales\Modificar Datos Pesonales.aspx" />
     <Content Include="ADMIN\ABM DatosPersonales\RegistrarDatosPersonales.aspx" />
+    <Content Include="ADMIN\ABM Servicios\Bajalogica-AltaLogica.aspx" />
     <Content Include="ADMIN\ABM Servicios\ModificarImagenesPorServicio.aspx" />
     <Content Include="ADMIN\ABM Servicios\ModificarServicios.aspx" />
     <Content Include="ADMIN\ABM Servicios\RegistrarServicio.aspx" />
@@ -212,6 +213,13 @@
     </Compile>
     <Compile Include="ADMIN\ABM DatosPersonales\RegistrarDatosPersonales.aspx.designer.cs">
       <DependentUpon>RegistrarDatosPersonales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ABM Servicios\Bajalogica-AltaLogica.aspx.cs">
+      <DependentUpon>Bajalogica-AltaLogica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\ABM Servicios\Bajalogica-AltaLogica.aspx.designer.cs">
+      <DependentUpon>Bajalogica-AltaLogica.aspx</DependentUpon>
     </Compile>
     <Compile Include="ADMIN\ABM Servicios\ModificarImagenesPorServicio.aspx.cs">
       <DependentUpon>ModificarImagenesPorServicio.aspx</DependentUpon>

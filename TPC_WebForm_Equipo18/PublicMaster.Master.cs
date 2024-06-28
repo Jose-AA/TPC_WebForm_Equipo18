@@ -67,7 +67,7 @@ namespace TPC_WebForm_Equipo18
             Session.Add("ServicioSeleccionado", seleccionado);
 
             //Llevamos al usuario a la pagina donde se mostraran los datos
-            Response.Redirect("DetalleServicio.aspx");
+            Response.Redirect("/DetalleServicio.aspx");
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

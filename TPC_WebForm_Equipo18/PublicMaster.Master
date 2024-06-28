@@ -63,7 +63,7 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="/ADMIN/ABM%20Servicios/RegistrarServicio">Registrar Servicios</a></li>
                                         <li><a class="dropdown-item" href="/ADMIN/ABM%20Servicios/ModificarServicios">Modificar Servicios</a></li>
-                                        <li><a class="dropdown-item" href="#">Borrar Servicio</a></li>
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20Servicios/Bajalogica-AltaLogica">Activar / Desactivar Servicios </a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">
