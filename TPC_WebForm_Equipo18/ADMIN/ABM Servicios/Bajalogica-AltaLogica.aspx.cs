@@ -37,16 +37,16 @@ namespace TPC_WebForm_Equipo18.ADMIN.ABM_Servicios
             {
                 int servicioId = Convert.ToInt32(((Label)gridViewRow.FindControl("Iddelservicio")).Text);
 
-                // Obtener el servicio asociado al ítem del GridView
+             
                 Servicio servicioModificado = new Servicio();
                 servicioModificado.Id = servicioId;
                 servicioModificado.Activo = Convert.ToBoolean(rblEstado.SelectedValue);
 
-                // Actualizar en la base de datos utilizando el objeto negocio correspondiente
+               
                 ServicioNegocio negocio = new ServicioNegocio();
                 negocio.ActualizarEstado(servicioModificado);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Alert", "showSuccessModal()", true);
-                // Volver a cargar los servicios en el GridView
+               
                 CargarServicios();
                 
             }

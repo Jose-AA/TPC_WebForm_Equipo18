@@ -5,7 +5,7 @@
 
     <header style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
 
-        <h1>Crear Usuario</h1>
+        <h1>Registrar o Modificar </h1>
     </header>
     <main>
         <div class="row g-1" style="margin-left: 20px; margin-right: 20px;">
