@@ -1,41 +1,85 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PublicMaster.Master" AutoEventWireup="true" CodeBehind="AltaClientes.aspx.cs" Inherits="TPC_WebForm_Equipo18.Recepcion.RegistroUsuariosDesdeRecepcion" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+    main {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .form-container {
+        background-color: #57BC90; 
+        border-radius: 30px;
+        border-color: #015249;
+        padding: 20px;
+        width: 340px; 
+        box-shadow: 0 0 15px 5px #015249; 
+    }
+
+    .form-group {
+        width: 300px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #015249; 
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .btn-primary {
+        display: block;
+        margin: 20px auto 0 auto;
+        background: #015249;
+        border-color: #015249;
+    }
+    .btn-primary:hover{
+        background-color: #1a6961;
+        border-color: #1a6961;
+    }
+</style>
 
 
     <header style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
 
-    <h1>Crear Usuario</h1>
 </header>
+    
 <main>
-    <div class="row g-1" style="margin-left: 20px; margin-right: 20px;">
-        <div class="col-md-6">
+    <div class="form-container">
+    <h1>Nuevo Cliente</h1>
+        <div class="form-group">
             <label for="inputCorreo" class="form-label">Correo Electrónico</label>
             <asp:TextBox ID="inputCorreo" runat="server" CssClass="form-control" MaxLength="255" />
             <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ForeColor="Red" ControlToValidate="inputCorreo" runat="server" />
             <asp:RegularExpressionValidator ErrorMessage="* Debe ingresar un mail válido" ControlToValidate="inputCorreo" ForeColor="Red"
-ValidationExpression="^([\w\.-]+)@((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})|(([\w-]+\.)+[a-zA-Z]{2,4}))$" runat="server" />
+                ValidationExpression="^([\w\.-]+)@((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})|(([\w-]+\.)+[a-zA-Z]{2,4}))$" runat="server" />
         </div>
-        <div class="col-md-6">
+        <div class="form-group">
             <label for="inputContraseña" class="form-label">Contraseña</label>
             <asp:TextBox ID="inputContraseña" runat="server" CssClass="form-control" MaxLength="50" TextMode="Password" />
             <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ForeColor="Red" ControlToValidate="inputContraseña" runat="server" />
         </div>
-        <div class="col-md-6">
+        <div class="form-group">
             <label for="inputConfirmarContraseña" class="form-label">Confirmar Contraseña</label>
             <asp:TextBox ID="inputConfirmarContraseña" runat="server" CssClass="form-control" MaxLength="50" TextMode="Password" />
             <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ForeColor="Red" ControlToValidate="inputConfirmarContraseña" runat="server" />
             <asp:CompareValidator ErrorMessage="* Las contraseñas no coinciden" ForeColor="Red" ControlToValidate="inputConfirmarContraseña" 
                 controlToCompare="inputContraseña" runat="server" />
         </div>
-        
 
-        <div class="col-12">
-            <asp:Button ID="btnCrearUsuario" runat="server" CssClass="btn btn-primary" Text="Crear Usuario" OnClick="btnCrearUsuario_Click" />
-        </div>
+        <asp:Button ID="btnCrearUsuario" runat="server" CssClass="btn btn-primary" Text="Crear Usuario" OnClick="btnCrearUsuario_Click" />
     </div>
 </main>
+
 
 
 
