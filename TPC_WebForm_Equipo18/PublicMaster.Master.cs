@@ -18,7 +18,8 @@ namespace TPC_WebForm_Equipo18
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            usuarioLogueado = (Usuario)Session["usuario"];
+            // usuarioLogueado = (Usuario)Session["usuario"];
+            usuarioLogueado.IdRol = 1;
             ServicioNegocio negocio = new ServicioNegocio();
 
 

@@ -73,9 +73,69 @@ namespace TPC_WebForm_Equipo18.ADMIN.ABM_TURNOS
         {
             VisualizacionTurnosAdminNegocio negocio = new VisualizacionTurnosAdminNegocio();
             List<VisualizaciondeturnosAdmin> lista = negocio.ListarTurnos();
+
+            string busqueda = txtBuscar.Text.ToLower();
+            string fechaSeleccionada = FechaSeleccionada.Text;
+
+            string filtro = ddlFiltro.SelectedValue;
+
+
+            switch (filtro)
+            {
+                case "NombreServicio":
+                    if (!string.IsNullOrEmpty(busqueda))
+                    {
+                        lista = lista.FindAll(x => x.ServicioNombre.ToLower().Contains(busqueda));
+                    }
+                    break;
+
+                case "NombreCliente":
+                    if (!string.IsNullOrEmpty(busqueda))
+                    {
+                        lista = lista.FindAll(x => x.ClienteNombre.ToLower().Contains(busqueda));
+                    }
+                    break;
+
+                case "NombreEspecialista":
+                    if (!string.IsNullOrEmpty(busqueda))
+                    {
+                        lista = lista.FindAll(x => x.EspecialistaNombre.ToLower().Contains(busqueda));
+                    }
+                    break;
+
+                default:
+                  
+                    break;
+            }
+          
+            if (!string.IsNullOrEmpty(fechaSeleccionada))
+            {
+                DateTime fecha;
+                if (DateTime.TryParse(fechaSeleccionada, out fecha))
+                {
+                    lista = lista.FindAll(x => x.FechaDeTurno.Date == fecha.Date);
+                }
+            }
+
             gridTurnos.DataSource = lista;
             gridTurnos.DataBind();
         }
 
+
+        protected void ddlFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            CargarTurnos();
+
+        }
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
