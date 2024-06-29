@@ -14,46 +14,57 @@ namespace TPC_WebForm_Equipo18.Recepcion
         DatosPersonalesNegocio Negocio = new DatosPersonalesNegocio();
         int ID = 0;
         public Usuario Acargar { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-            
-            
-                
-              ID = Convert.ToInt32(Session["id_usuario"]);
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["id"] != null)
+                {
+                    int userId;
+                    if (int.TryParse(Request.QueryString["id"], out userId))
+                    {
+                        // Ahora tienes el userId, puedes usarlo para cargar datos del usuario, etc.
+                        ID = userId;
+                        Session["id_usuario"] = ID; // Guardar en sesión para usar más tarde
+                    }
                     
-                
-            
-
+                }
+            }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            
-            if(ID != 0)
+            int idseleccionado = 0;
+            if (Session["id_usuario"] != null)
             {
-                Negocio = new DatosPersonalesNegocio();
-                Acargar = new Usuario();
-                Acargar.IdUsuario = ID;
-                Acargar.Nombre = inputNombre.Text;
-                Acargar.Apellido = inputApellido.Text;
-                Acargar.Dni = Convert.ToInt64(inputDNI.Text);
-                Acargar.Telefono = inputTelefono.Text;
-                Acargar.Direccion = inputDireccion.Text;
-                Acargar.FechaNacimiento = Convert.ToDateTime(inputFechaNacimiento.Text);
-
+                idseleccionado = Convert.ToInt32(Session["id_usuario"]);
             }
+
+            if (idseleccionado != 0)
+            {
+                Usuario usuario = new Usuario
+                {
+                    IdUsuario = idseleccionado,
+                    Nombre = inputNombre.Text,
+                    Apellido = inputApellido.Text,
+                    Dni = Convert.ToInt64(inputDNI.Text),
+                    Telefono = inputTelefono.Text,
+                    Direccion = inputDireccion.Text,
+                    FechaNacimiento = Convert.ToDateTime(inputFechaNacimiento.Text)
+                };
+
                 try
                 {
-                    Negocio.modificar(Acargar);
-                    
+                    Negocio.agregar(usuario);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "modalModificado", "modificadoexitosamente()", true);
                 }
                 catch (Exception ex)
                 {
                     Session.Add("error", ex);
-                    
                 }
+            }
+            
         }
     }
 }
