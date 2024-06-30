@@ -81,6 +81,29 @@ public class TurnoNegocio
         }
     }
 
+    public void ActualizarEstado(Turno turno)
+    {
+        AccesoDatos datos = new AccesoDatos();
+        string query = @"UPDATE Turnos SET estado_id = @estado_id WHERE turno_id = @turno_id";
+
+        try
+        {
+            datos.settearConsulta(query);
+            datos.setearParametro("@estado_id", turno.Estado);
+            datos.setearParametro("@turno_id", turno.ID);
+
+            datos.ejecutarAccion();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            datos.cerrarConexion();
+        }
+    }
+
 
 
 }

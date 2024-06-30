@@ -16,8 +16,7 @@ namespace Negocio
             List<Servicio> lista = new List<Servicio>();
             AccesoDatos datos = new AccesoDatos();
 
-            string query = "select servicio_id, nombre, descripcion, duracion, precio from Servicios";
-
+            string query = "SELECT servicio_id, nombre, descripcion, duracion, precio, activo FROM Servicios";
 
             try
             {
@@ -31,13 +30,13 @@ namespace Negocio
                     aux.Nombre = (string)datos.Lector["nombre"];
                     aux.Descripcion = (string)datos.Lector["descripcion"];
                     aux.Duracion = (int)datos.Lector["duracion"];
-                    aux.Precio = (decimal)datos.Lector["precio"];
+                    aux.Precio = Math.Round((decimal)datos.Lector["precio"], 2);
+                    aux.Activo = (bool)datos.Lector["activo"]; 
 
                     lista.Add(aux);
                 }
 
                 return lista;
-
             }
             catch (Exception ex)
             {
@@ -47,8 +46,6 @@ namespace Negocio
             {
                 datos.cerrarConexion();
             }
-
-           
         }
 
         public void Agregar(Servicio nuevo)
@@ -78,7 +75,7 @@ namespace Negocio
         public void Modificar(Servicio servicio)
         {
             AccesoDatos datos = new AccesoDatos();
-            string query = "UPDATE Servicios SET nombre = @nombre, descripcion = @descripcion, duracion = @duracion, precio = @precio WHERE servicio_id = @id";
+            string query = "UPDATE Servicios SET nombre = @nombre, descripcion = @descripcion, duracion = @duracion, precio = @precio, activo = @activo WHERE servicio_id = @id";
 
             try
             {
@@ -87,6 +84,7 @@ namespace Negocio
                 datos.setearParametro("@descripcion", servicio.Descripcion);
                 datos.setearParametro("@duracion", servicio.Duracion);
                 datos.setearParametro("@precio", servicio.Precio);
+                datos.setearParametro("@activo", servicio.Activo);
                 datos.setearParametro("@id", servicio.Id);
                 datos.ejecutarAccion();
             }
@@ -218,6 +216,28 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-        
+
+        public void ActualizarEstado(Servicio servicio)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string query = "UPDATE Servicios SET activo = @activo WHERE servicio_id = @id";
+
+            try
+            {
+                datos.settearConsulta(query);
+                datos.setearParametro("@activo", servicio.Activo);
+                datos.setearParametro("@id", servicio.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 }

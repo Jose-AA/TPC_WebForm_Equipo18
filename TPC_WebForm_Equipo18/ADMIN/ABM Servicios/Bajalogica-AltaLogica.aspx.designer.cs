@@ -7,56 +7,38 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace TPC_WebForm_Equipo18
+namespace TPC_WebForm_Equipo18.ADMIN.ABM_Servicios
 {
 
 
-    public partial class RegistrarUsuario
+    public partial class Bajalogica_AltaLogica
     {
 
         /// <summary>
-        /// Control inputCorreo.
+        /// Control ScriptManager1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputCorreo;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// Control inputContraseña.
+        /// Control updatePanelGridView.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputContraseña;
+        protected global::System.Web.UI.UpdatePanel updatePanelGridView;
 
         /// <summary>
-        /// Control inputConfirmarContraseña.
+        /// Control gridServicios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputConfirmarContraseña;
-
-        /// <summary>
-        /// Control ddlRoles.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRoles;
-
-        /// <summary>
-        /// Control btnCrearUsuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCrearUsuario;
+        protected global::System.Web.UI.WebControls.GridView gridServicios;
     }
 }
