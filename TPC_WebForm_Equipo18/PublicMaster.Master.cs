@@ -18,8 +18,8 @@ namespace TPC_WebForm_Equipo18
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            // usuarioLogueado = (Usuario)Session["usuario"];
-            usuarioLogueado.IdRol = 1;
+            usuarioLogueado = (Usuario)Session["usuario"];
+            //usuarioLogueado.IdRol = 1;
             ServicioNegocio negocio = new ServicioNegocio();
 
 
@@ -73,7 +73,7 @@ namespace TPC_WebForm_Equipo18
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("IniciarSesion.aspx");
+            Response.Redirect("/Login/IniciarSesion.aspx");
         }
 
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -82,12 +82,12 @@ namespace TPC_WebForm_Equipo18
             //Eliminamos la sesion activa, y redirigimos nuevamente a la pagina principal
             Session["usuario"] = null;
 
-            Response.Redirect("Default.aspx");
+            Response.Redirect("/Default.aspx");
         }
 
         protected void btnPerfil_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MiPerfil.aspx");
+            Response.Redirect("/Perfil%20Usuario/MiPerfil.aspx");
         }
     }
 }

@@ -19,7 +19,7 @@ namespace TPC_WebForm_Equipo18
 
             if (usuarioLogueado == null)
             {
-                Response.Redirect("Default.aspx");
+                Response.Redirect("/Default.aspx");
             }
 
             if (!IsPostBack)
@@ -69,7 +69,7 @@ namespace TPC_WebForm_Equipo18
 
             negocio.modificar(usuarioLogueado);
 
-            Response.Redirect("MiPerfil.aspx");
+            Response.Redirect("/Perfil%20Usuario/MiPerfil.aspx");
         }
     }
 }

@@ -64,6 +64,7 @@
                                         <li><a class="dropdown-item" href="/ADMIN/ABM%20Servicios/RegistrarServicio">Registrar Servicios</a></li>
                                         <li><a class="dropdown-item" href="/ADMIN/ABM%20Servicios/ModificarServicios">Modificar Servicios</a></li>
                                         <li><a class="dropdown-item" href="/ADMIN/ABM%20Servicios/Bajalogica-AltaLogica">Activar / Desactivar Servicios </a></li>
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20Servicios/AsociacionSevicioEspecialista">Asociar Especialista a Servicio </a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">

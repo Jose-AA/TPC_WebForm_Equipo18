@@ -137,16 +137,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ADMIN\ABM TURNOS\RegistrarTurnosDisponibles.aspx" />
-    <Content Include="IniciarSesion.aspx" />
-    <Content Include="Login.aspx" />
-    <Content Include="MiPerfil.aspx" />
+    <Content Include="Login\IniciarSesion.aspx" />
+    <Content Include="Login\Login.aspx" />
+    <Content Include="Perfil Usuario\MiPerfil.aspx" />
     <Content Include="QuienesSomos.aspx" />
     <Content Include="Recepcion\Alta de clientes\AltaClientes.aspx" />
     <Content Include="Recepcion\Alta de clientes\DatosPersonalesClientes.aspx" />
     <Content Include="Recepcion\HistorialesClinicos\historialClinicoRecepcion.aspx" />
     <Content Include="Recepcion\ListarClientesRecepcion.aspx" />
     <Content Include="Recepcion\TurnosRecepcion\TurnosRecepcion.aspx" />
-    <Content Include="Registrarse.aspx" />
+    <Content Include="Login\Registrarse.aspx" />
     <Content Include="scriptsMaster.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -199,7 +199,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="SolicitarTurno.aspx" />
+    <Content Include="Cliente\SolicitarTurno.aspx" />
     <Content Include="stylesHome.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -324,25 +324,25 @@
     <Compile Include="ADMIN\ABM TURNOS\RegistrarTurnosDisponibles.aspx.designer.cs">
       <DependentUpon>RegistrarTurnosDisponibles.aspx</DependentUpon>
     </Compile>
-    <Compile Include="IniciarSesion.aspx.cs">
+    <Compile Include="Login\IniciarSesion.aspx.cs">
       <DependentUpon>IniciarSesion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="IniciarSesion.aspx.designer.cs">
+    <Compile Include="Login\IniciarSesion.aspx.designer.cs">
       <DependentUpon>IniciarSesion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
+    <Compile Include="Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
+    <Compile Include="Login\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MiPerfil.aspx.cs">
+    <Compile Include="Perfil Usuario\MiPerfil.aspx.cs">
       <DependentUpon>MiPerfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MiPerfil.aspx.designer.cs">
+    <Compile Include="Perfil Usuario\MiPerfil.aspx.designer.cs">
       <DependentUpon>MiPerfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="QuienesSomos.aspx.cs">
@@ -395,11 +395,11 @@
     <Compile Include="Recepcion\TurnosRecepcion\TurnosRecepcion.aspx.designer.cs">
       <DependentUpon>TurnosRecepcion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registrarse.aspx.cs">
+    <Compile Include="Login\Registrarse.aspx.cs">
       <DependentUpon>Registrarse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registrarse.aspx.designer.cs">
+    <Compile Include="Login\Registrarse.aspx.designer.cs">
       <DependentUpon>Registrarse.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
@@ -416,11 +416,11 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="SolicitarTurno.aspx.cs">
+    <Compile Include="Cliente\SolicitarTurno.aspx.cs">
       <DependentUpon>SolicitarTurno.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SolicitarTurno.aspx.designer.cs">
+    <Compile Include="Cliente\SolicitarTurno.aspx.designer.cs">
       <DependentUpon>SolicitarTurno.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
@@ -433,6 +433,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Especialista\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
