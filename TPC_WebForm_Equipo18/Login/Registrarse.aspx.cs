@@ -21,7 +21,7 @@ namespace TPC_WebForm_Equipo18
 
             if (usuarioLogueado != null)
             {
-                Response.Redirect("Default.aspx");
+                Response.Redirect("/Default.aspx");
             }
         }
 
@@ -76,12 +76,12 @@ namespace TPC_WebForm_Equipo18
             datosPersonalesNegocio.agregar(nuevo);
 
             Session.Add("usuario", nuevo);
-            Response.Redirect("MiPerfil.aspx");
+            Response.Redirect("/Perfil%20Usuario/MiPerfil.aspx");
         }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("IniciarSesion.aspx");
+            Response.Redirect("/Login/IniciarSesion.aspx");
         }
     }
 }

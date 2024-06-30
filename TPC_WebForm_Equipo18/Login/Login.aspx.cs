@@ -91,7 +91,7 @@ namespace TPC_WebForm_Equipo18
             datosPersonalesNegocio.agregar(nuevo);
 
             Session.Add("usuario", nuevo);
-            Response.Redirect("MiPerfil.aspx");
+            Response.Redirect("/Perfil%20Usuario/MiPerfil.aspx");
         }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)
@@ -151,7 +151,7 @@ namespace TPC_WebForm_Equipo18
             logueado.FechaNacimiento = auxDatosPersonales.FechaNacimiento;
 
             Session.Add("usuario", logueado);
-            Response.Redirect("MiPerfil.aspx");
+            Response.Redirect("/Perfil%20Usuario/MiPerfil.aspx");
 
         }
     }

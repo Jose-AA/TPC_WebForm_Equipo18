@@ -20,7 +20,7 @@ namespace TPC_WebForm_Equipo18
 
             if (usuarioLogueado != null)
             {
-                Response.Redirect("Default.aspx");
+                Response.Redirect("/Default.aspx");
             }
 
             if (IsPostBack)
@@ -79,12 +79,12 @@ namespace TPC_WebForm_Equipo18
             logueado.FechaNacimiento = auxDatosPersonales.FechaNacimiento;
 
             Session.Add("usuario", logueado);
-            Response.Redirect("MiPerfil.aspx");
+            Response.Redirect("/Perfil%20Usuario/MiPerfil.aspx");
         }
 
         protected void btnRegistrarse_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Registrarse.aspx");
+            Response.Redirect("/Login/Registrarse.aspx");
         }
     }
 }
