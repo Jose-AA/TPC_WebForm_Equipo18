@@ -34,6 +34,8 @@ namespace Dominio
             return Nombre;
         }
 
+        public bool Activo { get; set; } // Añadi esta propiedad para validar el estado.
+
     }
 
 

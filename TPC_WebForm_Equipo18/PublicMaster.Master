@@ -63,7 +63,7 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="/ADMIN/ABM%20Servicios/RegistrarServicio">Registrar Servicios</a></li>
                                         <li><a class="dropdown-item" href="/ADMIN/ABM%20Servicios/ModificarServicios">Modificar Servicios</a></li>
-                                        <li><a class="dropdown-item" href="#">Borrar Servicio</a></li>
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20Servicios/Bajalogica-AltaLogica">Activar / Desactivar Servicios </a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">
@@ -207,7 +207,7 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mi Perfil</a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li class="item">
-                                    <a class="dropdown-item" href="#">Datos Personales</a>
+                                    <asp:Button Text="Datos Personales" ID="btnPerfil" CssClass="dropdown-item" OnClick="btnPerfil_Click" runat="server" />
                                 </li>
                                 <li class="item">
                                     <a class="dropdown-item" href="#">Cambiar Contraseña</a>

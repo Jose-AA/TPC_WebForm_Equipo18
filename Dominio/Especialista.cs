@@ -20,5 +20,9 @@ namespace Dominio
     public class Especialista : Usuario
     {
         public List<Resena> Resenas { get; set; }
-    }
+        public Servicio ServicioAsociado { get; set; }
+
+    }   
+    
+    
 }
