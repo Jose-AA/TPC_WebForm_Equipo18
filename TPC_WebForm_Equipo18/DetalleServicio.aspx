@@ -21,7 +21,7 @@
                 </p>
 
                 <div class="service-button">
-                    <a href="#" class="add-turn-btn">Solicitar Turno</a>
+                    <asp:Button Text="Solicitar Turno" ID="btnSolicitarTurno" CssClass="add-turn-btn" OnClick="btnSolicitarTurno_Click" runat="server" />
                     <a href="#" class="add-fav-btn">Añadir a Favoritos</a>
                 </div>
       

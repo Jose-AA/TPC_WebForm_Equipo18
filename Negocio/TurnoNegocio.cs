@@ -1,4 +1,4 @@
-﻿using Dominio;
+using Dominio;
 using negocio;
 using System;
 using System.Collections.Generic;
@@ -104,7 +104,73 @@ public class TurnoNegocio
         }
     }
 
+public List<Turno> listarPorServicio(Especialista especialista, Servicio servicio)
+{
+    AccesoDatos datos = new AccesoDatos();
+    List<Turno> lista = new List<Turno>();
+    string query = "select turno_id, fecha_turno, hora_turno from Turnos where especialista_id = @idEspecialista and servicio_id = @idServicio and fecha_turno >= cast(getdate() as date) and estado_id = 1 and cliente_id is null order by fecha_turno asc, hora_turno asc";
+
+    try
+    {
+        datos.settearConsulta(query);
+        datos.setearParametro("@idEspecialista", especialista.IdUsuario);
+        datos.setearParametro("@idServicio", servicio.Id);
+
+        datos.ejecutarLectura();
+
+        while (datos.Lector.Read())
+        {
+            Turno aux = new Turno();
+            aux.ID = (int)datos.Lector["turno_id"];
+            aux.FechaDeTurno = DateTime.Parse(datos.Lector["fecha_turno"].ToString());
+            aux.HoraDeTurno = TimeSpan.Parse(datos.Lector["hora_turno"].ToString());
+            aux.Especialista = especialista;
+            aux.Servicio = servicio;
+            aux.Estado = 1;
+
+            lista.Add(aux);
+        }
+
+        return lista;
+    }
+    catch(Exception ex)
+    {
+        throw ex;
+    }
+    finally
+    {
+        datos.cerrarConexion();
+    }
 
 
 }
+
+public void tomarTurno(int idCliente, int idTurno)
+{
+    AccesoDatos datos = new AccesoDatos();
+    string query = "update Turnos set cliente_id = @idCliente where turno_id = @idTurno";
+
+    try
+    {
+        datos.settearConsulta(query);
+        datos.setearParametro("@idCliente", idCliente);
+        datos.setearParametro("@idTurno", idTurno);
+
+        datos.ejecutarAccion();
+    }
+    catch(Exception ex)
+    {
+        throw ex;
+    }
+    finally
+    {
+        datos.cerrarConexion();
+    }
+
+}
+  
+ 
+}
+
+
 

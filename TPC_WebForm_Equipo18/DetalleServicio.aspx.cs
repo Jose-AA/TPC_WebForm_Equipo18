@@ -21,9 +21,14 @@ namespace TPC_WebForm_Equipo18
 
                 if(servicioSeleccionado == null)
                 {
-                    Response.Redirect("Home.aspx");
+                    Response.Redirect("/Default.aspx");
                 }
             }
+        }
+
+        protected void btnSolicitarTurno_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SolicitarTurno.aspx");
         }
     }
 }
