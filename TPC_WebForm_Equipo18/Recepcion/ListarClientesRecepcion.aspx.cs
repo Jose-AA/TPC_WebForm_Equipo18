@@ -12,6 +12,7 @@ namespace TPC_WebForm_Equipo18.Recepcion
     public partial class ListarClientesRecepcion : System.Web.UI.Page
     {
         public List<Usuario> listaUsuario = new List<Usuario>();
+        int IDSeleccionado = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -29,7 +30,7 @@ namespace TPC_WebForm_Equipo18.Recepcion
             refrescarLista();
         }
 
-        ///ACAAAAAAAA
+        
         private void refrescarLista()
         {
             DatosPersonalesNegocio negocio = new DatosPersonalesNegocio();
@@ -49,12 +50,18 @@ namespace TPC_WebForm_Equipo18.Recepcion
 
         protected void btnModificarCliente_Click(object sender, EventArgs e)
         {
-            
+            if (gridUsuarios.SelectedDataKey != null)
+            {
+                string idSeleccion = gridUsuarios.SelectedDataKey.Value.ToString();
+
+                //Response.Redirect(".aspx?id=" + idSeleccion);
+            }
         }
 
         protected void btnEliminarCliente_Click(object sender, EventArgs e)
         {
-
+            //Por el momento no habrá baja lógica ni física de cliente. Dejo el botón por las dudas
+            //de que lo implementemos. De última, antes de la entrega se saca.
         }
         
         protected void gridUsuarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,8 +74,8 @@ namespace TPC_WebForm_Equipo18.Recepcion
                 }
                 else
                 {
-                    row.CssClass = "selected-row";
-                    //row.CssClass = string.Empty;
+                    
+                    row.CssClass = string.Empty;
                 }
             }
         }
@@ -88,7 +95,7 @@ namespace TPC_WebForm_Equipo18.Recepcion
             if (e.CommandName == "Delete")
             {
                 int rowIndex = Convert.ToInt32(e.CommandArgument);
-                int userId = Convert.ToInt32(gridUsuarios.DataKeys[rowIndex].Values[0]);
+                IDSeleccionado = Convert.ToInt32(gridUsuarios.DataKeys[rowIndex].Values[0]);
 
                 UsuarioNegocio negocio = new UsuarioNegocio();
                 
@@ -97,12 +104,22 @@ namespace TPC_WebForm_Equipo18.Recepcion
 
         protected void btnVerTurnos_Click(object sender, EventArgs e)
         {
+            if (gridUsuarios.SelectedDataKey != null)
+            {
+                string idSeleccion = gridUsuarios.SelectedDataKey.Value.ToString();
 
+                Response.Redirect("TurnosRecepcion/TurnosRecepcion.aspx?id=" + idSeleccion);
+            }
         }
 
         protected void btnVerHistorial_Click(object sender, EventArgs e)
         {
-
+            if (gridUsuarios.SelectedDataKey != null)
+            {
+                string idSeleccion = gridUsuarios.SelectedDataKey.Value.ToString();
+                
+                Response.Redirect("HistorialesClinicos/HistorialClinicoRecepcion.aspx?id=" + idSeleccion);
+            }
         }
 
         protected void btnBlanqueo_Click(object sender, EventArgs e)

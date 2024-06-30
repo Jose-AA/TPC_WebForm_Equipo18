@@ -24,9 +24,9 @@ namespace TPC_WebForm_Equipo18.Recepcion
                     int userId;
                     if (int.TryParse(Request.QueryString["id"], out userId))
                     {
-                        // Ahora tienes el userId, puedes usarlo para cargar datos del usuario, etc.
+                        
                         ID = userId;
-                        Session["id_usuario"] = ID; // Guardar en sesión para usar más tarde
+                        Session["id_usuario"] = ID;
                     }
                     
                 }

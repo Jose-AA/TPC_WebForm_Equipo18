@@ -36,7 +36,7 @@
             border-color: black;
         }
         .selected-row {
-            background-color: #007bff;
+            background-color: #015249;
             color: white;
         }
     </style>
