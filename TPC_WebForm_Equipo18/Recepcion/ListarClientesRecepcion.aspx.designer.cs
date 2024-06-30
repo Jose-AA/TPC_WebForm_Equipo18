@@ -51,6 +51,33 @@ namespace TPC_WebForm_Equipo18.Recepcion
         protected global::System.Web.UI.WebControls.Button btnEliminarCliente;
 
         /// <summary>
+        /// Control btnVerTurnos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVerTurnos;
+
+        /// <summary>
+        /// Control btnVerHistorial.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVerHistorial;
+
+        /// <summary>
+        /// Control btnBlanqueo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBlanqueo;
+
+        /// <summary>
         /// Control gridUsuarios.
         /// </summary>
         /// <remarks>

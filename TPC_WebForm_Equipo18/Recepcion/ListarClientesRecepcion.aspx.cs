@@ -49,7 +49,7 @@ namespace TPC_WebForm_Equipo18.Recepcion
 
         protected void btnModificarCliente_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnEliminarCliente_Click(object sender, EventArgs e)
@@ -59,17 +59,16 @@ namespace TPC_WebForm_Equipo18.Recepcion
         
         protected void gridUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string idSeleccion = gridUsuarios.SelectedDataKey.Value.ToString();
-            Response.Redirect("RegistrarUsuario.aspx?id=" + idSeleccion);
             foreach (GridViewRow row in gridUsuarios.Rows)
             {
                 if (row.RowIndex == gridUsuarios.SelectedIndex)
                 {
-                    row.CssClass = "selected-row"; // Agregar una clase CSS para la fila seleccionada
+                    row.CssClass = "selected-row"; 
                 }
                 else
                 {
-                    row.CssClass = string.Empty;
+                    row.CssClass = "selected-row";
+                    //row.CssClass = string.Empty;
                 }
             }
         }
@@ -78,7 +77,8 @@ namespace TPC_WebForm_Equipo18.Recepcion
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gridUsuarios, "Select$" + e.Row.RowIndex);
+                string postBackEventReference = Page.ClientScript.GetPostBackClientHyperlink(gridUsuarios, "Select$" + e.Row.RowIndex, true);
+                e.Row.Attributes["onclick"] = postBackEventReference;
                 e.Row.Attributes["style"] = "cursor:pointer";
             }
         }
@@ -93,6 +93,21 @@ namespace TPC_WebForm_Equipo18.Recepcion
                 UsuarioNegocio negocio = new UsuarioNegocio();
                 
             }
+        }
+
+        protected void btnVerTurnos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnVerHistorial_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnBlanqueo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

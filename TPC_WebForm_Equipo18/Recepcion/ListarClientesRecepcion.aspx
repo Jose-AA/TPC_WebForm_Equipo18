@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PublicMaster.Master" AutoEventWireup="true" CodeBehind="ListarClientesRecepcion.aspx.cs" Inherits="TPC_WebForm_Equipo18.Recepcion.ListarClientesRecepcion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PublicMaster.Master" AutoEventWireup="true" CodeBehind="ListarClientesRecepcion.aspx.cs" Inherits="TPC_WebForm_Equipo18.Recepcion.ListarClientesRecepcion" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -8,10 +8,14 @@
             margin: auto;
         }
         .grid-scroll {
-            height: 300px; /* Adjust height as needed */
+            height: 600px; /*Con esto estoy definiendo el tamaño que quiero que tenga la 
+                            tabla, tipo la cantidad de registros que se visualizan, el resto
+                            está abajo con la barrita deslizadoora 
+                            */
             overflow-y: scroll;
         }
         .actions {
+            margin-top: 50px;
             text-align: center;
             margin-bottom: 20px;
         }
@@ -25,6 +29,16 @@
             width: 150px;
             display: inline-block;
         }
+        .btn{
+            border-color: black;
+        }
+        btn:hover{
+            border-color: black;
+        }
+        .selected-row {
+            background-color: #007bff;
+            color: white;
+        }
     </style>
 
 
@@ -36,10 +50,16 @@
         <asp:Button ID="btnAgregarCliente" runat="server" Text="Agregar Cliente" CssClass="btn btn-success" OnClick="btnAgregarCliente_Click"/>
         <asp:Button ID="btnModificarCliente" runat="server" Text="Modificar Cliente" CssClass="btn btn-warning" OnClick="btnModificarCliente_Click" />
         <asp:Button ID="btnEliminarCliente" runat="server" Text="Eliminar Cliente" CssClass="btn btn-danger" OnClick="btnEliminarCliente_Click"/>
+        <asp:Button ID="btnVerTurnos" runat="server" Text="Turnos" CssClass="btn btn-info" OnClick="btnVerTurnos_Click" />
+        <asp:Button ID="btnVerHistorial" runat="server" Text="Historial" CssClass="btn btn-info" OnClick="btnVerHistorial_Click" />
+        <asp:Button ID="btnBlanqueo" runat="server" Text="Blanquear contraseña" CssClass="btn btn-info" OnClick="btnBlanqueo_Click" />
+        
     </div>
     <div class="grid-container">
         <div class="grid-scroll">
-           <asp:GridView runat="server" ID="gridUsuarios" DataKeyNames="IdUsuario" AutoGenerateColumns="false" CssClass="table table-success table-striped" OnRowCommand="gridUsuarios_RowCommand" OnRowDataBound="gridUsuarios_RowDataBound" OnSelectedIndexChanged="gridUsuarios_SelectedIndexChanged" >
+           
+            <asp:GridView runat="server" ID="gridUsuarios" DataKeyNames="IdUsuario" OnSelectedIndexChanged="gridUsuarios_SelectedIndexChanged" CssClass="table table-success table-striped" AutoGenerateColumns="false" OnRowDataBound="gridUsuarios_RowDataBound">
+          
                 <Columns>
                     <asp:BoundField HeaderText="Nombres" DataField="Nombre" />
                     <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
