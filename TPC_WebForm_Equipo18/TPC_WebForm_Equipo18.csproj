@@ -141,6 +141,11 @@
     <Content Include="Login.aspx" />
     <Content Include="MiPerfil.aspx" />
     <Content Include="QuienesSomos.aspx" />
+    <Content Include="Recepcion\Alta de clientes\AltaClientes.aspx" />
+    <Content Include="Recepcion\Alta de clientes\DatosPersonalesClientes.aspx" />
+    <Content Include="Recepcion\HistorialesClinicos\historialClinicoRecepcion.aspx" />
+    <Content Include="Recepcion\ListarClientesRecepcion.aspx" />
+    <Content Include="Recepcion\TurnosRecepcion\TurnosRecepcion.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="scriptsMaster.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -354,6 +359,41 @@
     </Compile>
     <Compile Include="PublicMaster.Master.designer.cs">
       <DependentUpon>PublicMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\Alta de clientes\AltaClientes.aspx.cs">
+      <DependentUpon>AltaClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recepcion\Alta de clientes\AltaClientes.aspx.designer.cs">
+      <DependentUpon>AltaClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\Alta de clientes\DatosPersonalesClientes.aspx.cs">
+      <DependentUpon>DatosPersonalesClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recepcion\Alta de clientes\DatosPersonalesClientes.aspx.designer.cs">
+      <DependentUpon>DatosPersonalesClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\HistorialesClinicos\historialClinicoRecepcion.aspx.cs">
+      <DependentUpon>historialClinicoRecepcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recepcion\HistorialesClinicos\historialClinicoRecepcion.aspx.designer.cs">
+      <DependentUpon>historialClinicoRecepcion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\ListarClientesRecepcion.aspx.cs">
+      <DependentUpon>ListarClientesRecepcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recepcion\ListarClientesRecepcion.aspx.designer.cs">
+      <DependentUpon>ListarClientesRecepcion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\TurnosRecepcion\TurnosRecepcion.aspx.cs">
+      <DependentUpon>TurnosRecepcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recepcion\TurnosRecepcion\TurnosRecepcion.aspx.designer.cs">
+      <DependentUpon>TurnosRecepcion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registrarse.aspx.cs">
       <DependentUpon>Registrarse.aspx</DependentUpon>
