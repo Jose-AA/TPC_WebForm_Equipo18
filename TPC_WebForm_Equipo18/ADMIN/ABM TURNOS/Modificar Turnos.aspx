@@ -4,10 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <h1 style="margin-top: 100px; margin-left: 200px;">Activar o desactivar servicios</h1>
+    <h1 style="margin-top: 100px; margin-left: 200px;">Modificar el estado de los turnos</h1>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-      
+
     <div class="modal fade" id="successModal" tabindex="-1" role="alert" aria-labelledby="successModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="alert">
             <div class="modal-content" style="background-color: #d1e7dd; border: none;">
@@ -26,20 +26,36 @@
         </div>
     </div>
 
-    <style>
+    <div class="modal fade" id="successModalnodatos" tabindex="-1" role="alert" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="alert">
+            <div class="modal-content" style="background-color: #d1e7dd; border: none;">
+                <div class="modal-body" style="padding: 0; padding-bottom: 0; border: none;">
+                </div>
+                <div class="alert alert-danger d-flex align-items-center" role="alert" style="margin-bottom: 0" >
+                    <svg class="bi flex-shrink-0 me-2"  width="50" height="50" fill="currentColor" viewBox=" 0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.354 11.354l-3.5-3.5a.5.5 0 0 1 .707-.707L6.5 10.293l6-6a.5.5 0 0 1 .707.707l-6.5 6.5a.5.5 0 0 1-.707 0z" />
+                    </svg>
+                    <div>
+                        No encontramos coincidencias para la fecha o descripcion especificada
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    #fechaInputContainer {
-        margin-left: 200px;
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-   </style>
+    <style>
+        #fechaInputContainer {
+            margin-left: 200px;
+            margin-top: 100px;
+            margin-bottom: 30px;
+        }
+    </style>
 
     <div id="fechaInputContainer">
-    <input type="date" id="fechaInput" onchange="mostrarFechaSeleccionada()" />
-    <button onclick="limpiarFecha()" > Limpiar Fecha </button>
-    <asp:TextBox ID="FechaSeleccionada" runat="server" Style="display: none;" />
-</div>
+        <input type="date" id="fechaInput" onchange="mostrarFechaSeleccionada()" />
+        <button onclick="limpiarFecha()">Limpiar Fecha </button>
+        <asp:TextBox ID="FechaSeleccionada" runat="server" Style="display: none;" />
+    </div>
 
 
     <asp:UpdatePanel ID="updatePanelGridView" runat="server">
@@ -56,7 +72,7 @@
                 <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
             </div>
 
-            
+
 
 
             <asp:GridView ID="gridTurnos" runat="server" AutoGenerateColumns="False" CssClass="table-dark table-bordered table-group-divider" Style="width: 60%; margin-left: 200px; margin-top: 150px; font-size: 18px;" RowStyle-Height="50px">
@@ -82,8 +98,10 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
+    <script> 
 
-    <script>
+  
+
         function showSuccessModal() {
             $('#successModal').modal('show');
             setTimeout(function () {
@@ -91,18 +109,26 @@
             }, 1000);
         }
 
+        function showSuccessModalnodatos() {
+            $('#successModalnodatos').modal('show');
+            setTimeout(function () {
+                $('#successModalnodatos').modal('hide');
+            }, 1500);
+        }
+
+
         function mostrarFechaSeleccionada() {
             var fechaSeleccionada = document.getElementById("fechaInput").value;
             document.getElementById('<%= FechaSeleccionada.ClientID %>').value = fechaSeleccionada;
         }
 
         function limpiarFecha() {
-            document.getElementById("fechaInput").value = ""; // Vacía el contenido del input tipo date
-            document.getElementById('<%= FechaSeleccionada.ClientID %>').value = ""; // También limpia el valor oculto si es necesario
+            document.getElementById("fechaInput").value = ""; 
+            document.getElementById('<%= FechaSeleccionada.ClientID %>').value = ""; 
         }
 
-    </script>
+        </script>
+    
+    </asp:Content>
 
 
-
-</asp:Content>

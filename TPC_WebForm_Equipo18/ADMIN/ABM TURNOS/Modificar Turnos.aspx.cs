@@ -29,20 +29,20 @@ namespace TPC_WebForm_Equipo18.ADMIN.ABM_TURNOS
                 // Obtener el valor del EstadoID
                 int estadoID = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "EstadoID"));
 
-                // Seleccionar el ListItem correspondiente según el EstadoID
+              
                 switch (estadoID)
                 {
                     case 1:
-                        rblEstado.SelectedValue = "True"; // Vigente
+                        rblEstado.SelectedValue = "True"; 
                         break;
                     case 2:
-                        rblEstado.SelectedValue = "False"; // Finalizado
+                        rblEstado.SelectedValue = "False"; 
                         break;
                     case 3:
-                        rblEstado.SelectedValue = "3"; // Cancelado
+                        rblEstado.SelectedValue = "3";
                         break;
                     default:
-                        // Manejar cualquier otro caso si es necesario
+                        
                         break;
                 }
             }
@@ -57,7 +57,7 @@ namespace TPC_WebForm_Equipo18.ADMIN.ABM_TURNOS
             int turnoID = Convert.ToInt32(lblTurnoID.Text);
             int estadoSeleccionado = Convert.ToInt32(rblEstado.SelectedValue);
 
-            // Aquí realizas la actualización en la base de datos
+       
             Turno turno = new Turno();
             turno.ID = turnoID;
             turno.Estado = estadoSeleccionado;
@@ -117,8 +117,17 @@ namespace TPC_WebForm_Equipo18.ADMIN.ABM_TURNOS
                 }
             }
 
+            if(lista == null || lista.Count<1)
+            {
+              
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Alert", "showSuccessModalnodatos()", true);
+
+
+            }
+
             gridTurnos.DataSource = lista;
             gridTurnos.DataBind();
+
         }
 
 
