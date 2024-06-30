@@ -57,6 +57,7 @@ namespace TPC_WebForm_Equipo18.Recepcion
                 try
                 {
                     Negocio.agregar(usuario);
+                    Response.Redirect("../ListarClientesRecepcion.aspx");
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "modalModificado", "modificadoexitosamente()", true);
                 }
                 catch (Exception ex)

@@ -50,7 +50,6 @@ namespace TPC_WebForm_Equipo18.Recepcion
                 {
                     negocio.agregar(aux);
 
-                    //int newId = aux.IdUsuario;
                     int newId = negocio.buscarIDPorEmail(aux.Email);
                     string url = "DatosPersonalesClientes.aspx?id=" + newId;
                     Response.Redirect(url);
