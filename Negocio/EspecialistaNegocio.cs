@@ -20,8 +20,8 @@ namespace Negocio
                 string consulta = @"
                     SELECT 
                         u.usuario_id, 
-                        dp.nombre, 
-                        dp.apellido, 
+                        ISNULL(dp.nombre, 'Sin Nombre') as nombre,
+                        ISNULL(dp.apellido,'Sin Apellido') as apellido, 
                         ISNULL(s.servicio_id, -1) AS servicio_id, 
                         ISNULL(s.nombre, 'Sin Servicio Asociado') AS nombre_servicio, 
                          ISNULL(s.descripcion, 'Sin Servicio Asociado') AS descripcion_servicio                     

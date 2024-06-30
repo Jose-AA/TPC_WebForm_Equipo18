@@ -45,14 +45,16 @@ namespace TPC_WebForm_Equipo18.ADMIN.ABM_Servicios
             if (lblEspecialistaId != null && int.TryParse(lblEspecialistaId.Text, out int especialistaId))
             {
                 int servicioId = int.Parse(ddlServicios.SelectedValue);
-
+                
+                if(servicioId > 0) {
+                    
                 EspecialistaNegocio especialistaNegocio = new EspecialistaNegocio();
                 especialistaNegocio.ActualizarServicioAsociado(especialistaId, servicioId);
-
 
                 CargarEspecialistas();
 
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Alert", "showSuccessModal()", true);
+                }
             }
 
 
