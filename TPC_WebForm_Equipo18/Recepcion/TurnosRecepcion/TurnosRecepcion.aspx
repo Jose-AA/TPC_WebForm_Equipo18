@@ -6,6 +6,7 @@
     .grid-container {
         width: 80%;
         margin: auto;
+        border-color: transparent;
     }
     .grid-scroll {
         height: 600px;
@@ -46,7 +47,7 @@
 
     <div class="grid-container">
         <div class="grid-scroll">
-            <asp:GridView ID="GridTurnos" DataKeyNames="IdTurno" CssClass="table table-success table-striped" AutoGenerateColumns="false" OnRowDataBound="GridTurnos_RowDataBound" runat="server">
+            <asp:GridView ID="GridTurnos" DataKeyNames="ID" AutoGenerateColumns="false" OnRowDataBound="GridTurnos_RowDataBound" runat="server">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>

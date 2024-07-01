@@ -38,22 +38,23 @@ namespace TPC_WebForm_Equipo18.Recepcion.TurnosRecepcion
                 {
                     
                         ID = int.Parse(Request.QueryString["id"]);
+                    actualizarListaTurnos();
                     
 
                 }
             }
         }
-
         protected void GridTurnos_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+        /*
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 string postBackEventReference = Page.ClientScript.GetPostBackClientHyperlink(GridTurnos, "Select$" + e.Row.RowIndex, true);
                 e.Row.Attributes["onclick"] = postBackEventReference;
                 e.Row.Attributes["style"] = "cursor:pointer";
             }
+        */
         }
-
         protected void actualizarListaTurnos()
         {
             TurnoNegocio negocio = new TurnoNegocio();

@@ -105,16 +105,17 @@ public class TurnoNegocio
     }
     public List<Turno> listarTurnosPorCliente(int id)
     {
-        List <Turno> lista = new List<Turno>();
+        List<Turno> lista = new List<Turno>();
         AccesoDatos datos = new AccesoDatos();
-        
-        string query = "T.fecha_turno, T.hora_turno, U2.nombre, S.nombre from Turnos T" +
-                       "Inner join Usuarios U on U.usuario_id = T.cliente_id" +
-                       "Inner join Datos_Personales U2 on U2.usuario_id = T.especialista_id" +
-                       "Inner join Datos_Personales D on D.usuario_id = U.usuario_id" +
-                       "inner join ServiciosxEspecialistas SE on SE.especialista_id = U2.usuario_id" +
-                       "Inner join Servicios S on S.servicio_id = SE.servicio_id" + 
-                       "where D.usuario_id = @idcliente";
+
+        string query = @"SELECT T.fecha_turno, T.hora_turno, U2.nombre AS EspecialistaNombre, S.nombre AS ServicioNombre 
+                     FROM Turnos T
+                     INNER JOIN Usuarios U ON U.usuario_id = T.cliente_id
+                     INNER JOIN Datos_Personales U2 ON U2.usuario_id = T.especialista_id
+                     INNER JOIN Datos_Personales D ON D.usuario_id = U.usuario_id
+                     INNER JOIN ServiciosxEspecialistas SE ON SE.especialista_id = U2.usuario_id
+                     INNER JOIN Servicios S ON S.servicio_id = SE.servicio_id
+                     WHERE D.usuario_id = @idcliente";
         try
         {
             datos.settearConsulta(query);
@@ -124,27 +125,26 @@ public class TurnoNegocio
             while (datos.Lector.Read())
             {
                 Turno aux = new Turno();
-                aux.FechaDeTurno = DateTime.Parse(datos.Lector["T.fecha_turno"].ToString());
-                aux.HoraDeTurno = TimeSpan.Parse(datos.Lector["T.hora_turno"].ToString());
-                //aux.Especialista.Nombre = datos.Lector["U2.nombre"].ToString();
-                //aux.Servicio.Nombre = datos.Lector["S.nombre"].ToString();
+                
+                aux.FechaDeTurno = DateTime.Parse(datos.Lector["fecha_turno"].ToString());
+                aux.HoraDeTurno = TimeSpan.Parse(datos.Lector["hora_turno"].ToString());
+                aux.Especialista = new Especialista { Nombre = datos.Lector["EspecialistaNombre"].ToString() };
+                aux.Servicio = new Servicio { Nombre = datos.Lector["ServicioNombre"].ToString() };
                 lista.Add(aux);
             }
             return lista;
         }
         catch (Exception ex)
         {
-
             throw ex;
         }
         finally
         {
             datos.cerrarConexion();
         }
-
-
     }
-public List<Turno> listarPorServicio(Especialista especialista, Servicio servicio)
+
+    public List<Turno> listarPorServicio(Especialista especialista, Servicio servicio)
 {
     AccesoDatos datos = new AccesoDatos();
     List<Turno> lista = new List<Turno>();

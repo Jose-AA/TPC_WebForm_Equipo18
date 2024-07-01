@@ -25,8 +25,9 @@ namespace TPC_WebForm_Equipo18.Recepcion
                 {
                     ex.ToString();
                 }
-            }
 
+            }
+            
             refrescarLista();
         }
 
@@ -66,6 +67,7 @@ namespace TPC_WebForm_Equipo18.Recepcion
         
         protected void gridUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*
             foreach (GridViewRow row in gridUsuarios.Rows)
             {
                 if (row.RowIndex == gridUsuarios.SelectedIndex)
@@ -75,6 +77,20 @@ namespace TPC_WebForm_Equipo18.Recepcion
                 else
                 {
                     
+                    row.CssClass = string.Empty;
+                }
+            }*/
+            IDSeleccionado = Convert.ToInt32(gridUsuarios.SelectedDataKey.Value);
+            Session["IDSeleccionado"] = IDSeleccionado;
+
+            foreach (GridViewRow row in gridUsuarios.Rows)
+            {
+                if (row.RowIndex == gridUsuarios.SelectedIndex)
+                {
+                    row.CssClass = "selected-row";
+                }
+                else
+                {
                     row.CssClass = string.Empty;
                 }
             }
@@ -124,7 +140,16 @@ namespace TPC_WebForm_Equipo18.Recepcion
 
         protected void btnBlanqueo_Click(object sender, EventArgs e)
         {
-
+            IDSeleccionado = (int)Session["IDSeleccionado"];
+            Usuario u = new Usuario();
+            Usuario aux = new Usuario();
+            UsuarioNegocio negocio = new UsuarioNegocio();
+            u = negocio.buscarPorID(IDSeleccionado);
+            aux.IdUsuario = u.IdUsuario;
+            aux.IdRol = u.IdRol;
+            aux.Email = u.Email;
+            aux.Contraseña = "1234";
+            negocio.modificar(aux);
         }
     }
 }
