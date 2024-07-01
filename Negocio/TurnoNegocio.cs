@@ -107,6 +107,7 @@ public class TurnoNegocio
     {
         List <Turno> lista = new List<Turno>();
         AccesoDatos datos = new AccesoDatos();
+        
         string query = "T.fecha_turno, T.hora_turno, U2.nombre, S.nombre from Turnos T" +
                        "Inner join Usuarios U on U.usuario_id = T.cliente_id" +
                        "Inner join Datos_Personales U2 on U2.usuario_id = T.especialista_id" +
@@ -125,8 +126,8 @@ public class TurnoNegocio
                 Turno aux = new Turno();
                 aux.FechaDeTurno = DateTime.Parse(datos.Lector["T.fecha_turno"].ToString());
                 aux.HoraDeTurno = TimeSpan.Parse(datos.Lector["T.hora_turno"].ToString());
-                aux.Especialista.Nombre = datos.Lector["U2.nombre"].ToString();
-                aux.Servicio.Nombre = datos.Lector["S.nombre"].ToString();
+                //aux.Especialista.Nombre = datos.Lector["U2.nombre"].ToString();
+                //aux.Servicio.Nombre = datos.Lector["S.nombre"].ToString();
                 lista.Add(aux);
             }
             return lista;
