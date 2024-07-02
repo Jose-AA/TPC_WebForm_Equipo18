@@ -1,5 +1,6 @@
 ﻿using Dominio;
 using negocio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,17 +72,33 @@ namespace TPC_WebForm_Equipo18.Recepcion.TurnosRecepcion
             Button btn = (Button)sender;
 
             
-            int idTurno = Convert.ToInt32(btn.CommandArgument);
+            //int idTurno = Convert.ToInt32(btn.CommandArgument);
 
-            
-            DarDeBajaTurno(idTurno);
+            Turno aux = new Turno();
+            TurnoNegocio negocio = new TurnoNegocio();
+            baja = new Turno();
+            aux = negocio.obtenerPorID(ID);
 
-            
+            baja.ID = aux.ID;
+            baja.FechaDeTurno = aux.FechaDeTurno;
+            baja.HoraDeTurno = aux.HoraDeTurno;
+            baja.Especialista = aux.Especialista;
+            baja.Estado = 2;
+            baja.Cliente = aux.Cliente;
+            baja.Servicio = aux.Servicio;
+            //Response.Redirect("TurnosRecepcion/TurnosRecepcion.aspx?id=" + idTurno);
+            negocio.ActualizarEstado(baja);
+            //DarDeBajaTurno(ID);
+
+
             actualizarListaTurnos();
+
+            
         }
 
         protected void DarDeBajaTurno(int id)
         {
+
             Turno aux = new Turno();
             TurnoNegocio negocio = new TurnoNegocio();
             baja = new Turno();
@@ -97,10 +114,24 @@ namespace TPC_WebForm_Equipo18.Recepcion.TurnosRecepcion
 
             negocio.ActualizarEstado(baja);
 
-            
-            
+
+            //---------------------------------
         }
 
-        
+        protected void GridTurnos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "DarDeBaja")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                ID = Convert.ToInt32(GridTurnos.DataKeys[rowIndex].Value); // Obtiene el IdTurno desde DataKeys
+
+                // Aquí puedes usar turnoId como el ID del turno seleccionado
+                // Por ejemplo:
+                // negocio.darDeBajaTurno(turnoId);
+
+                // Puedes mostrar un mensaje o realizar cualquier otra acción necesaria
+                //ScriptManager.RegisterStartupScript(this, GetType(), "showConfirmation", "alert('Se seleccionó el turno con ID: " + turnoId + "');", true);
+            }
+        }
     }
 }

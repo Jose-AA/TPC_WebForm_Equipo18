@@ -47,7 +47,7 @@
 
     <div class="grid-container">
         <div class="grid-scroll">
-            <asp:GridView ID="GridTurnos" DataKeyNames="ID" AutoGenerateColumns="false" OnRowDataBound="GridTurnos_RowDataBound" runat="server">
+            <asp:GridView ID="GridTurnos" DataKeyNames="ID" AutoGenerateColumns="false" OnRowCommand="GridTurnos_RowCommand" OnRowDataBound="GridTurnos_RowDataBound" runat="server">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
@@ -58,7 +58,7 @@
                                     <div><strong>Hora de Turno:</strong> <%# Eval("HoraDeTurno") %></div>
                                     <div><strong>Especialista:</strong> <%# Eval("Especialista.Nombre") %></div>
                                     <div><strong>Servicio:</strong> <%# Eval("Servicio.Nombre") %></div>
-                                    <asp:Button ID="btnDarBaja" OnClick="btnDarBaja_Click" CommandName="DarDeBaja" CommandArgument='<%# Eval("ID") %>' CssClass="btn btn-danger" runat="server" Text="Dar de baja" />
+                                    <asp:Button ID="btnDarBaja" OnClick="btnDarBaja_Click" CommandName="DarDeBaja" CommandArgument='<%# Container.DataItemIndex %>' CssClass="btn btn-danger" runat="server" Text="Dar de baja" />
                                     
                                 </div>
                             </div>
