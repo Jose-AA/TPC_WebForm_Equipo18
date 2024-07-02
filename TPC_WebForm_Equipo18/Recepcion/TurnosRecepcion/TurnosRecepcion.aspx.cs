@@ -30,6 +30,7 @@ namespace TPC_WebForm_Equipo18.Recepcion.TurnosRecepcion
     {
         public List<Turno> listaTurnos  = new List<Turno>();
         int ID = 0;
+        Turno baja;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -38,7 +39,7 @@ namespace TPC_WebForm_Equipo18.Recepcion.TurnosRecepcion
                 {
                     
                         ID = int.Parse(Request.QueryString["id"]);
-                    actualizarListaTurnos();
+                        actualizarListaTurnos();
                     
 
                 }
@@ -64,5 +65,42 @@ namespace TPC_WebForm_Equipo18.Recepcion.TurnosRecepcion
             GridTurnos.DataBind();
 
         }
+
+        protected void btnDarBaja_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            
+            int idTurno = Convert.ToInt32(btn.CommandArgument);
+
+            
+            DarDeBajaTurno(idTurno);
+
+            
+            actualizarListaTurnos();
+        }
+
+        protected void DarDeBajaTurno(int id)
+        {
+            Turno aux = new Turno();
+            TurnoNegocio negocio = new TurnoNegocio();
+            baja = new Turno();
+            aux = negocio.obtenerPorID(id);
+
+            baja.ID = aux.ID;
+            baja.FechaDeTurno = aux.FechaDeTurno;
+            baja.HoraDeTurno = aux.HoraDeTurno;
+            baja.Especialista = aux.Especialista;
+            baja.Estado = 2;
+            baja.Cliente = aux.Cliente;
+            baja.Servicio = aux.Servicio;
+
+            negocio.ActualizarEstado(baja);
+
+            
+            
+        }
+
+        
     }
 }

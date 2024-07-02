@@ -58,7 +58,7 @@
                                     <div><strong>Hora de Turno:</strong> <%# Eval("HoraDeTurno") %></div>
                                     <div><strong>Especialista:</strong> <%# Eval("Especialista.Nombre") %></div>
                                     <div><strong>Servicio:</strong> <%# Eval("Servicio.Nombre") %></div>
-                                    <asp:Button ID="btnDarBaja" CssClass="btn btn-danger" runat="server" Text="Dar de baja" />
+                                    <asp:Button ID="btnDarBaja" OnClick="btnDarBaja_Click" CommandName="DarDeBaja" CommandArgument='<%# Eval("ID") %>' CssClass="btn btn-danger" runat="server" Text="Dar de baja" />
                                     
                                 </div>
                             </div>
