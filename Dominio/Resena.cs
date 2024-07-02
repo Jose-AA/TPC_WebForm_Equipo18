@@ -18,13 +18,16 @@ namespace Dominio
     */
     public class Resena
     {
-        public int IdReseña { get; set; }
-
+        public int ResenaId { get; set; }
         public Cliente Cliente { get; set; }
-        public DateTime FechaHora { get; set; }
+        public Especialista Especialista { get; set; }
+        public Servicio Servicio { get; set; }
+
         public int Calificacion { get; set; }
-        public string Mensaje { get; set; }
-        public bool Estado { get; set; }
+        public string Comentario { get; set; }  
+        public bool Activo { get; set; }
+        public DateTime CreadoEn { get; set; }
+
     }
 }
 

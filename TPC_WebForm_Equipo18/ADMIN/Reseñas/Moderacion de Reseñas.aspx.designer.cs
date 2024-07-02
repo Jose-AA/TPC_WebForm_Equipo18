@@ -13,5 +13,14 @@ namespace TPC_WebForm_Equipo18.ADMIN.Reseñas
 
     public partial class Moderacion_de_Reseñas
     {
+
+        /// <summary>
+        /// Control rptReseñas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptReseñas;
     }
 }

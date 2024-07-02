@@ -45,6 +45,7 @@
     <Compile Include="DatosPersonalesNegocio.cs" />
     <Compile Include="EspecialistaNegocio.cs" />
     <Compile Include="ImagenNegocio.cs" />
+    <Compile Include="ReseñaNegocio.cs" />
     <Compile Include="VisualizacionTurnosAdminNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicioNegocio.cs" />
