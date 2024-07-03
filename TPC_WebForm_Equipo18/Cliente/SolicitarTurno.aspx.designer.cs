@@ -15,6 +15,15 @@ namespace TPC_WebForm_Equipo18
     {
 
         /// <summary>
+        /// repeaterEspecialistas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater repeaterEspecialistas;
+
+        /// <summary>
         /// calendarioTurnos control.
         /// </summary>
         /// <remarks>
@@ -94,5 +103,23 @@ namespace TPC_WebForm_Equipo18
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hiddenFieldIdTurno;
+
+        /// <summary>
+        /// hiddenFieldIdEspecialista control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenFieldIdEspecialista;
+
+        /// <summary>
+        /// hiddenFieldFlagMostrarCalendario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenFieldFlagMostrarCalendario;
     }
 }

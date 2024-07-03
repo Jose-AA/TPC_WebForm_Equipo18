@@ -28,7 +28,7 @@ namespace TPC_WebForm_Equipo18
 
         protected void btnSolicitarTurno_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/SolicitarTurno.aspx");
+            Response.Redirect("/Cliente/SolicitarTurno.aspx");
         }
     }
 }
