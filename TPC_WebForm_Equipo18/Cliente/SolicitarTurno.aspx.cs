@@ -19,6 +19,7 @@ namespace TPC_WebForm_Equipo18
         public List<Turno> listaTurnos;
         bool eventoAgregado;
         public bool primeraVisita;
+        private DateTime fechaElegida;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,9 +37,15 @@ namespace TPC_WebForm_Equipo18
                 listaTurnos = turnoNegocio.listarPorServicio(especialistaSeleccionado, servicioSeleccionado);
             }
 
+            if (ViewState["SelectedDate"] != null)
+            {
+                fechaElegida = (DateTime)ViewState["SelectedDate"];
+            }
+
+
             if (!IsPostBack)
             {
-
+                fechaElegida = DateTime.MinValue;
 
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "mostrarCalendario", "ocultarCalendario();", true);
                 EspecialistaNegocio especialistaNegocio = new EspecialistaNegocio();
@@ -50,7 +57,6 @@ namespace TPC_WebForm_Equipo18
 
                 var especialistasFiltrados = especialistas.Where(es => es.ServicioAsociado.Id == servicioSeleccionado.Id).ToList();
 
-                
                 repeaterEspecialistas.DataSource = especialistasFiltrados;
                 repeaterEspecialistas.DataBind();
             }
@@ -61,6 +67,10 @@ namespace TPC_WebForm_Equipo18
 
         protected void calendarioTurnos_SelectionChanged(object sender, EventArgs e)
         {
+
+            fechaElegida = calendarioTurnos.SelectedDate;
+            ViewState["SelectedDate"] = fechaElegida;
+
             DateTime fechaSeleccionada = calendarioTurnos.SelectedDate;
 
             
@@ -112,7 +122,12 @@ namespace TPC_WebForm_Equipo18
 
             }
 
-
+            if (e.Day.Date == fechaElegida)
+            {
+                e.Cell.BackColor = System.Drawing.Color.LightBlue; // Cambiar el color de fondo para indicar deshabilitación
+                e.Cell.Controls.Clear(); // Remover el enlace
+                e.Cell.Text = e.Day.Date.Day.ToString(); // Solo mostrar el texto de la fecha
+            }
 
             if (e.Day.IsOtherMonth)
             {

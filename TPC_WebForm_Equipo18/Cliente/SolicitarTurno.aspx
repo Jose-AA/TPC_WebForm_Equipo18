@@ -82,7 +82,7 @@
                    <div style="display:flex; justify-content:space-evenly;">
                     <asp:Repeater ID="repeaterEspecialistas" runat="server">
                         <ItemTemplate>
-                            <div class="card" style="width: 18rem; display: inline-block">
+                            <div class="card" style="width: 14rem; display: inline-block">
                                 <asp:Image CssClass="card-img-top" ImageUrl="https://png.pngtree.com/png-clipart/20211116/original/pngtree-beauty-logo-png-image_6943906.png" runat="server" />
                                 <div class="card-body">
                                     <h5 class="card-title"><%# Eval("Nombre") + " " + Eval("Apellido") %></h5>
