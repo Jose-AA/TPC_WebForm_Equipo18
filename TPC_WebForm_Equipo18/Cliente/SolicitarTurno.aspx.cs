@@ -300,6 +300,12 @@ namespace TPC_WebForm_Equipo18
             {
                 TurnoNegocio turnoNegocio = new TurnoNegocio();
                 listaTurnos = turnoNegocio.listarPorServicio(especialistaSeleccionado, servicioSeleccionado);
+                DateTime ahora = DateTime.Now;
+                TimeSpan horaActual = ahora.TimeOfDay;
+
+                listaTurnos = listaTurnos.Where(t => t.FechaDeTurno.Date > ahora.Date ||
+                              (t.FechaDeTurno.Date == ahora.Date && t.HoraDeTurno > horaActual)).ToList();
+
 
                 if (Session["turnos"] == null)
                 {
