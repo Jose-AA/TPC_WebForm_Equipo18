@@ -4,6 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lbltit" runat="server" Text="Modificar datos personales"></asp:Label>
     <asp:Label ID="lblNombreUsuario" runat="server" Text="Label"></asp:Label>
+    <script type="text/javascript">
+        function setPasswordField(value) {
+            document.getElementById('<%= txtNuevaContrasena.ClientID %>').value = value;
+            document.getElementById('<%= txtConfirmarContrasena.ClientID %>').value = value;
+        }
+    </script>
     <style>
         .form-container {
             width: 50%;
@@ -92,6 +98,8 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/4.0.1/MicrosoftAjax.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/ajaxcontroltoolkit/4.1.7/AjaxControlToolkit.js"></script>
 </body>
 
 
