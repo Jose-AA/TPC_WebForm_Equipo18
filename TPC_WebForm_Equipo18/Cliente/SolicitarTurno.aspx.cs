@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
+using System.Globalization;
 
 namespace TPC_WebForm_Equipo18
 {
@@ -287,6 +288,7 @@ namespace TPC_WebForm_Equipo18
                 {
                     especialistaSeleccionado = especialistas[i];
                     lblNombreEspecialista.Text = "Especialista: " + especialistaSeleccionado.Nombre + ", " + especialistaSeleccionado.Apellido;
+                    calendarioTurnos.SelectedDate = DateTime.MinValue;
                     break;
                 }
             }
