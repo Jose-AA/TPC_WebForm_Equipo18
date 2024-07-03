@@ -55,7 +55,7 @@ namespace TPC_WebForm_Equipo18.Recepcion
             {
                 string idSeleccion = gridUsuarios.SelectedDataKey.Value.ToString();
 
-                //Response.Redirect(".aspx?id=" + idSeleccion);
+                Response.Redirect("Alta de clientes/ModificacionClientesRecepcion.aspx?id=" + idSeleccion);
             }
         }
 
