@@ -24,6 +24,8 @@ namespace TPC_WebForm_Equipo18
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            Page.MaintainScrollPositionOnPostBack = true;
+
             servicioSeleccionado = (Servicio)Session["ServicioSeleccionado"];
 
             if (servicioSeleccionado == null)
