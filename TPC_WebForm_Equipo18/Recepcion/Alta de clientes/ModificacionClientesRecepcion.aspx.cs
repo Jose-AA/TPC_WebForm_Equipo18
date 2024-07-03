@@ -13,7 +13,7 @@ namespace TPC_WebForm_Equipo18.Recepcion.Alta_de_clientes
     public partial class ModificacionClientesRecepcion : System.Web.UI.Page
     {
         Usuario aux = new Usuario();
-        int ID = 0;
+        int ID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -40,9 +40,14 @@ namespace TPC_WebForm_Equipo18.Recepcion.Alta_de_clientes
             DatosPersonalesNegocio negocioDP = new DatosPersonalesNegocio();
             string nuevaContrasena = string.IsNullOrEmpty(txtNuevaContrasena.Text) ? null : txtNuevaContrasena.Text;
             string confirmarContrasena = string.IsNullOrEmpty(txtConfirmarContrasena.Text) ? null : txtConfirmarContrasena.Text;
+
+            //ACA ESTA EL PROBLEMA, EL NUMERO DE ID SE PIERDE. TENGO QUE VOLVER A ASIGNARLO
+
+            ID = Convert.ToInt32(Session["id_usuario"]);
+            
             if (ID != 0)
             {
-
+                
                 aux.IdUsuario = ID;
                 aux.IdRol = 4;
                 aux.Email = txtEmail.Text;
@@ -57,7 +62,8 @@ namespace TPC_WebForm_Equipo18.Recepcion.Alta_de_clientes
                 aux.Telefono = txtTelefono.Text;
                 aux.Direccion = txtDireccion.Text;
                 aux.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
-                aux.Telefono = txtTelefono.Text.ToString();
+                
+                
                 try
                 {
                     negocio.modificar(aux);
@@ -76,7 +82,6 @@ namespace TPC_WebForm_Equipo18.Recepcion.Alta_de_clientes
 
         protected void RescatarUsuario()
         {
-            
 
             UsuarioNegocio negocio = new UsuarioNegocio();
             DatosPersonalesNegocio negocioDP = new DatosPersonalesNegocio();
@@ -92,7 +97,7 @@ namespace TPC_WebForm_Equipo18.Recepcion.Alta_de_clientes
             aux.Telefono = negocioDP.recuperarDatosPersonalesLogin(ID).Telefono;
             aux.Direccion = negocioDP.recuperarDatosPersonalesLogin(ID).Direccion;
             aux.Dni = negocioDP.recuperarDatosPersonalesLogin(ID).Dni;
-
+            aux.FechaNacimiento = negocioDP.recuperarDatosPersonalesLogin(ID).FechaNacimiento;
 
             txtEmail.Text = aux.Email.ToString();
             txtDNI.Text = aux.Dni.ToString();
@@ -102,13 +107,10 @@ namespace TPC_WebForm_Equipo18.Recepcion.Alta_de_clientes
             txtApellido.Text = aux.Apellido.ToString();
             txtDireccion.Text = aux.Direccion.ToString();
             txtTelefono.Text = aux.Telefono.ToString();
-            txtFechaNacimiento.Text = aux.FechaNacimiento.ToString("dd-MM-yyyy");
+            txtFechaNacimiento.Text = aux.FechaNacimiento.ToString("yyyy-MM-dd");
 
             string script = $"<script type=\"text/javascript\">setPasswordField('{aux.Contraseña}');</script>";
             ClientScript.RegisterStartupScript(this.GetType(), "SetPasswordField", script);
-
-
-
         }
     }
 }
