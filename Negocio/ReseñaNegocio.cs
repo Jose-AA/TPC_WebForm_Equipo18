@@ -92,7 +92,27 @@ FROM
                 datos.cerrarConexion();
             }
         }
+        public void ActualizarEstado(int id, bool activo)
+        {
+            AccesoDatos datos = new AccesoDatos();
 
+            try
+            {
+                string consulta = "UPDATE Reseñas SET activo = @Activo WHERE reseña_id = @Id";
+                datos.settearConsulta(consulta);
+                datos.setearParametro("@Activo", activo);
+                datos.setearParametro("@Id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
 
 
