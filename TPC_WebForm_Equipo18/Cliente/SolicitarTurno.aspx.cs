@@ -257,6 +257,9 @@ namespace TPC_WebForm_Equipo18
 
             negocio.tomarTurno(6, int.Parse(idTurno));
 
+
+
+
             ScriptManager.RegisterStartupScript(this, this.GetType(), "modalTurnoConfirmado", "modalTurnoExitoso();", true);
 
         }
@@ -283,6 +286,7 @@ namespace TPC_WebForm_Equipo18
                 if (String.Equals(auxid, idEspecialista))
                 {
                     especialistaSeleccionado = especialistas[i];
+                    lblNombreEspecialista.Text = "Especialista: " + especialistaSeleccionado.Nombre + ", " + especialistaSeleccionado.Apellido;
                     break;
                 }
             }

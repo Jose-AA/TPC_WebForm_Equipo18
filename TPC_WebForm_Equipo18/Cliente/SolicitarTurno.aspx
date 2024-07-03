@@ -196,7 +196,7 @@
                 keyboard: false
             });
 
-            var especialista = "Especialista: <%= especialistaSeleccionado == null ? "" : especialistaSeleccionado.Apellido%>, <%= especialistaSeleccionado == null ? "" : especialistaSeleccionado.Nombre %>";
+            //var especialista = "Especialista: <%= especialistaSeleccionado == null ? "" : especialistaSeleccionado.Apellido%>, <%= especialistaSeleccionado == null ? "" : especialistaSeleccionado.Nombre %>";
             var servicio = "Servicio: <%= servicioSeleccionado.Nombre %>";
             var fecha = "Turno: <%= calendarioTurnos.SelectedDate.ToShortDateString() %>";
             //var idTurno = document.getElementById('<%= hiddenFieldIdTurno.ClientID %>').value;
@@ -211,7 +211,7 @@
             hora = horaDesde + " - " + horaHasta; 
 
             //document.getElementById('<%= lblIDTurno.ClientID %>').textContent = idTurno;
-            document.getElementById('<%= lblNombreEspecialista.ClientID %>').textContent = especialista;
+            //document.getElementById('<%= lblNombreEspecialista.ClientID %>').textContent = especialista;
             document.getElementById('<%= lblNombreServicio.ClientID %>').textContent = servicio;
             document.getElementById('<%= lblFechaHoraTurno.ClientID %>').textContent = fecha + " " + hora;
 
