@@ -68,6 +68,26 @@
             display: none;
         }
 
+        h2{
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .anchorContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 45px;
+        }
+
+
+        #anchorScrollTop, .btnTurnoMasProximo{
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+
     </style>
 </asp:Content>
 
@@ -103,6 +123,12 @@
             <div id="available-times" class="available-times">
                 <h3>Horas de inicio disponibles</h3>
                 <div id="time-slots-container"></div>
+            </div>
+            <div class="anchorContainer">
+                <a href="#" id="anchorScrollTop" onclick="scrollToTop();">Cambiar especialista</a>
+            </div>
+            <div class="anchorContainer">
+                <asp:Button Text="Solicitar primer turno disponible" ID="btnTurnoMasProximo" CssClass="btnTurnoMasProximo" OnClick="btnTurnoMasProximo_Click" runat="server" />
             </div>
 
     <div id="successModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalSeleccionEliminarLabel" aria-hidden="true">
@@ -240,9 +266,14 @@
         }
 
         function scrollToPositionTimes() {
-            // Ajusta el valor 200 a la cantidad de píxeles que deseas desplazar hacia abajo
             window.scrollTo(0, 1200);
         }
+
+        function scrollToTop() {
+            window.scrollToTop();
+            return false;
+        }
+
 
     </script>
 

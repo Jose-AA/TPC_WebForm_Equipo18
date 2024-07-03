@@ -352,5 +352,43 @@ namespace TPC_WebForm_Equipo18
             Page.MaintainScrollPositionOnPostBack = false;
             ClientScript.RegisterStartupScript(this.GetType(), "scrollScript", "scrollToPositionTimes();", true);
         }
+
+
+        private void primerTurnoDisponible()
+        {
+            Turno aux = new Turno();
+            TurnoNegocio turnoNegocio = new TurnoNegocio();
+            EspecialistaNegocio especialistaNegocio = new EspecialistaNegocio();
+
+            especialistas = especialistaNegocio.ListarEspecialistasysusservicosAsociados();
+
+
+            aux = turnoNegocio.obtenerPrimerTurnoDisponible(servicioSeleccionado);
+
+            if(aux != null)
+            {
+
+                for (int i = 0; i < especialistas.Count; i++)
+                {
+                    if (aux.Especialista.IdUsuario == especialistas[i].IdUsuario)
+                    {
+                        aux.Especialista.Apellido = especialistas[i].Apellido;
+                        aux.Especialista.Nombre = especialistas[i].Nombre;
+                        break;
+                    }
+                }
+
+                lblNombreEspecialista.Text = "Especialista: " + aux.Especialista.Nombre + ", " + aux.Especialista.Apellido;
+                lblNombreServicio.Text = "Servicio: " + servicioSeleccionado.Nombre;
+                lblFechaHoraTurno.Text = "Horario: " + aux.FechaDeTurno.ToString() +" - " + aux.HoraDeTurno.ToString();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modalTurnoConfirmado", "showModal();", true);
+            }
+        }
+
+        protected void btnTurnoMasProximo_Click(object sender, EventArgs e)
+        {
+            primerTurnoDisponible();
+        }
     }
 }

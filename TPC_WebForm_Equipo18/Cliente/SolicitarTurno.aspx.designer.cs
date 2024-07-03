@@ -33,6 +33,15 @@ namespace TPC_WebForm_Equipo18
         protected global::System.Web.UI.WebControls.Calendar calendarioTurnos;
 
         /// <summary>
+        /// btnTurnoMasProximo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTurnoMasProximo;
+
+        /// <summary>
         /// lblIDTurno control.
         /// </summary>
         /// <remarks>
