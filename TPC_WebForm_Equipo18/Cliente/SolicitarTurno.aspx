@@ -239,6 +239,10 @@
 
         }
 
+        function scrollToPositionTimes() {
+            // Ajusta el valor 200 a la cantidad de píxeles que deseas desplazar hacia abajo
+            window.scrollTo(0, 1200);
+        }
 
     </script>
 

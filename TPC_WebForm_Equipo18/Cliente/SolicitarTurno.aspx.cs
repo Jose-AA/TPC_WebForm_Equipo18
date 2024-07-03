@@ -81,6 +81,9 @@ namespace TPC_WebForm_Equipo18
             
             dibujarTiemposDisponibles(horariosDisponiblesParaFechaSeleccionada);
 
+            Page.MaintainScrollPositionOnPostBack = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "scrollScript", "scrollToPositionTimes();", true);
+
         }
 
 
@@ -344,7 +347,10 @@ namespace TPC_WebForm_Equipo18
         protected void btnElegirEspecialista_Click(object sender, EventArgs e)
         {
             actualizarEspecialistaSeleccionado();
-            actualizarListaTurnos(); 
+            actualizarListaTurnos();
+
+            Page.MaintainScrollPositionOnPostBack = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "scrollScript", "scrollToPositionTimes();", true);
         }
     }
 }
