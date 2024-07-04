@@ -96,6 +96,15 @@ namespace TPC_WebForm_Equipo18
         protected global::System.Web.UI.WebControls.Button btnNoConfirmarTurno;
 
         /// <summary>
+        /// btnOculto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOculto;
+
+        /// <summary>
         /// hiddenFieldFecha control.
         /// </summary>
         /// <remarks>

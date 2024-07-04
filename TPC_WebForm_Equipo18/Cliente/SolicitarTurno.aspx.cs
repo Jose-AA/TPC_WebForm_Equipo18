@@ -41,8 +41,18 @@ namespace TPC_WebForm_Equipo18
 
             if (ViewState["SelectedDate"] != null)
             {
-                fechaElegida = (DateTime)ViewState["SelectedDate"];
+                if (Session["primerTurnoDisponible"] == null)
+                {
+                    calendarioTurnos.SelectedDate = DateTime.MinValue;
+                }
+                else
+                {
+                    fechaElegida = (DateTime)ViewState["SelectedDate"];
+                }
+
+
             }
+
 
 
             if (!IsPostBack)
@@ -61,6 +71,12 @@ namespace TPC_WebForm_Equipo18
 
                 repeaterEspecialistas.DataSource = especialistasFiltrados;
                 repeaterEspecialistas.DataBind();
+            }
+
+            Turno aux = (Turno)Session["primerTurnoDisponible"];
+            if (Session["primerTurnoDisponible"] != null)
+            {
+                btnOculto_Click(btnOculto, EventArgs.Empty);
             }
 
             //configurarVisibilidadRetrocesoMes();
@@ -141,6 +157,10 @@ namespace TPC_WebForm_Equipo18
                 e.Cell.ForeColor = System.Drawing.Color.Black;
             }
 
+            if (Session["primerTurnoDisponible"] == null)
+            {
+                calendarioTurnos.SelectedDate = DateTime.MinValue;
+            }
         }
 
         protected void calendarioTurnos_VisibleMonthChanged(object sender, MonthChangedEventArgs e)
@@ -382,6 +402,8 @@ namespace TPC_WebForm_Equipo18
                     }
                 }
 
+                Session.Add("primerTurnoDisponible", aux);
+
                 lblNombreEspecialista.Text = "Especialista: " + aux.Especialista.Nombre + ", " + aux.Especialista.Apellido;
                 lblNombreServicio.Text = "Servicio: " + servicioSeleccionado.Nombre;
                 lblFechaHoraTurno.Text = "Horario: " + aux.FechaDeTurno.ToString() +" - " + aux.HoraDeTurno.ToString();
@@ -393,6 +415,13 @@ namespace TPC_WebForm_Equipo18
         protected void btnTurnoMasProximo_Click(object sender, EventArgs e)
         {
             primerTurnoDisponible();
+        }
+
+        protected void btnOculto_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "ocultarCalendario", "ocultarCalendario();", true);
+            Session["primerTurnoDisponible"] = null;
+            calendarioTurnos.SelectedDate = DateTime.MinValue;
         }
     }
 }

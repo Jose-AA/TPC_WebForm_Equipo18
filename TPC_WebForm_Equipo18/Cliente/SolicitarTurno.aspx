@@ -155,6 +155,7 @@
                         OnClientClick="var myModalEl = document.getElementById('successModal');
                                         var modal = bootstrap.Modal.getInstance(myModalEl);
                                         modal.hide(); return false;" runat="server" CssClass="btn btn-primary" />
+                    <asp:Button style="display:none" ID="btnOculto" OnClick="btnOculto_Click" runat="server" />
                 </div>
                 <div class="modal-footer">
                 </div>
