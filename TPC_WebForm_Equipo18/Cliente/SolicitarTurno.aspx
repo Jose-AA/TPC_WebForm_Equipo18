@@ -64,21 +64,72 @@
             background-color: #f2f2f2;
         }
 
+        .ocultar{
+            display: none;
+        }
+
+        h2{
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .anchorContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 45px;
+        }
+
+
+        #anchorScrollTop, .btnTurnoMasProximo{
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+        }
 
 
     </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+               
+            <div>
+                <h2>Turnos para: <%: servicioSeleccionado.Nombre %></h2>
+            </div>
 
-            <div class="calendar-container">
-                <asp:Calendar ID="calendarioTurnos" runat="server" OnSelectionChanged="calendarioTurnos_SelectionChanged" OnDayRender="calendarioTurnos_DayRender"></asp:Calendar>
+            <div>
+                <h2>Especialistas disponibles: </h2>
+                   <div style="display:flex; justify-content:space-evenly;">
+                    <asp:Repeater ID="repeaterEspecialistas" runat="server">
+                        <ItemTemplate>
+                            <div class="card" style="width: 14rem; display: inline-block">
+                                <asp:Image CssClass="card-img-top" ImageUrl="https://png.pngtree.com/png-clipart/20211116/original/pngtree-beauty-logo-png-image_6943906.png" runat="server" />
+                                <div class="card-body">
+                                    <h5 class="card-title"><%# Eval("Nombre") + " " + Eval("Apellido") %></h5>
+                                </div>
+                                <div style="display:flex; justify-content: center; align-items: center;">
+                                    <asp:Button ID="btnElegirEspecialista" Text="Elegir" CommandArgument='<%# Eval("IdUsuario") %>' OnClientClick="actualizarEspecialista(this.getAttribute('data-id'));" OnClick="btnElegirEspecialista_Click" runat="server" CssClass="btn btn-primary" data-id='<%# Eval("IdUsuario") %>' />
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
+
+
+            <div class="calendar-container" id="container-calendar">
+                <asp:Calendar ID="calendarioTurnos" runat="server" OnSelectionChanged="calendarioTurnos_SelectionChanged" OnDayRender="calendarioTurnos_DayRender" OnVisibleMonthChanged="calendarioTurnos_VisibleMonthChanged"></asp:Calendar>
             </div>
             <div id="available-times" class="available-times">
                 <h3>Horas de inicio disponibles</h3>
                 <div id="time-slots-container"></div>
             </div>
-
+            <div class="anchorContainer">
+                <a href="#" id="anchorScrollTop" onclick="scrollToTop();">Cambiar especialista</a>
+            </div>
+            <div class="anchorContainer">
+                <asp:Button Text="Solicitar primer turno disponible" ID="btnTurnoMasProximo" CssClass="btnTurnoMasProximo" OnClick="btnTurnoMasProximo_Click" runat="server" />
+            </div>
 
     <div id="successModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalSeleccionEliminarLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -104,6 +155,7 @@
                         OnClientClick="var myModalEl = document.getElementById('successModal');
                                         var modal = bootstrap.Modal.getInstance(myModalEl);
                                         modal.hide(); return false;" runat="server" CssClass="btn btn-primary" />
+                    <asp:Button style="display:none" ID="btnOculto" OnClick="btnOculto_Click" runat="server" />
                 </div>
                 <div class="modal-footer">
                 </div>
@@ -128,9 +180,11 @@
     </div>
 
 
-
+    <asp:HiddenField ID="hiddenFieldFecha" runat="server" />
     <asp:HiddenField ID="hiddenFieldHoraTurno" runat="server" />
     <asp:HiddenField ID="hiddenFieldIdTurno" runat="server" />
+    <asp:HiddenField ID="hiddenFieldIdEspecialista" runat="server" />
+    <asp:HiddenField ID="hiddenFieldFlagMostrarCalendario" runat="server" />
 
 
     <script>
@@ -169,27 +223,67 @@
                 keyboard: false
             });
 
-            var especialista = "Especialista: <%= especialistaSeleccionado.Apellido %>, <%= especialistaSeleccionado.Nombre %>";
+            //var especialista = "Especialista: <%= especialistaSeleccionado == null ? "" : especialistaSeleccionado.Apellido%>, <%= especialistaSeleccionado == null ? "" : especialistaSeleccionado.Nombre %>";
             var servicio = "Servicio: <%= servicioSeleccionado.Nombre %>";
             var fecha = "Turno: <%= calendarioTurnos.SelectedDate.ToShortDateString() %>";
             //var idTurno = document.getElementById('<%= hiddenFieldIdTurno.ClientID %>').value;
             var hora = document.getElementById('<%= hiddenFieldHoraTurno.ClientID %>').value;
 
+            if (isNaN(fecha)) {
+                fecha = "Turno: " + document.getElementById('<%= hiddenFieldFecha.ClientID %>').value;
+            }
+
             var horaDesde = parseInt(hora);
-            horaDesde = horaDesde + ":00";
 
-            var horaHasta = parseInt(hora) + 1;
-            horaHasta = horaHasta + ":00";
+            if (!isNaN(horaDesde)) {
+                horaDesde = horaDesde + ":00";
 
-            hora = horaDesde + " - " + horaHasta; 
+                var horaHasta = parseInt(hora) + 1;
+                horaHasta = horaHasta + ":00";
+
+                hora = horaDesde + " - " + horaHasta;
+            }
+            else {
+                hora = document.getElementById('<%= hiddenFieldHoraTurno.ClientID %>').value;
+            }
+
 
             //document.getElementById('<%= lblIDTurno.ClientID %>').textContent = idTurno;
-            document.getElementById('<%= lblNombreEspecialista.ClientID %>').textContent = especialista;
+            //document.getElementById('<%= lblNombreEspecialista.ClientID %>').textContent = especialista;
             document.getElementById('<%= lblNombreServicio.ClientID %>').textContent = servicio;
             document.getElementById('<%= lblFechaHoraTurno.ClientID %>').textContent = fecha + " " + hora;
 
 
             myModal.show();
+        }
+
+        function mostrarCalendario() {
+            var calendario = document.getElementById("container-calendar");
+            calendario.classList.remove("ocultar");
+        }
+
+        function ocultarCalendario() {
+            var calendario = document.getElementById("container-calendar");
+            calendario.classList.add("ocultar");
+        }
+
+
+        function actualizarEspecialista(idClickeado) {
+            console.log('ID Clickeado:', idClickeado); // Para verificar en la consola
+            document.getElementById('<%= hiddenFieldIdEspecialista.ClientID %>').value = idClickeado;
+
+            mostrarCalendario();
+
+
+        }
+
+        function scrollToPositionTimes() {
+            window.scrollTo(0, 1200);
+        }
+
+        function scrollToTop() {
+            window.scrollToTop();
+            return false;
         }
 
 

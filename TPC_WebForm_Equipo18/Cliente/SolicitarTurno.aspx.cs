@@ -7,40 +7,85 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
+using System.Globalization;
 
 namespace TPC_WebForm_Equipo18
 {
     public partial class SolicitarTurno : System.Web.UI.Page
     {
-        public Servicio servicioSeleccionado = new Servicio();
-        public Especialista especialistaSeleccionado = new Especialista();
-        public List<Turno> listaTurnos = new List<Turno>();
-
-        public bool fechaSeleccionada = false;
+        public Servicio servicioSeleccionado;
+        public Especialista especialistaSeleccionado;
+        public List<Especialista> especialistas;
+        public List<Turno> listaTurnos;
+        bool eventoAgregado;
+        public bool primeraVisita;
+        private DateTime fechaElegida;
+        public Usuario usuarioLogueado;
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            Page.MaintainScrollPositionOnPostBack = true;
+
             servicioSeleccionado = (Servicio)Session["ServicioSeleccionado"];
 
-            if(servicioSeleccionado == null)
+            usuarioLogueado = (Usuario)Session["usuario"];
+
+            if (usuarioLogueado == null)
+            {
+                Response.Redirect("/Login/IniciarSesion.aspx");
+            }
+
+            if (servicioSeleccionado == null)
             {
                 Response.Redirect("/Default.aspx");
             }
 
-            UsuarioNegocio usuarionegocio = new UsuarioNegocio();
-            TurnoNegocio turnoNegocio = new TurnoNegocio();
+            if(servicioSeleccionado != null && especialistaSeleccionado != null)
+            {
+                TurnoNegocio turnoNegocio = new TurnoNegocio();
+                listaTurnos = turnoNegocio.listarPorServicio(especialistaSeleccionado, servicioSeleccionado);
+            }
 
-            //Usuario aux = usuarionegocio.buscarPorID(2);
+            if (ViewState["SelectedDate"] != null)
+            {
+                if (Session["primerTurnoDisponible"] == null)
+                {
+                    calendarioTurnos.SelectedDate = DateTime.MinValue;
+                }
+                else
+                {
+                    fechaElegida = (DateTime)ViewState["SelectedDate"];
+                }
 
-            //Deberiamos traer los datos del especialista...
 
-            especialistaSeleccionado.IdRol = 2;
-            especialistaSeleccionado.IdUsuario = 2;
-            especialistaSeleccionado.Apellido = "Doe";
-            especialistaSeleccionado.Nombre = "Jane";
+            }
 
-            listaTurnos = turnoNegocio.listarPorServicio(especialistaSeleccionado, servicioSeleccionado);
+
+
+            if (!IsPostBack)
+            {
+                fechaElegida = DateTime.MinValue;
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "mostrarCalendario", "ocultarCalendario();", true);
+                EspecialistaNegocio especialistaNegocio = new EspecialistaNegocio();
+
+                especialistas = especialistaNegocio.ListarEspecialistasysusservicosAsociados();
+                primeraVisita = false;
+
+                especialistaSeleccionado = new Especialista();
+
+                var especialistasFiltrados = especialistas.Where(es => es.ServicioAsociado.Id == servicioSeleccionado.Id).ToList();
+
+                repeaterEspecialistas.DataSource = especialistasFiltrados;
+                repeaterEspecialistas.DataBind();
+            }
+
+            Turno aux = (Turno)Session["primerTurnoDisponible"];
+            if (Session["primerTurnoDisponible"] != null)
+            {
+                btnOculto_Click(btnOculto, EventArgs.Empty);
+            }
 
             //configurarVisibilidadRetrocesoMes();
 
@@ -48,6 +93,10 @@ namespace TPC_WebForm_Equipo18
 
         protected void calendarioTurnos_SelectionChanged(object sender, EventArgs e)
         {
+
+            fechaElegida = calendarioTurnos.SelectedDate;
+            ViewState["SelectedDate"] = fechaElegida;
+
             DateTime fechaSeleccionada = calendarioTurnos.SelectedDate;
 
             
@@ -56,11 +105,16 @@ namespace TPC_WebForm_Equipo18
             
             dibujarTiemposDisponibles(horariosDisponiblesParaFechaSeleccionada);
 
+            Page.MaintainScrollPositionOnPostBack = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "scrollScript", "scrollToPositionTimes();", true);
+
         }
 
-        
+
         protected void calendarioTurnos_DayRender(object sender, DayRenderEventArgs e)
         {
+
+
             DateTime fechaActual = DateTime.Now.Date;
 
             // Si la fecha actual es una de las fechas no seleccionables
@@ -76,31 +130,33 @@ namespace TPC_WebForm_Equipo18
             else
             {
                 // Verificar si hay turnos disponibles para la fecha
-                bool hayTurnos = listaTurnos.Any(turno => turno.FechaDeTurno.Date == e.Day.Date);
+                if(Session["turnos"] != null)
+                {
+                    listaTurnos = (List<Turno>)Session["turnos"];
 
-                if (!hayTurnos)
-                {
-                    e.Day.IsSelectable = false;
-                    e.Cell.BackColor = System.Drawing.Color.Gray;
-                    e.Cell.ForeColor = System.Drawing.Color.Black;
+                    bool hayTurnos = listaTurnos.Any(turno => turno.FechaDeTurno.Date == e.Day.Date);
+
+                    if (!hayTurnos)
+                    {
+                        e.Day.IsSelectable = false;
+                        e.Cell.BackColor = System.Drawing.Color.Gray;
+                        e.Cell.ForeColor = System.Drawing.Color.Black;
+                    }
+                    else
+                    {
+                        // Opcional: resaltar fechas con turnos disponibles
+                        // Si queremos, un color verde por ejemplo...
+                    }
                 }
-                else
-                {
-                    // Opcional: resaltar fechas con turnos disponibles
-                    // Si queremos, un color verde por ejemplo...
-                }
+
             }
 
-
-
-            foreach (Turno turno in listaTurnos)
+            if (e.Day.Date == fechaElegida)
             {
-                if (turno.FechaDeTurno.Date == e.Day.Date)
-                {
-                    
-                }
+                e.Cell.BackColor = System.Drawing.Color.LightBlue; // Cambiar el color de fondo para indicar deshabilitación
+                e.Cell.Controls.Clear(); // Remover el enlace
+                e.Cell.Text = e.Day.Date.Day.ToString(); // Solo mostrar el texto de la fecha
             }
-
 
             if (e.Day.IsOtherMonth)
             {
@@ -109,6 +165,16 @@ namespace TPC_WebForm_Equipo18
                 e.Cell.ForeColor = System.Drawing.Color.Black;
             }
 
+            if (Session["primerTurnoDisponible"] == null)
+            {
+                calendarioTurnos.SelectedDate = DateTime.MinValue;
+            }
+        }
+
+        protected void calendarioTurnos_VisibleMonthChanged(object sender, MonthChangedEventArgs e)
+        {
+            //hiddenFieldFlagMostrarCalendario.Value = "true";
+            
         }
 
         /*
@@ -156,7 +222,9 @@ namespace TPC_WebForm_Equipo18
             List<String> horariosTurnos = new List<string>();
             DateTime ahora = DateTime.Now;
 
-            if(fechaSeleccionada.Date == ahora.Date)
+            listaTurnos = (List<Turno>)Session["turnos"];
+
+            if (fechaSeleccionada.Date == ahora.Date)
             {
                 for (int i = 0; i < listaTurnos.Count; i++)
                 {
@@ -236,15 +304,134 @@ namespace TPC_WebForm_Equipo18
             TurnoNegocio negocio = new TurnoNegocio();
             string idTurno = hiddenFieldIdTurno.Value;
 
-            negocio.tomarTurno(6, int.Parse(idTurno));
+            usuarioLogueado = (Usuario)Session["usuario"];
+
+            negocio.tomarTurno(usuarioLogueado.IdUsuario, int.Parse(idTurno));
+
+
+
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "modalTurnoConfirmado", "modalTurnoExitoso();", true);
 
         }
 
-        protected void btnNoConfirmarTurno_Click(object sender, EventArgs e)
+        public void actualizarEspecialistaSeleccionado()
         {
-            return;
+            string idEspecialista = hiddenFieldIdEspecialista.Value;
+            idEspecialista = idEspecialista.Replace("{", "");
+            idEspecialista= idEspecialista.Replace("}", "");
+
+            EspecialistaNegocio especialistaNegocio = new EspecialistaNegocio();
+
+            especialistas = especialistaNegocio.ListarEspecialistasysusservicosAsociados();
+
+            if (string.IsNullOrEmpty(idEspecialista))
+            {
+                return;
+            }
+
+            for(int i = 0; i < especialistas.Count; i++)
+            {
+                string auxid = especialistas[i].IdUsuario.ToString();
+
+                if (String.Equals(auxid, idEspecialista))
+                {
+                    especialistaSeleccionado = especialistas[i];
+                    lblNombreEspecialista.Text = "Especialista: " + especialistaSeleccionado.Nombre + ", " + especialistaSeleccionado.Apellido;
+                    calendarioTurnos.SelectedDate = DateTime.MinValue;
+                    break;
+                }
+            }
+        }
+
+        public void actualizarListaTurnos()
+        {
+            if (especialistaSeleccionado != null)
+            {
+                TurnoNegocio turnoNegocio = new TurnoNegocio();
+                listaTurnos = turnoNegocio.listarPorServicio(especialistaSeleccionado, servicioSeleccionado);
+                DateTime ahora = DateTime.Now;
+                TimeSpan horaActual = ahora.TimeOfDay;
+
+                listaTurnos = listaTurnos.Where(t => t.FechaDeTurno.Date > ahora.Date ||
+                              (t.FechaDeTurno.Date == ahora.Date && t.HoraDeTurno > horaActual)).ToList();
+
+
+                if (Session["turnos"] == null)
+                {
+                    Session.Add("turnos", listaTurnos);
+                }
+                else
+                {
+                    Session["turnos"] = listaTurnos;
+                }
+            }
+
+            if(eventoAgregado == false)
+            {
+                calendarioTurnos.DayRender += new DayRenderEventHandler(calendarioTurnos_DayRender);
+                eventoAgregado = true;
+            }
+        }
+
+        protected void btnElegirEspecialista_Click(object sender, EventArgs e)
+        {
+            actualizarEspecialistaSeleccionado();
+            actualizarListaTurnos();
+
+            Page.MaintainScrollPositionOnPostBack = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "scrollScript", "scrollToPositionTimes();", true);
+        }
+
+
+        private void primerTurnoDisponible()
+        {
+            Turno aux = new Turno();
+            TurnoNegocio turnoNegocio = new TurnoNegocio();
+            EspecialistaNegocio especialistaNegocio = new EspecialistaNegocio();
+
+            especialistas = especialistaNegocio.ListarEspecialistasysusservicosAsociados();
+
+
+            aux = turnoNegocio.obtenerPrimerTurnoDisponible(servicioSeleccionado);
+
+            hiddenFieldFecha.Value = aux.FechaDeTurno.ToString("dd/MM/yyyy");
+            hiddenFieldHoraTurno.Value = aux.HoraDeTurno.ToString();
+            hiddenFieldIdTurno.Value = aux.ID.ToString();
+
+            if(aux != null)
+            {
+
+                for (int i = 0; i < especialistas.Count; i++)
+                {
+                    if (aux.Especialista.IdUsuario == especialistas[i].IdUsuario)
+                    {
+                        aux.Especialista.Apellido = especialistas[i].Apellido;
+                        aux.Especialista.Nombre = especialistas[i].Nombre;
+                        break;
+                    }
+                }
+
+                Session.Add("primerTurnoDisponible", aux);
+
+                lblNombreEspecialista.Text = "Especialista: " + aux.Especialista.Nombre + ", " + aux.Especialista.Apellido;
+                lblNombreServicio.Text = "Servicio: " + servicioSeleccionado.Nombre;
+                lblFechaHoraTurno.Text = "Horario: " + aux.FechaDeTurno.ToString() +" - " + aux.HoraDeTurno.ToString();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modalTurnoConfirmado", "showModal();", true);
+            }
+        }
+
+        protected void btnTurnoMasProximo_Click(object sender, EventArgs e)
+        {
+            primerTurnoDisponible();
+        }
+
+        protected void btnOculto_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "ocultarCalendario", "ocultarCalendario();", true);
+            Session["primerTurnoDisponible"] = null;
+            calendarioTurnos.SelectedDate = DateTime.MinValue;
         }
     }
 }
