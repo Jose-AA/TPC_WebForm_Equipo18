@@ -20,6 +20,7 @@ namespace TPC_WebForm_Equipo18
         bool eventoAgregado;
         public bool primeraVisita;
         private DateTime fechaElegida;
+        public Usuario usuarioLogueado;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,6 +28,13 @@ namespace TPC_WebForm_Equipo18
             Page.MaintainScrollPositionOnPostBack = true;
 
             servicioSeleccionado = (Servicio)Session["ServicioSeleccionado"];
+
+            usuarioLogueado = (Usuario)Session["usuario"];
+
+            if (usuarioLogueado == null)
+            {
+                Response.Redirect("/Login/IniciarSesion.aspx");
+            }
 
             if (servicioSeleccionado == null)
             {
@@ -296,7 +304,9 @@ namespace TPC_WebForm_Equipo18
             TurnoNegocio negocio = new TurnoNegocio();
             string idTurno = hiddenFieldIdTurno.Value;
 
-            negocio.tomarTurno(6, int.Parse(idTurno));
+            usuarioLogueado = (Usuario)Session["usuario"];
+
+            negocio.tomarTurno(usuarioLogueado.IdUsuario, int.Parse(idTurno));
 
 
 
