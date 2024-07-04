@@ -85,7 +85,7 @@
 
         function redirectAfterDelay() {
             setTimeout(function () {
-                window.location.href = "ListarUsuarios.aspx";
+                window.location.href = "/ADMIN/ABM USUARIOS/ListarUsuarios.aspx";
             }, 3000);
         }
     </script>

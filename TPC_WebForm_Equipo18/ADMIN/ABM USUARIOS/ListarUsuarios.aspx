@@ -3,8 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <label>Menú Usuarios</label>
-    <asp:GridView runat="server" ID="gridUsuarios" DataKeyNames="IdUsuario" OnSelectedIndexChanged="gridUsuarios_SelectedIndexChanged" CssClass="table table-bordered" AutoGenerateColumns="false" >
+    <h1 style="margin-left:500px; margin-top:50px; margin-bottom:50px">listado de Usuarios</h1>
+    <asp:GridView runat="server" ID="gridUsuarios" DataKeyNames="IdUsuario" OnSelectedIndexChanged="gridUsuarios_SelectedIndexChanged" CssClass="table table-bordered" AutoGenerateColumns="false" style="width:1500px; margin-left:500px "  >
         <Columns>
             <asp:BoundField HeaderText="ID" DataField="IdUsuario" />
             <asp:BoundField HeaderText="Email" DataField="Email" />
@@ -14,7 +14,7 @@
         </Columns>
     </asp:GridView>
 
-
-    <asp:Button Text="Nuevo Usuario" ID="btnNuevoUsuario" CssClass="btn btn-primary" runat="server" onclick="btnNuevoUsuario_Click"/>
-
+   <div style="margin-left:500px"> 
+    <asp:Button  Text="Nuevo Usuario" ID="btnNuevoUsuario" CssClass="btn btn-primary" runat="server" onclick="btnNuevoUsuario_Click"/>
+       </div>
 </asp:Content>

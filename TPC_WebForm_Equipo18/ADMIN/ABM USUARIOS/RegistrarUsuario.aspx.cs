@@ -16,15 +16,17 @@ namespace TPC_WebForm_Equipo18
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ddlRoles.Items.Add("Administrador");
-            ddlRoles.Items.Add("Especialista");
-            ddlRoles.Items.Add("Recepcionista");
-            ddlRoles.Items.Add("Cliente");
+          
             
 
 
             if (!IsPostBack)
             {
+                ddlRoles.Items.Add("Administrador");
+                ddlRoles.Items.Add("Especialista");
+                ddlRoles.Items.Add("Recepcionista");
+                ddlRoles.Items.Add("Cliente");
+
                 if (Request.QueryString["id"] != null)
                 {
                     int id = int.Parse(Request.QueryString["id"]);
@@ -100,7 +102,12 @@ namespace TPC_WebForm_Equipo18
                 aux.Nombre = inputNombre.Text;
                 aux.Apellido = inputApellido.Text;
                 aux.Dni = -1;
-             
+                aux.FechaNacimiento = new DateTime(1900, 1, 1);
+                aux.Telefono = "";
+                aux.Direccion = ""; 
+
+
+
 
                 if (Request.QueryString["id"] != null)
                 {
@@ -116,14 +123,14 @@ namespace TPC_WebForm_Equipo18
             {
                 if (modoEdicion == false)
                 {   
-                   
+                   Usuario aux2=aux;
                     negocio.agregar(aux);
 
                     int idusario = negocio.recuperaridusuario(aux.Email);
 
-                    aux.IdUsuario = idusario;
+                    aux2.IdUsuario = idusario;
 
-                    negocioDP.agregar(aux);
+                    negocioDP.agregar(aux2);
 
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "modalseleccione", "abrirModal();", true);
                 }
@@ -137,7 +144,7 @@ namespace TPC_WebForm_Equipo18
             }
             catch(Exception ex)
             {
-                ex.ToString();
+                throw ex;
             }
 
         }
