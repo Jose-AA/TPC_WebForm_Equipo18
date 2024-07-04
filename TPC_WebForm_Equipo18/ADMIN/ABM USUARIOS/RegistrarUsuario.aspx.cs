@@ -16,15 +16,17 @@ namespace TPC_WebForm_Equipo18
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ddlRoles.Items.Add("Administrador");
-            ddlRoles.Items.Add("Especialista");
-            ddlRoles.Items.Add("Recepcionista");
-            ddlRoles.Items.Add("Cliente");
+          
             
 
 
             if (!IsPostBack)
             {
+                ddlRoles.Items.Add("Administrador");
+                ddlRoles.Items.Add("Especialista");
+                ddlRoles.Items.Add("Recepcionista");
+                ddlRoles.Items.Add("Cliente");
+
                 if (Request.QueryString["id"] != null)
                 {
                     int id = int.Parse(Request.QueryString["id"]);
@@ -67,7 +69,8 @@ namespace TPC_WebForm_Equipo18
         {
 
             Usuario aux = new Usuario();
-            UsuarioNegocio negocio = new UsuarioNegocio();
+            UsuarioNegocio negocio = new UsuarioNegocio();      
+            DatosPersonalesNegocio negocioDP = new DatosPersonalesNegocio();
 
             if (IsPostBack)
             {
@@ -96,6 +99,15 @@ namespace TPC_WebForm_Equipo18
 
                 aux.Email = inputCorreo.Text;
                 aux.Contraseña = inputContraseña.Text;
+                aux.Nombre = inputNombre.Text;
+                aux.Apellido = inputApellido.Text;
+                aux.Dni = -1;
+                aux.FechaNacimiento = new DateTime(1900, 1, 1);
+                aux.Telefono = "";
+                aux.Direccion = ""; 
+
+
+
 
                 if (Request.QueryString["id"] != null)
                 {
@@ -110,8 +122,16 @@ namespace TPC_WebForm_Equipo18
             try
             {
                 if (modoEdicion == false)
-                {
+                {   
+                   Usuario aux2=aux;
                     negocio.agregar(aux);
+
+                    int idusario = negocio.recuperaridusuario(aux.Email);
+
+                    aux2.IdUsuario = idusario;
+
+                    negocioDP.agregar(aux2);
+
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "modalseleccione", "abrirModal();", true);
                 }
                 else
@@ -124,7 +144,7 @@ namespace TPC_WebForm_Equipo18
             }
             catch(Exception ex)
             {
-                ex.ToString();
+                throw ex;
             }
 
         }

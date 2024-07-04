@@ -17,23 +17,37 @@ namespace TPC_WebForm_Equipo18.ABM_Datos_Personales
         {
             if (!IsPostBack)
             {
-                listusuarios = negocio.listar();
-
-                var usuarioDisplayList = listusuarios.Select(u => new
-                {
-                    DisplayText = $"{u.Nombre} {u.Apellido} {u.Dni}",
-                    u.IdUsuario
-                }).ToList();
-
-                UsuarioModificar.DataSource = usuarioDisplayList;
-                UsuarioModificar.DataTextField = "DisplayText";
-                UsuarioModificar.DataValueField = "IdUsuario";
-                UsuarioModificar.DataBind();
-                UsuarioModificar.Items.Insert(0, new ListItem("Seleccione un usuario", "0"));
+                cargarUsuarios();
             }
         }
 
 
+        public void cargarUsuarios()
+        {
+            listusuarios = negocio.listar();
+
+            string filtro = txtBuscar.Text;
+
+            if (filtro != string.Empty && filtro != null && filtro != "")
+            {
+
+                listusuarios = listusuarios.FindAll(u => u.Nombre.ToLower().Contains(filtro.ToLower()));
+
+
+            }
+
+            var usuarioDisplayList = listusuarios.Select(u => new
+            {
+                DisplayText = $"{u.Nombre} {u.Apellido} {u.Dni}",
+                u.IdUsuario
+            }).ToList();
+
+            UsuarioModificar.DataSource = usuarioDisplayList;
+            UsuarioModificar.DataTextField = "DisplayText";
+            UsuarioModificar.DataValueField = "IdUsuario";
+            UsuarioModificar.DataBind();
+            UsuarioModificar.Items.Insert(0, new ListItem("Seleccione un usuario", "0"));
+        }
         protected void UsuarioModificar_SelectedIndexChanged(object sender, EventArgs e)
         {
             int idUsuario = 0;
@@ -44,7 +58,7 @@ namespace TPC_WebForm_Equipo18.ABM_Datos_Personales
             usuario = usuarios.Find(u => u.IdUsuario == idUsuario);
 
             if (usuario != null)
-            {
+            {   
                 inputNombre.Text = usuario.Nombre;
                 inputApellido.Text = usuario.Apellido;
                 inputDNI.Text = usuario.Dni.ToString();
@@ -94,6 +108,12 @@ namespace TPC_WebForm_Equipo18.ABM_Datos_Personales
 
 
             }
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            
+            cargarUsuarios();
         }
     }
 }

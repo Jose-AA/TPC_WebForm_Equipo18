@@ -78,7 +78,7 @@
                                     <a class="dropdown-item dropdown-toggle" href="#">Datos Personales</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="/ADMIN/ABM%20DatosPersonales/RegistrarDatosPersonales">Registrar Datos Personales</a></li>
-                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20DatosPersonales/Modificar%20Datos%20Personales">Modificar Datos Personales</a></li>
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20DatosPersonales/Modificar%20Datos%20Pesonales">Modificar Datos Personales</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">
