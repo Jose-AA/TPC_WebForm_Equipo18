@@ -140,6 +140,13 @@ namespace TPC_WebForm_Equipo18.Recepcion
 
         protected void btnBlanqueo_Click(object sender, EventArgs e)
         {
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "showModal", "showModal();", true);
+
+        }
+
+        protected void BlanquearContraseña()
+        {
             IDSeleccionado = (int)Session["IDSeleccionado"];
             Usuario u = new Usuario();
             Usuario aux = new Usuario();
@@ -150,6 +157,12 @@ namespace TPC_WebForm_Equipo18.Recepcion
             aux.Email = u.Email;
             aux.Contraseña = "1234";
             negocio.modificar(aux);
+            Response.Redirect("ListarClientesRecepcion.aspx");
+        }
+        protected void ConfirmBlanqueo()
+        {
+            // Lógica para blanquear la contraseña
+            BlanquearContraseña();
         }
     }
 }

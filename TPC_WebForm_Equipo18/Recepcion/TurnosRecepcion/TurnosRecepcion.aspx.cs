@@ -70,24 +70,29 @@ namespace TPC_WebForm_Equipo18.Recepcion.TurnosRecepcion
         protected void btnDarBaja_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-
             
-            //int idTurno = Convert.ToInt32(btn.CommandArgument);
+            int usuID = Convert.ToInt32(Session["id"]);
+
+            ID = int.Parse(btn.CommandArgument);
+            ID = Convert.ToInt32(btn.CommandArgument);
 
             Turno aux = new Turno();
             TurnoNegocio negocio = new TurnoNegocio();
+            
+            baja = listaTurnos.Find(x => x.ID == ID);
+            negocio.ActualizarEstado(baja);
+           /* 
             baja = new Turno();
             aux = negocio.obtenerPorID(ID);
-
+            
             baja.ID = aux.ID;
             baja.FechaDeTurno = aux.FechaDeTurno;
             baja.HoraDeTurno = aux.HoraDeTurno;
             baja.Especialista = aux.Especialista;
             baja.Estado = 2;
             baja.Cliente = aux.Cliente;
-            baja.Servicio = aux.Servicio;
+            baja.Servicio = aux.Servicio;*/
             //Response.Redirect("TurnosRecepcion/TurnosRecepcion.aspx?id=" + idTurno);
-            negocio.ActualizarEstado(baja);
             //DarDeBajaTurno(ID);
 
 
