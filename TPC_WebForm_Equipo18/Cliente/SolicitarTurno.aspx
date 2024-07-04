@@ -179,7 +179,7 @@
     </div>
 
 
-
+    <asp:HiddenField ID="hiddenFieldFecha" runat="server" />
     <asp:HiddenField ID="hiddenFieldHoraTurno" runat="server" />
     <asp:HiddenField ID="hiddenFieldIdTurno" runat="server" />
     <asp:HiddenField ID="hiddenFieldIdEspecialista" runat="server" />
@@ -228,13 +228,24 @@
             //var idTurno = document.getElementById('<%= hiddenFieldIdTurno.ClientID %>').value;
             var hora = document.getElementById('<%= hiddenFieldHoraTurno.ClientID %>').value;
 
+            if (isNaN(fecha)) {
+                fecha = "Turno: " + document.getElementById('<%= hiddenFieldFecha.ClientID %>').value;
+            }
+
             var horaDesde = parseInt(hora);
-            horaDesde = horaDesde + ":00";
 
-            var horaHasta = parseInt(hora) + 1;
-            horaHasta = horaHasta + ":00";
+            if (!isNaN(horaDesde)) {
+                horaDesde = horaDesde + ":00";
 
-            hora = horaDesde + " - " + horaHasta; 
+                var horaHasta = parseInt(hora) + 1;
+                horaHasta = horaHasta + ":00";
+
+                hora = horaDesde + " - " + horaHasta;
+            }
+            else {
+                hora = document.getElementById('<%= hiddenFieldHoraTurno.ClientID %>').value;
+            }
+
 
             //document.getElementById('<%= lblIDTurno.ClientID %>').textContent = idTurno;
             //document.getElementById('<%= lblNombreEspecialista.ClientID %>').textContent = especialista;

@@ -365,6 +365,10 @@ namespace TPC_WebForm_Equipo18
 
             aux = turnoNegocio.obtenerPrimerTurnoDisponible(servicioSeleccionado);
 
+            hiddenFieldFecha.Value = aux.FechaDeTurno.ToString("dd/MM/yyyy");
+            hiddenFieldHoraTurno.Value = aux.HoraDeTurno.ToString();
+            hiddenFieldIdTurno.Value = aux.ID.ToString();
+
             if(aux != null)
             {
 
