@@ -10,11 +10,21 @@
     <main>
         <div class="row g-1" style="margin-left: 20px; margin-right: 20px;">
             <div class="col-md-6">
+                <label for="inputNombre" class="form-label">Nombre</label>
+                <asp:TextBox ID="inputNombre" runat="server" CssClass="form-control" MaxLength="50" />
+                <asp:RequiredFieldValidator ID="rfvNombre" ErrorMessage="* Campo obligatorio" ForeColor="Red" ControlToValidate="inputNombre" runat="server" ValidationGroup="CrearServicioValidation" />
+            </div>
+            <div class="col-md-6">
+                <label for="inputApellido" class="form-label">Apellido</label>
+                <asp:TextBox ID="inputApellido" runat="server" CssClass="form-control" MaxLength="50" />
+                <asp:RequiredFieldValidator ID="rfvApellido" ErrorMessage="* Campo obligatorio" ForeColor="Red" ControlToValidate="inputApellido" runat="server" ValidationGroup="CrearServicioValidation" />
+            </div>
+            <div class="col-md-6">
                 <label for="inputCorreo" class="form-label">Correo Electrónico</label>
                 <asp:TextBox ID="inputCorreo" runat="server" CssClass="form-control" MaxLength="255" />
                 <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ForeColor="Red" ControlToValidate="inputCorreo" runat="server" />
                 <asp:RegularExpressionValidator ErrorMessage="* Debe ingresar un mail válido" ControlToValidate="inputCorreo" ForeColor="Red"
-    ValidationExpression="^([\w\.-]+)@((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})|(([\w-]+\.)+[a-zA-Z]{2,4}))$" runat="server" />
+                    ValidationExpression="^([\w\.-]+)@((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})|(([\w-]+\.)+[a-zA-Z]{2,4}))$" runat="server" />
             </div>
             <div class="col-md-6">
                 <label for="inputContraseña" class="form-label">Contraseña</label>
@@ -25,8 +35,8 @@
                 <label for="inputConfirmarContraseña" class="form-label">Confirmar Contraseña</label>
                 <asp:TextBox ID="inputConfirmarContraseña" runat="server" CssClass="form-control" MaxLength="50" TextMode="Password" />
                 <asp:RequiredFieldValidator ErrorMessage="* Campo Obligatorio" ForeColor="Red" ControlToValidate="inputConfirmarContraseña" runat="server" />
-                <asp:CompareValidator ErrorMessage="* Las contraseñas no coinciden" ForeColor="Red" ControlToValidate="inputConfirmarContraseña" 
-                    controlToCompare="inputContraseña" runat="server" />
+                <asp:CompareValidator ErrorMessage="* Las contraseñas no coinciden" ForeColor="Red" ControlToValidate="inputConfirmarContraseña"
+                    ControlToCompare="inputContraseña" runat="server" />
             </div>
             <div class="col-md-6">
                 <label for="inputIDRol" class="form-label">ID Rol</label>
@@ -76,7 +86,7 @@
         function redirectAfterDelay() {
             setTimeout(function () {
                 window.location.href = "ListarUsuarios.aspx";
-             }, 3000);
+            }, 3000);
         }
     </script>
 

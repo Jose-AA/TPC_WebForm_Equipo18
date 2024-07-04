@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -105,7 +106,7 @@ namespace Negocio
 
                 while (datos.Lector.Read())
                 {
-                    
+
                     aux.IdRol = (int)datos.Lector["id_rol"];
                     aux.IdUsuario = (int)datos.Lector["usuario_id"];
                     aux.Email = (string)datos.Lector["correo_electronico"];
@@ -113,7 +114,7 @@ namespace Negocio
                 }
                 return aux;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ex.ToString();
                 return aux;
@@ -142,8 +143,8 @@ namespace Negocio
                 while (datos.Lector.Read())
                 {
                     Usuario aux = new Usuario();
-                   aux.Nombre = (string)datos.Lector["nombre"];
-                   aux.Apellido = (string)datos.Lector["apellido"];
+                    aux.Nombre = (string)datos.Lector["nombre"];
+                    aux.Apellido = (string)datos.Lector["apellido"];
                     aux.IdUsuario = (int)datos.Lector["usuario_id"];
                     aux.IdRol = (int)datos.Lector["id_rol"];
 
@@ -183,7 +184,7 @@ namespace Negocio
 
                 return id;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -216,7 +217,7 @@ namespace Negocio
 
                 return aux;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -244,7 +245,7 @@ namespace Negocio
                     contador = (int)datos.Lector["Count"];
                 }
 
-                if(contador == 0)
+                if (contador == 0)
                 {
                     return false;
                 }
@@ -253,7 +254,39 @@ namespace Negocio
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+
+
+        }
+
+        public int recuperaridusuario(string email)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string query = "select usuario_id from Usuarios where correo_electronico = @email";
+            int id = 0;
+
+            try
+            {
+                datos.settearConsulta(query);
+                datos.setearParametro("@email", email);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    id = (int)datos.Lector["usuario_id"];
+                }
+
+                return id;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -263,5 +296,6 @@ namespace Negocio
             }
 
         }
+
     }
 }

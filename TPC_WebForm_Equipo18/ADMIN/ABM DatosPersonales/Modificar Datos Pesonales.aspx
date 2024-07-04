@@ -48,6 +48,10 @@
 
         <h3 style="margin-left: 20px; margin-right: 20px; margin-top:20px " > Seleccione el usuario </h3>
 
+         <asp:TextBox ID="txtBuscar" runat="server" Visible="true" style="margin-left: 20px; margin-right: 5px; margin-top:20px " />
+
+        <asp:Button ID="btnBuscar" runat="server" Text="Filtrar lista desplegable" OnClick="btnBuscar_Click" />
+        
         <div style="margin-left: 20px; margin-right: 20px; margin-top:50px ">
         <asp:DropDownList ID="UsuarioModificar" runat="server" AutoPostBack="True" OnSelectedIndexChanged="UsuarioModificar_SelectedIndexChanged"/>
         </div>

@@ -18,20 +18,34 @@ namespace TPC_WebForm_Equipo18
         {
             if (!IsPostBack)
             {
+                cargarUsuarios();
 
-                list = negocio.listardelatabadeUsuarios();
-
-
-                UsuarioaCargar.DataTextField = "Email";
-                UsuarioaCargar.DataValueField = "IdUsuario";
-
-
-                UsuarioaCargar.DataSource = list;
-                UsuarioaCargar.DataBind();
-
-
-                UsuarioaCargar.Items.Insert(0, new ListItem("Seleccione el correo electrónico del usuario", "0"));
             }
+        }
+
+
+        public void cargarUsuarios()
+        {
+            list = negocio.listardelatabadeUsuarios();
+
+            string filtro = txtBuscar.Text;
+
+
+            if (filtro != string.Empty && filtro != null && filtro != "")
+            {
+
+                list = list.FindAll(u => u.Email.ToLower().Contains(filtro.ToLower()));
+            }
+
+            UsuarioaCargar.DataTextField = "Email";
+            UsuarioaCargar.DataValueField = "IdUsuario";
+
+
+            UsuarioaCargar.DataSource = list;
+            UsuarioaCargar.DataBind();
+
+
+            UsuarioaCargar.Items.Insert(0, new ListItem("Seleccione el correo electrónico del usuario", "0"));
         }
 
 
@@ -99,6 +113,38 @@ namespace TPC_WebForm_Equipo18
 
             }
 
+
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            cargarUsuarios();
+        }
+
+        protected void UsuarioaCargar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            int idUsuario = 0;
+            idUsuario = Convert.ToInt32(UsuarioaCargar.SelectedValue);
+
+            if (idUsuario != 0)
+            {
+                List<Usuario> usuarios = new List<Usuario>();
+                usuarios = negocio.listar();
+                Usuario usuario = new Usuario();
+                usuario = usuarios.Find(u => u.IdUsuario == idUsuario);
+
+                if (usuario != null)
+                {
+                    inputNombre.Text = usuario.Nombre;
+                    inputApellido.Text = usuario.Apellido;
+                    inputDNI.Text = usuario.Dni.ToString();
+                    inputTelefono.Text = usuario.Telefono.ToString();
+                    inputDireccion.Text = usuario.Direccion;
+                    inputFechaNacimiento.Text = usuario.FechaNacimiento.ToString("yyyy-MM-dd");
+
+                }
+            }
 
         }
     }

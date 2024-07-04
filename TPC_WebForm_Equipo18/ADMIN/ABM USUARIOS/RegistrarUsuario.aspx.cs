@@ -67,7 +67,8 @@ namespace TPC_WebForm_Equipo18
         {
 
             Usuario aux = new Usuario();
-            UsuarioNegocio negocio = new UsuarioNegocio();
+            UsuarioNegocio negocio = new UsuarioNegocio();      
+            DatosPersonalesNegocio negocioDP = new DatosPersonalesNegocio();
 
             if (IsPostBack)
             {
@@ -96,6 +97,10 @@ namespace TPC_WebForm_Equipo18
 
                 aux.Email = inputCorreo.Text;
                 aux.Contraseña = inputContraseña.Text;
+                aux.Nombre = inputNombre.Text;
+                aux.Apellido = inputApellido.Text;
+                aux.Dni = -1;
+             
 
                 if (Request.QueryString["id"] != null)
                 {
@@ -110,8 +115,16 @@ namespace TPC_WebForm_Equipo18
             try
             {
                 if (modoEdicion == false)
-                {
+                {   
+                   
                     negocio.agregar(aux);
+
+                    int idusario = negocio.recuperaridusuario(aux.Email);
+
+                    aux.IdUsuario = idusario;
+
+                    negocioDP.agregar(aux);
+
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "modalseleccione", "abrirModal();", true);
                 }
                 else

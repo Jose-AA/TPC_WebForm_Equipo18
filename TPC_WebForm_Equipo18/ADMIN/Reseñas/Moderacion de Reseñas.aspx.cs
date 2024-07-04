@@ -23,16 +23,68 @@ namespace TPC_WebForm_Equipo18.ADMIN.Reseñas
         private void CargarReseñas()
         {
             ReseñaNegocio negocioReseña = new ReseñaNegocio();
-            List<Resena> reseñas = negocioReseña.Listar();
+            List<Resena> lista = negocioReseña.Listar();
 
-            int maxReseñasPorPestaña = 6; // 3 filas de 3 tarjetas por pestaña
-            var reseñasGrupos = DividirLista(reseñas, maxReseñasPorPestaña);
+            string busqueda = txtBuscar.Text.ToLower();
+            string fechaSeleccionada = FechaSeleccionada.Text;
+
+            string filtro = ddlFiltro.SelectedValue;
+
+
+            switch (filtro)
+            {
+                case "NombreServicio":
+                    if (!string.IsNullOrEmpty(busqueda))
+                    {
+                        lista = lista.FindAll(x => x.Servicio.Nombre.ToLower().Contains(busqueda));
+                    }
+                    break;
+
+                case "NombreCliente":
+                    if (!string.IsNullOrEmpty(busqueda))
+                    {
+                        lista = lista.FindAll(x => x.Cliente.Nombre.ToLower().Contains(busqueda));
+                    }
+                    break;
+
+                case "NombreEspecialista":
+                    if (!string.IsNullOrEmpty(busqueda))
+                    {
+                        lista = lista.FindAll(x => x.Especialista.Nombre.ToLower().Contains(busqueda));
+                    }
+                    break;
+
+                default:
+
+                    break;
+            }
+
+            if (!string.IsNullOrEmpty(fechaSeleccionada))
+            {
+                DateTime fecha;
+                if (DateTime.TryParse(fechaSeleccionada, out fecha))
+                {
+                    lista = lista.FindAll(x => x.CreadoEn.Date == fecha.Date);
+                }
+            }
+
+            if (lista == null || lista.Count < 1)
+            {
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Alert", "showSuccessModalnodatos()", true);
+
+
+            }
+
+            int maxReseñasPorPestaña = 6;
+            var reseñasGrupos = DividirLista(lista, maxReseñasPorPestaña);
 
             rptTabs.DataSource = reseñasGrupos;
             rptTabs.DataBind();
 
             rptTabContent.DataSource = reseñasGrupos;
             rptTabContent.DataBind();
+
         }
 
         private List<List<List<Resena>>> DividirLista(List<Resena> lista, int tamaño)
@@ -55,6 +107,7 @@ namespace TPC_WebForm_Equipo18.ADMIN.Reseñas
             }
             return listaReseñas;
         }
+
 
         protected string GenerarEstrellasSVG(int calificación)
         {
@@ -103,6 +156,16 @@ namespace TPC_WebForm_Equipo18.ADMIN.Reseñas
             // Recargar las reseñas para reflejar el cambio
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Alert", "showSuccessModal()", true);
+        }
+
+        protected void ddlFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            CargarReseñas();
         }
     }
 
