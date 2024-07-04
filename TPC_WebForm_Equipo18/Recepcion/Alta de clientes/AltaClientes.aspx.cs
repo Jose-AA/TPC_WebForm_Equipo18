@@ -46,19 +46,13 @@ namespace TPC_WebForm_Equipo18.Recepcion
 
             try
             {
-                if (!modoEdicion)
-                {
-                    negocio.agregar(aux);
-
-                    int newId = negocio.buscarIDPorEmail(aux.Email);
-                    string url = "DatosPersonalesClientes.aspx?id=" + newId;
-                    Response.Redirect(url);
-                }
-                else
-                {
-                    negocio.modificar(aux);
-                    Response.Redirect("DatosPersonalesClientes.aspx?id=" + aux.IdUsuario);
-                }
+                negocio.agregar(aux);
+                
+                int newId = negocio.buscarIDPorEmail(aux.Email);
+                string url = "DatosPersonalesClientes.aspx?id=" + newId;
+                Response.Redirect(url);    
+                    
+                
             }
             catch (Exception ex)
             {

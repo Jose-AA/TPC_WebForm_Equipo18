@@ -79,46 +79,4 @@
         <asp:Button ID="btnCrearUsuario" runat="server" CssClass="btn btn-primary" Text="Crear Usuario" OnClick="btnCrearUsuario_Click" />
     </div>
 </main>
-
-
-
-
-
-<div id="usuarioCargado" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalSeleccionEliminarLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalSeleccionEliminarLabel3">¡ Datos Cargados Exitosamente!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Usuario cargado exitosamente</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<script>
-
-    function abrirModal() {
-
-        var myModal = new bootstrap.Modal(document.getElementById('usuarioCargado'), {
-            keyboard: false
-        });
-        myModal.show();
-    }
-
-    function redirectAfterDelay() {
-        setTimeout(function () {
-            window.location.href = "DatosPersonalesClientes.aspx";
-         }, 3000);
-    }
-</script>
-
 </asp:Content>

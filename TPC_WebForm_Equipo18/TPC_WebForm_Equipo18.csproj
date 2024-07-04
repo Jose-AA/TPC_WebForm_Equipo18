@@ -143,6 +143,7 @@
     <Content Include="QuienesSomos.aspx" />
     <Content Include="Recepcion\Alta de clientes\AltaClientes.aspx" />
     <Content Include="Recepcion\Alta de clientes\DatosPersonalesClientes.aspx" />
+    <Content Include="Recepcion\Alta de clientes\ModificacionClientesRecepcion.aspx" />
     <Content Include="Recepcion\HistorialesClinicos\historialClinicoRecepcion.aspx" />
     <Content Include="Recepcion\ListarClientesRecepcion.aspx" />
     <Content Include="Recepcion\TurnosRecepcion\TurnosRecepcion.aspx" />
@@ -373,6 +374,13 @@
     </Compile>
     <Compile Include="Recepcion\Alta de clientes\DatosPersonalesClientes.aspx.designer.cs">
       <DependentUpon>DatosPersonalesClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\Alta de clientes\ModificacionClientesRecepcion.aspx.cs">
+      <DependentUpon>ModificacionClientesRecepcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recepcion\Alta de clientes\ModificacionClientesRecepcion.aspx.designer.cs">
+      <DependentUpon>ModificacionClientesRecepcion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recepcion\HistorialesClinicos\historialClinicoRecepcion.aspx.cs">
       <DependentUpon>historialClinicoRecepcion.aspx</DependentUpon>

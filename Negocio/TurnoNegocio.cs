@@ -103,12 +103,89 @@ public class TurnoNegocio
             datos.cerrarConexion();
         }
     }
+    public List<Turno> listarTurnosPorCliente(int id)
+    {
+        List<Turno> lista = new List<Turno>();
+        AccesoDatos datos = new AccesoDatos();
 
-    public List<Turno> listarPorServicio(Especialista especialista, Servicio servicio)
+        string query = @"SELECT T.fecha_turno, T.hora_turno, U2.nombre AS EspecialistaNombre, S.nombre AS ServicioNombre 
+                     FROM Turnos T
+                     INNER JOIN Usuarios U ON U.usuario_id = T.cliente_id
+                     INNER JOIN Datos_Personales U2 ON U2.usuario_id = T.especialista_id
+                     INNER JOIN Datos_Personales D ON D.usuario_id = U.usuario_id
+                     INNER JOIN ServiciosxEspecialistas SE ON SE.especialista_id = U2.usuario_id
+                     INNER JOIN Servicios S ON S.servicio_id = SE.servicio_id
+                     WHERE D.usuario_id = @idcliente and T.estado_id = 1";
+        try
+        {
+            datos.settearConsulta(query);
+            datos.setearParametro("@idcliente", id);
+            datos.ejecutarLectura();
+
+            while (datos.Lector.Read())
+            {
+                Turno aux = new Turno();
+                
+                aux.FechaDeTurno = DateTime.Parse(datos.Lector["fecha_turno"].ToString());
+                aux.HoraDeTurno = TimeSpan.Parse(datos.Lector["hora_turno"].ToString());
+                aux.Especialista = new Especialista { Nombre = datos.Lector["EspecialistaNombre"].ToString() };
+                aux.Servicio = new Servicio { Nombre = datos.Lector["ServicioNombre"].ToString() };
+                lista.Add(aux);
+            }
+            return lista;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            datos.cerrarConexion();
+        }
+    }
+
+    public Turno obtenerPorID(int id)
     {
         AccesoDatos datos = new AccesoDatos();
-        List<Turno> lista = new List<Turno>();
-        string query = "select turno_id, fecha_turno, hora_turno from Turnos where especialista_id = @idEspecialista and servicio_id = @idServicio and fecha_turno >= cast(getdate() as date) and estado_id = 1 and cliente_id is null order by fecha_turno asc, hora_turno asc";
+                Turno aux = new Turno();
+        string query = "Select * from turnos where turno_id = @id";
+        try
+        {
+            datos.settearConsulta(query);
+            datos.setearParametro("@id", id);
+            datos.ejecutarLectura();
+            while(datos.Lector.Read())
+            {
+                aux.ID = (int)datos.Lector["turno_id"];
+                aux.FechaDeTurno = DateTime.Parse(datos.Lector["fecha_turno"].ToString());
+                aux.HoraDeTurno = TimeSpan.Parse(datos.Lector["hora_turno"].ToString());
+                aux.Especialista = new Especialista { Nombre = datos.Lector["especialista_id"].ToString() };
+                aux.Servicio = new Servicio { Nombre = datos.Lector["servicio_id"].ToString() };
+                aux.Cliente = new Cliente { Nombre = datos.Lector["cliente_id"].ToString() };
+                aux.Estado = (int)datos.Lector["estado_id"];
+                
+            }
+            return aux;
+        }
+        catch (Exception ex)
+        {
+
+            throw ex;
+        }
+        finally
+        {
+            datos.cerrarConexion();
+        }
+
+
+    }
+
+    public List<Turno> listarPorServicio(Especialista especialista, Servicio servicio)
+
+{
+    AccesoDatos datos = new AccesoDatos();
+    List<Turno> lista = new List<Turno>();
+    string query = "select turno_id, fecha_turno, hora_turno from Turnos where especialista_id = @idEspecialista and servicio_id = @idServicio and fecha_turno >= cast(getdate() as date) and estado_id = 1 and cliente_id is null order by fecha_turno asc, hora_turno asc";
 
         try
         {
