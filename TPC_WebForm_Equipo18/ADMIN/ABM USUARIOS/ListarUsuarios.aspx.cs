@@ -16,9 +16,16 @@ namespace TPC_WebForm_Equipo18.Formularios_de_Registro_de_Informacion
 
         private void refrescarLista()
         {
+            string buscar = txtBuscar.Text;
+
             UsuarioNegocio negocio = new UsuarioNegocio();
 
-            listaUsuario = negocio.listar();
+            listaUsuario = negocio.listadoUsuarios();
+
+            if (buscar != "")
+            {
+                listaUsuario = listaUsuario.FindAll(x => x.Nombre.ToLower().Contains(buscar.ToLower()) || x.Apellido.ToLower().Contains(buscar.ToLower()));
+            }
 
             gridUsuarios.DataSource = listaUsuario;
             gridUsuarios.DataBind();
@@ -53,6 +60,13 @@ namespace TPC_WebForm_Equipo18.Formularios_de_Registro_de_Informacion
 
             string idSeleccion = gridUsuarios.SelectedDataKey.Value.ToString();
             Response.Redirect("RegistrarUsuario.aspx?id=" + idSeleccion);
+
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+            refrescarLista();
 
         }
     }

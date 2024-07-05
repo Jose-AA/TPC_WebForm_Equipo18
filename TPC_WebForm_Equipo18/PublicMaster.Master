@@ -77,8 +77,8 @@
                                 <li class="dropdown-submenu">
                                     <a class="dropdown-item dropdown-toggle" href="#">Datos Personales</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20DatosPersonales/RegistrarDatosPersonales">Registrar Datos Personales</a></li>
-                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20DatosPersonales/Modificar%20Datos%20Pesonales">Modificar Datos Personales</a></li>
+                                       
+                                        <li><a class="dropdown-item" href="/ADMIN/ABM%20DatosPersonales/Modificar%20Datos%20Pesonales">Registrar o Modificar Datos Personales</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">
@@ -138,23 +138,8 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recepcion</a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li class="item">
-                                    <a class="dropdown-item" href="#">Alta de clientes</a>
-                                </li>
-                                <li class="item">
-                                    <a class="dropdown-item" href="#">Asigar turnos cliente</a>
-                                </li>
-                                <li class="item">
-                                    <a class="dropdown-item" href="#">Cancelar turnos cliente</a>
-                                </li>
-                                <li class="item">
-                                    <a class="dropdown-item" href="#">Historial de atencion del cliente</a>
-                                </li>
-                                <li class="item">
-                                    <a class="dropdown-item" href="#">Ver turnos pendietes del cliente</a>
-                                </li>
-                                <li class="item">
-                                    <a class="dropdown-item" href="#">Blanquear contraseña del cliente</a>
-                                </li>                    
+                                    <a class="dropdown-item" href="/Recepcion/ListarClientesRecepcion">Panel Principal</a>
+                                </li>                                                
                             </ul>
                         </li>
                         <% }
@@ -167,9 +152,6 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cliente</a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li class="item">
-                                    <a class="dropdown-item" href="#">Tomar turno</a>
-                                </li>
                                 <li class="item">
                                     <a class="dropdown-item" href="#">Ver Turnos</a>
                                 </li>

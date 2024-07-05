@@ -24,6 +24,12 @@ namespace TPC_WebForm_Equipo18.ADMIN.ABM_Servicios
             List<Servicio> lista = new List<Servicio>();
             ServicioNegocio negocio = new ServicioNegocio();
             lista = negocio.listar();
+            string filtro = txtBuscar.Text;
+
+            if (filtro != "")
+            {
+                lista = lista.FindAll(x => x.Nombre.ToLower().Contains(filtro.ToLower()));
+            }
             gridServicios.DataSource = lista;
             gridServicios.DataBind();
         }
@@ -66,6 +72,11 @@ namespace TPC_WebForm_Equipo18.ADMIN.ABM_Servicios
                 }
             }
 
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            CargarServicios();
         }
     }
 }

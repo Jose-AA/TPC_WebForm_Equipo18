@@ -54,7 +54,7 @@
             <asp:TextBox ID="txtBuscar" runat="server" Visible="true" />
             <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
         </div>
-        <asp:GridView ID="gridEspecialistas" runat="server" AutoGenerateColumns="False" CssClass="table-dark table-bordered table-group-divider" Style="width: 60%; margin-left: 200px; margin-top: 150px; font-size: 18px;" RowStyle-Height="50px">
+        <asp:GridView ID="gridEspecialistas" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-group-divider" Style="width: 60%; margin-left: 200px; margin-top: 150px; font-size: 18px;" RowStyle-Height="50px">
             <Columns>
                 <asp:BoundField DataField="IdUsuario" HeaderText="ID" />
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" />

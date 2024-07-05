@@ -55,6 +55,41 @@ namespace Negocio
             }
         }
 
+        public List<Usuario>  listadoUsuarios()
+        {
+            List<Usuario> lista = new List<Usuario>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.settearConsulta("select Usuarios.usuario_id, Datos_Personales.nombre, Datos_Personales.apellido, id_rol, correo_electronico, contraseña from Usuarios \r\ninner join Datos_Personales on Datos_Personales.usuario_id = Usuarios.usuario_id");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Usuario aux = new Usuario();
+                    aux.IdUsuario = (int)datos.Lector["usuario_id"];
+                    aux.IdRol = (int)datos.Lector["id_rol"];
+                    aux.Nombre = (string)datos.Lector["nombre"];
+                    aux.Apellido = (string)datos.Lector["apellido"];
+                    aux.Email = (string)datos.Lector["correo_electronico"];
+                    aux.Contraseña = (string)datos.Lector["contraseña"];
+
+                    lista.Add(aux);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }   
+
 
 
         public List<Usuario> listar()

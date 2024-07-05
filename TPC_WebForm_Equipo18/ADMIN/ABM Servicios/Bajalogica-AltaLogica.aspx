@@ -25,11 +25,16 @@
         </div>
     </div>
 </div>
+
+
+    <asp:TextBox ID="txtBuscar" runat="server" Visible="true"  style="margin-top: 100px; margin-left: 300px" />
+
+<asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
    
 
     <asp:UpdatePanel ID="updatePanelGridView" runat="server">
     <ContentTemplate>
-        <asp:GridView ID="gridServicios" runat="server" AutoGenerateColumns="False" OnRowDataBound="gridServicios_RowDataBound" CssClass="table-dark table-bordered table-group-divider "  style="width: 60%; margin-left: 300px; margin-top: 150px; font-size: 18px;  " RowStyle-Height="50px"  >
+        <asp:GridView ID="gridServicios" runat="server" AutoGenerateColumns="False" OnRowDataBound="gridServicios_RowDataBound" CssClass="table table-bordered table-group-divider "  style="width: 60%; margin-left: 300px; margin-top: 150px; font-size: 18px;  " RowStyle-Height="50px"  >
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="ID" />
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
